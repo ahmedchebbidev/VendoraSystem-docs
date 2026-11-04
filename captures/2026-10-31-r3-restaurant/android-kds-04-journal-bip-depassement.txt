@@ -1,0 +1,11 @@
+# Bip du KDS au dépassement du délai cible (poste « Cuisine chaude », son activé au back-office, délai 2 min)
+# pos.android = PID 2613 — le bon de la table 2 passe en alerte à 22:02:51
+10-31 22:02:51.571 D/AudioSystem( 2613): onNewService: media.audio_policy service obtained 0xb40000777686d800
+10-31 22:02:51.572 D/AudioSystem( 2613): getService: IAudioPolicyService retrieved: 0xb40000777686d800  cached: 0xb40000777686d800
+10-31 22:02:51.578 D/AudioSystem( 2613): onNewServiceWithAdapter: media.audio_flinger service obtained 0xb40000780685e2e0
+10-31 22:02:51.593 D/AudioSystem( 2613): getService: IAudioFlingerService retrieved: 0xb40000777686cea0  IAudioFlinger cached: 0xb40000780685e2e0
+10-31 22:02:51.596 W/AudioFlinger(  538): createTrack_l(): mismatch between requested flags (00000004) and output flags (00000002)
+10-31 22:02:51.596 D/AudioFlinger(  538): Client defaulted notificationFrames to 960 for frameCount 4360
+10-31 22:02:51.666 D/AudioFlinger(  538): mixer(0xb400007a889d4790) throttle end: throttle time(40)
+10-31 22:02:51.734 D/AudioFlinger(  538): mixer(0xb400007a889d4790) throttle end: throttle time(35)
+10-31 22:02:52.279 D/AudioTrack( 2613): stop(16): called with 37000 frames delivered

@@ -1,0 +1,33 @@
+# Restauration de sauvegarde — Android (émulateur, Backup Manager + transport local) — lot 2.27, 30/10/2026
+# But : prouver par une VRAIE sauvegarde / restauration (et pas seulement les drapeaux du manifeste) qu'aucune donnée de la caisse ne sort ni ne revient.
+
+$ bmgr enable true
+Backup Manager now enabled
+$ bmgr transport com.android.localtransport/.LocalTransport
+Selected transport com.android.localtransport/.LocalTransport (formerly com.google.android.gms/.backup.BackupTransportService)
+$ bmgr backupnow pos.android
+Running incremental backup for 1 requested packages.
+Package pos.android with result: Backup is not allowed
+Backup finished with result: Success
+
+$ bmgr list sets
+  1 : Local disk image
+
+$ adb backup -f pos.ab pos.android   (ancien mécanisme ; allowBackup=false → archive vide)
+WARNING: adb backup is deprecated and may be removed in a future release
+Now unlock your device and confirm the backup operation...
+   taille de l archive : 0 octets (en-tête seul = rien d exporté)
+
+$ dumpsys backup | grep pos.android
+
+$ bmgr restore <jeu> pos.android   (restauration vers l'app)
+   aucun jeu de sauvegarde ne contient pos.android (rien à restaurer)
+
+$ ls databases (base locale intacte après la tentative)
+total 648
+drwxrwx--x 2 u0_a226 u0_a226   4096 2026-10-29 23:58 .
+drwx------ 7 u0_a226 u0_a226   4096 2026-10-30 00:39 ..
+-rw-rw---- 1 u0_a226 u0_a226 638976 2026-10-30 22:43 pos.db
+-rw-rw---- 1 u0_a226 u0_a226      0 2026-10-30 22:43 pos.db-journal
+$ bmgr enable false
+Backup Manager now disabled

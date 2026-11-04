@@ -1,0 +1,20 @@
+# APRÈS installation de l'APK du lot + premier lancement (2026-10-29 17:12:16)
+$ adb install -r androidApp/build/outputs/apk/debug/androidApp-debug.apk   → Success (données conservées)
+$ adb shell am start -n pos.android/.MainActivity
+$ adb logcat -d -s PosAuth:*
+--------- beginning of main
+10-29 17:12:02.211 25338 25369 I PosAuth : Cache d'auth : 2 hash rechiffré(s) (RG-AUTH-22)
+$ adb shell am force-stop pos.android && adb exec-out run-as pos.android cat databases/pos.db > pos-apres.db
+$ sqlite3 -header pos-apres.db "SELECT user_id, display_name, role, substr(pin_hash,1,20) AS pin_hash_debut, length(pin_hash) AS lg, instr(pin_hash,'pbkdf2') AS pbkdf2_pos FROM local_auth_user"
+user_id|display_name|role|pin_hash_debut|lg|pbkdf2_pos
+49d29424-848f-41f5-acae-938612d679ce|omar|OWNER|enc1:h86eNI+9fqn+BOu|201|0
+dfdac7b3-0589-4b0d-9b36-6db9ac04f40a|Karim|CASHIER|||
+eb99a8c7-6b7b-4258-9b48-b0aabb05350d|Sami|CASHIER|enc1:oviCvYH9xcL8qYo|201|0
+$ sqlite3 pos-apres.db "SELECT count(*) FROM local_auth_user WHERE pin_hash IS NOT NULL AND pin_hash NOT LIKE 'enc1:%'"   (hash encore en clair)
+0
+$ strings pos-apres.db | grep -c pbkdf2   (aucune trace du hash en clair dans le fichier)
+0
+
+$ adb shell dumpsys package pos.android | grep -E 'lastUpdateTime|flags=\['   (ALLOW_BACKUP a disparu)
+    flags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ]
+    lastUpdateTime=2026-10-29 17:11:52

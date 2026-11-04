@@ -1,0 +1,31 @@
+# Exclusion de sauvegarde — iOS (simulateur iPhone 17 Pro, conteneur réel de l'app) — lot 2.27, 30/10/2026
+# But : vérifier sur les FICHIERS (attribut étendu posé par isExcludedFromBackup), pas seulement dans le code,
+# que les bases de la caisse ne partent dans aucune sauvegarde iCloud / Finder ; une restauration sur un autre
+# appareil repart donc d'une app vide → ré-appairage + resynchronisation depuis le serveur (spec 10 §4.5).
+
+$ ls "Library/Application Support/databases"
+    
+   256 .
+   96 ..
+   4096 demo.db
+   32768 demo.db-shm
+   527392 demo.db-wal
+   397312 pos.db
+   32768 pos.db-shm
+   3085912 pos.db-wal
+
+$ xattr -l "Library/Application Support/databases"
+   com.apple.metadata:com_apple_backup_excludeItem: com.apple.MobileBackup
+   → exclu de la sauvegarde (com_apple_backup_excludeItem présent)
+
+$ xattr -l "Library/Application Support/databases/pos.db"
+   com.apple.metadata:com_apple_backup_excludeItem: com.apple.MobileBackup
+   com.apple.provenance: 
+   → exclu de la sauvegarde (com_apple_backup_excludeItem présent)
+
+$ xattr -l "Library/Application Support/databases/pos.db-wal"
+   com.apple.metadata:com_apple_backup_excludeItem: com.apple.MobileBackup
+   com.apple.provenance: 
+   → exclu de la sauvegarde (com_apple_backup_excludeItem présent)
+
+$ Preferences / Keychain : la clé du cache d'auth est kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly (jamais restaurée ailleurs) — cf. CacheAuthChiffreTests / PosAppKeychainTests

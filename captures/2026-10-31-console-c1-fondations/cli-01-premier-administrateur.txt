@@ -1,0 +1,9 @@
+$ ./gradlew :server:bootRun --args='--create-platform-admin=ahmed.chebbi.dev@gmail.com --platform-admin-name=Ahmed'
+… Successfully applied 1 migration to schema "public", now at version v44
+=== Console Vendora — premier administrateur créé : ahmed.chebbi.dev@gmail.com ===
+Lien de configuration (72 h, mot de passe + double authentification) :
+http://localhost:4300/configurer/Kqkn…(jeton 256 bits, usage unique, masqué ici)
+(le serveur s'arrête aussitôt : la commande ne fait que l'amorçage)
+
+$ (même commande une seconde fois, après la configuration du compte)
+ERROR … Un administrateur Vendora actif existe déjà : invitez les suivants depuis la console (Équipe).

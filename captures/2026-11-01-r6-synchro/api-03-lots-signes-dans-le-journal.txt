@@ -1,0 +1,13 @@
+event_log du serveur — derniers faits poussés par la caisse Android « Caisse-Android-2 » (clé publique enregistrée) : chaque lot porte sa signature Ed25519 (base64, tronquée ici)
+            type             |       signature       |   recu   
+-----------------------------+-----------------------+----------
+ SaleCompleted               | 29O19T6+fwzyowEBsDrz… | 10:18:14
+ UserSessionOpened           | 1YoQ0ez8aiW53g0/gY0X… | 10:15:08
+ UserSessionClosed           | 5/hqDNjphxa6r5G8YBAb… | 10:14:30
+ UserSessionOpened           | teTlk8pDTE7GAKFmLISp… | 10:13:25
+ UserSessionClosed           | teTlk8pDTE7GAKFmLISp… | 10:13:25
+ KitchenTicketPrintRecovered | teTlk8pDTE7GAKFmLISp… | 10:13:25
+ PrintJobAbandoned           | teTlk8pDTE7GAKFmLISp… | 10:13:25
+ PrintJobAbandoned           | teTlk8pDTE7GAKFmLISp… | 10:13:25
+(8 rows)
+

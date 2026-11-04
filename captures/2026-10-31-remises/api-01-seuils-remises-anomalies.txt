@@ -1,0 +1,18 @@
+== Politique de vente du magasin : seuils de remise (RG-SALE-12)
+  GET /sales-policy → version 2 · 10.0 % ou 20.0 TND (montant par défaut ) · motifs ['Geste commercial', 'Produit abîmé', 'Fin de série', 'Employé', 'Concurrence', 'Autre']
+  motifs en double → HTTP 422 · Motifs de remise en double
+  la MANAGER Lina publie → HTTP 403 (seul l'owner publie)
+  l'owner Omar publie (motif « Fin de série » ajouté) → version 3 · ['Geste commercial', 'Produit abîmé', 'Fin de série', 'Employé', 'Concurrence', 'Autre']
+  StoreSalesPolicyUpdated diffusé aux caisses : 3 événement(s)
+== Caisse « Preuve API » : deux ventes poussées avec une remise ticket au-delà du seuil
+  push : 30 % sans approbation + 30 % approuvée par Lina (MANAGER) → 2 accepté(s) — la vente n'est jamais rejetée
+== GET /stores/{id}/discounts : remises recalculées par le serveur
+   5 remise(s) · 25.248 TND remis · 4 au-delà du seuil · 1 anomalie(s)
+    cd4f79-9-10  ticket         30.0 %    −12.0 sur 40.0 · seuil dépassé · — · ANOMALY Remise au-delà du seuil sans approbation manager
+    cd4f79-9-11  ticket         30.0 %    −12.0 sur 40.0 · seuil dépassé · Lina / Produit abîmé · OK 
+    3467f9-2-6   ticket         0.5 TND   −0.5 sur 2.0 · seuil dépassé · omar / Produit abîmé · OK 
+    3168c6-3-4   Croissant      10.0 %    −0.16 sur 1.6 · dans le seuil · — · OK 
+    3168c6-3-4   ticket         20.0 %    −0.588 sur 2.94 · seuil dépassé · omar / Fin de série · OK 
+== Approbations manager DISCOUNT reçues des caisses (spec 01 RG-AUTH-20)
+   DISCOUNT · approuvée par omar · motif Fin de série · OK
+   DISCOUNT · approuvée par omar · motif Produit abîmé · OK

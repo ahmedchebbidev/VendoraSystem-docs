@@ -1,0 +1,17 @@
+== Clé LAN du magasin (spec 10 §8) : créée à la première demande, identique pour tous les appareils du magasin
+  GET /pos/lan-key (Preuve API)  → keyId 1d348ebc | key tq0bG0bj…(43 car.)
+  2e demande → même clé (pas de régénération)
+== Rotation : MANAGER refusé, OWNER accepté, les appareils relisent la nouvelle clé
+  POST /stores/{id}/lan-key/rotate (lina, MANAGER) → HTTP 403 (OWNER seulement ; aucune rotation effectuée)
+  POST …/lan-key/rotate (omar, OWNER)  → keyId 34ae95c1 | key wa29OOlx…
+  GET /pos/lan-key après rotation → nouvelle clé (≠ ancienne) ; les caisses la relisent à leur prochain pull
+== Imprimeur désigné (RG-REST-11/12) : appareil actif du magasin exigé, publié aux caisses
+  postes v2 : Cuisine chaude → 127.0.0.1, Bar → 127.0.0.1 | printerDeviceId None
+  PUT prep-stations printerDeviceId=inconnu → HTTP 422 (422 attendu)
+  PUT prep-stations printerDeviceId=Caisse-Android-2 → v3 printerDeviceId 3168c6e6… (événement PrepStationsUpdated diffusé : l’iPhone n’imprimera plus les bons des autres)
+== Alerte imprimante de poste injoignable (RG-REST-12) poussée par un appareil → supervision
+  push KitchenTicketPrintFailed → {"accepted": ["1dfdb928-d63a-4985-9308-ce0f4241a444"], "alreadyKnown": [], "gapDetected": null}
+  GET supervision/alerts → byKind.KITCHEN_PRINT = 1
+    KITCHEN_PRINT · 192.168.1.51 OFFLINE — 2 bon(s) en attente
+== Audit LAN_KEY
+  ROTATED LAN_KEY par omar → {"keyId": "34ae95c1"}

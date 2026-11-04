@@ -1,0 +1,10 @@
+# AVANT — version précédente (commit b812fbc) installée, mode démo ouvert une fois
+# 2026-10-29 17:17:45  simulateur iPhone 17 Pro D0964C57-DBD2-4240-8C4B-9E02E72A6FD0
+## demo.db : SELECT user_id, substr(pin_hash,1,20) FROM local_auth_user
+demo-omar|pbkdf2-sha256$10000$
+demo-karim|pbkdf2-sha256$10000$
+(lignes : 2)
+## pos.db : SELECT user_id, substr(pin_hash,1,20) FROM local_auth_user
+(lignes : 0)
+## exclusion de sauvegarde du dossier databases :
+attribut excludeItem présent (0 = non) : 0

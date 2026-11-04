@@ -1,0 +1,14 @@
+# AVANT installation de l'APK du lot (émulateur emulator-5554, 2026-10-29 17:11:44)
+$ adb shell run-as pos.android sqlite3 …  → sqlite3 absent de l'image émulateur :
+run-as: exec failed for sqlite3: No such file or directory
+$ adb shell am force-stop pos.android
+$ adb exec-out run-as pos.android cat databases/pos.db > pos-avant.db
+$ sqlite3 -header pos-avant.db "SELECT user_id, display_name, role, substr(pin_hash,1,20) AS pin_hash_debut, length(pin_hash) AS lg FROM local_auth_user"
+user_id|display_name|role|pin_hash_debut|lg
+49d29424-848f-41f5-acae-938612d679ce|omar|OWNER|pbkdf2-sha256$10000$|117
+dfdac7b3-0589-4b0d-9b36-6db9ac04f40a|Karim|CASHIER||
+eb99a8c7-6b7b-4258-9b48-b0aabb05350d|Sami|CASHIER|pbkdf2-sha256$10000$|117
+
+$ adb shell dumpsys package pos.android | grep -E 'lastUpdateTime|flags=\['
+    flags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP KILL_AFTER_RESTORE ]
+    lastUpdateTime=2026-10-29 16:40:37

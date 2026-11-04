@@ -1,0 +1,8 @@
+GET /api/v1/pos/lan-key (vu par un appareil du magasin, secrets masqués)
+{
+ "keyId": "24357c5a",
+ "key": "fKsx\u2026",
+ "previousKeyId": "34ae95c1",
+ "previousKey": "wa29\u2026",
+ "previousValidUntil": "2026-11-02T10:18:35.084000"
+}

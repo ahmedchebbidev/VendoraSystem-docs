@@ -1,0 +1,55 @@
+== Reçus digitaux en base (sale_receipts) et envois (receipt_deliveries)
+ local_number |     jeton     | longueur | total 
+--------------+---------------+----------+-------
+ 3168c6-3-8   | cdf7b13d71a9… |       64 |   800
+ 3168c6-3-9   | cdf765fc6f2a… |       64 |  1500
+ 3467f9-2-9   | 22f54b4bc49f… |       64 |   800
+(3 rows)
+
+ status |        recipient        | reason | local_number 
+--------+-------------------------+--------+--------------
+ SENT   | leila.benali@exemple.tn |        | 3168c6-3-8
+ SENT   | leila.benali@exemple.tn |        | 3168c6-3-9
+ SENT   | leila.benali@exemple.tn |        | 3467f9-2-9
+(3 rows)
+
+== Boîte d'envoi simulée (GET /dev/mails)
+  → leila.benali@exemple.tn · Votre reçu Épicerie Omar Centre — n° 3168c6-3-8
+     Bonjour,
+     
+     Merci pour votre achat chez Épicerie Omar Centre.
+     Ticket n° 3168c6-3-8 — total 0,800 TND.
+     
+     Votre reçu en ligne : http://localhost:8080/r/cdf7b13d71a9485aaed1d88d6abe2561c1f6cfe36f134e72a913bdf260ed3cd0
+     
+     Vous recevez ce message parce que vous avez accepté les emails de Épicerie Omar Centre.
+  → leila.benali@exemple.tn · Votre reçu Épicerie Omar Centre — n° 3168c6-3-9
+     Bonjour,
+     
+     Merci pour votre achat chez Épicerie Omar Centre.
+     Ticket n° 3168c6-3-9 — total 1,500 TND.
+     
+     Votre reçu en ligne : http://localhost:8080/r/cdf765fc6f2a40dfbbef432d37355491950365069ec649d79c6ee6e9f3a657b0
+     
+     Vous recevez ce message parce que vous avez accepté les emails de Épicerie Omar Centre.
+  → leila.benali@exemple.tn · Votre reçu Épicerie Omar Centre — n° 3467f9-2-9
+     Bonjour,
+     
+     Merci pour votre achat chez Épicerie Omar Centre.
+     Ticket n° 3467f9-2-9 — total 0,800 TND.
+     
+     Votre reçu en ligne : http://localhost:8080/r/22f54b4bc49f441ba79b9c0f93810a37357d0ae1558942128460b422115c9ffe
+     
+     Vous recevez ce message parce que vous avez accepté les emails de Épicerie Omar Centre.
+== Reçus de Leila (GET /customers/{id}/receipts)
+   3467f9-2-9 0.8 TND · http://localhost:8080/r/22f54b4bc49f441ba79b9c0f93810a37357d… · SENT
+   3168c6-3-9 1.5 TND · http://localhost:8080/r/cdf765fc6f2a40dfbbef432d373554919503… · SENT
+   3168c6-3-8 0.8 TND · http://localhost:8080/r/cdf7b13d71a9485aaed1d88d6abe2561c1f6… · SENT
+== Page publique sans authentification : GET /r/{token}
+HTTP/1.1 200 
+Cache-Control: no-store, private
+X-Robots-Tag: noindex, nofollow
+Referrer-Policy: no-referrer
+  le client n'apparaît pas : 0 occurrence(s) du nom ou de l'email
+  jeton inconnu → HTTP 404 ; jeton mal formé → HTTP 404
+  JSON public → Épicerie Omar Centre · 3467f9-2-9 · 0.8 TND · clés ['changeMinor', 'currencyCode', 'discountMinor', 'lines', 'localNumber', 'loyaltyBalance'] …

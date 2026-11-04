@@ -1,0 +1,122 @@
+# Octets ESC/POS RÉELS reçus par la fausse imprimante (nc -l 9100, vue 10.0.2.2 depuis l'émulateur)
+
+## z-escpos-1.bin — Z n° 1 — impression AUTOMATIQUE à la clôture (original) (1293 octets)
+```
+Epicerie Omar Centre
+------------------------------------------------
+RAPPORT Z No 1
+Session 1 - caisse 1498cd2c
+Ouverture : 29/10/2026 01:32
+Cloture   : 29/10/2026 12:00
+------------------------------------------------
+Ventes                                         4
+CA TTC TND         4,800
+Annulations (0)                            0,000
+Retours (0)                                0,000
+------------------------------------------------
+CA par mode de paiement
+  Especes                                  4,800
+------------------------------------------------
+TVA par taux
+  19% (HT 4,032)                           0,768
+------------------------------------------------
+Especes
+  Fond de caisse                         100,000
+  Theorique                              104,800
+  Compte                                 104,000
+ECART                                     -0,800
+  Motif : Erreur de rendu a un client
+------------------------------------------------
+Empreinte SHA-256 :
+a42416536e732b09036bcd8c651d1fff2b0b5e41dd715f00
+a55441528020d21b
+Z precedent :
+000000000000000000000000000000000000000000000000
+0000000000000000
+```
+
+## z-escpos-2.bin — Z n° 2 — impression automatique à la clôture, chaîné au Z n° 1 (1252 octets)
+```
+Epicerie Omar Centre
+------------------------------------------------
+RAPPORT Z No 2
+Session 2 - caisse 1498cd2c
+Ouverture : 29/10/2026 12:02
+Cloture   : 29/10/2026 12:08
+------------------------------------------------
+Ventes                                         1
+CA TTC TND         1,500
+Annulations (0)                            0,000
+Retours (0)                                0,000
+------------------------------------------------
+CA par mode de paiement
+  Especes                                  1,500
+------------------------------------------------
+TVA par taux
+  19% (HT 1,261)                           0,239
+------------------------------------------------
+Especes
+  Fond de caisse                         100,000
+  Theorique                              101,500
+  Compte                                 101,500
+ECART                                      0,000
+------------------------------------------------
+Empreinte SHA-256 :
+49acd9353a4e2142ccbe015b3376f042e4c9666e45962f9a
+08ad428b0d0affa6
+Z precedent :
+a42416536e732b09036bcd8c651d1fff2b0b5e41dd715f00
+a55441528020d21b
+```
+
+## z-escpos.bin — Z n° 1 — RÉIMPRESSION depuis l'archive (DUPLICATA) (1318 octets)
+```
+Epicerie Omar Centre
+------------------------------------------------
+RAPPORT Z No 1
+DUPLICATA
+Session 1 - caisse 1498cd2c
+Ouverture : 29/10/2026 01:32
+Cloture   : 29/10/2026 12:00
+------------------------------------------------
+Ventes                                         4
+CA TTC TND         4,800
+Annulations (0)                            0,000
+Retours (0)                                0,000
+------------------------------------------------
+CA par mode de paiement
+  Especes                                  4,800
+------------------------------------------------
+TVA par taux
+  19% (HT 4,032)                           0,768
+------------------------------------------------
+Especes
+  Fond de caisse                         100,000
+  Theorique                              104,800
+  Compte                                 104,000
+ECART                                     -0,800
+  Motif : Erreur de rendu a un client
+------------------------------------------------
+Empreinte SHA-256 :
+a42416536e732b09036bcd8c651d1fff2b0b5e41dd715f00
+a55441528020d21b
+Z precedent :
+000000000000000000000000000000000000000000000000
+0000000000000000
+```
+
+## xxd z-escpos.bin (début : ESC @, ESC a, GS !)
+```
+00000000: 1b40 1b61 011b 4501 1d21 1145 7069 6365  .@.a..E..!.Epice
+00000010: 7269 6520 4f6d 6172 2043 656e 7472 650a  rie Omar Centre.
+00000020: 1d21 001b 4500 1b61 002d 2d2d 2d2d 2d2d  .!..E..a.-------
+00000030: 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d  ----------------
+00000040: 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d  ----------------
+00000050: 2d2d 2d2d 2d2d 2d2d 2d0a 1b61 011b 4501  ---------..a..E.
+00000060: 1d21 1152 4150 504f 5254 205a 204e 6f20  .!.RAPPORT Z No 
+00000070: 310a 1d21 001b 4500 1b61 011b 4501 1d21  1..!..E..a..E..!
+00000080: 1144 5550 4c49 4341 5441 0a1d 2100 1b45  .DUPLICATA..!..E
+00000090: 001b 6100 5365 7373 696f 6e20 3120 2d20  ..a.Session 1 - 
+000000a0: 6361 6973 7365 2031 3439 3863 6432 630a  caisse 1498cd2c.
+000000b0: 1b61 004f 7576 6572 7475 7265 203a 2032  .a.Ouverture : 2
+```

@@ -1,0 +1,32 @@
+ preuves | reliees 
+---------+---------
+      31 |      31
+(1 row)
+
+ entity_type  |         action         | count 
+--------------+------------------------+-------
+ CART         | LINES_REMOVED          |    10
+ CASH_SESSION | CLOSED_WITH_DIFFERENCE |     1
+ ORDER        | LINE_COMPED            |     1
+ ORDER        | LINE_VOIDED            |     1
+ ORDER        | MERGED                 |     2
+ SALE         | DISCOUNTED             |     6
+ SALE         | OFF_HOURS              |     8
+ SALE         | REFUNDED               |     5
+ SALE         | STOCK_OVERRIDE         |     4
+ SALE         | VOIDED                 |     2
+(10 rows)
+
+   ticket    | addition |                motif                | approbateur | audit_id |     action     
+-------------+----------+-------------------------------------+-------------+----------+----------------
+ 3467f9-2-12 | t        | bar                                 | omar        |      135 | STOCK_OVERRIDE
+ 3168c6-3-12 | t        | Cafe prepare avec le nouveau paquet | omar        |      124 | STOCK_OVERRIDE
+(2 rows)
+
+        type        | server_seq |                                 resume                                 |  produit  |              motif               
+--------------------+------------+------------------------------------------------------------------------+-----------+----------------------------------
+ LowStockReached    |        632 |                                                                        | Croissant | 
+ FraudAlertRaised   |        633 | omar : 4 annulations et suppressions de lignes le 31/10 (seuil 2/jour) |           | 
+ FraudAlertResolved |        634 |                                                                        |           | Tests de la caisse par le gérant
+(3 rows)
+

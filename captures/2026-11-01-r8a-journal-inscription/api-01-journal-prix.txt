@@ -1,0 +1,97 @@
+GET /api/v1/audit-log/search?entityType=PRODUCT&action=PRICE_CHANGED&limit=3 (omar, MANAGER+)
+
+[
+  {
+    "entityType": "PRODUCT",
+    "entityId": "e9cf4f83-63d4-4bc4-904e-6c4829f178d0",
+    "action": "PRICE_CHANGED",
+    "userId": "49d29424-848f-41f5-acae-938612d679ce",
+    "userName": "omar",
+    "occurredAt": 1793534449818,
+    "before": {
+      "name": "Eau 1,5L",
+      "currencyCode": "TND",
+      "salePriceMinor": 1350,
+      "purchasePriceMinor": null
+    },
+    "after": {
+      "name": "Eau 1,5L",
+      "currencyCode": "TND",
+      "salePriceMinor": 1400,
+      "purchasePriceMinor": null
+    },
+    "eventId": null,
+    "id": 228
+  },
+  {
+    "entityType": "PRODUCT",
+    "entityId": "e9cf4f83-63d4-4bc4-904e-6c4829f178d0",
+    "action": "PRICE_CHANGED",
+    "userId": "49d29424-848f-41f5-acae-938612d679ce",
+    "userName": "omar",
+    "occurredAt": 1793534399781,
+    "before": {
+      "name": "Eau 1,5L",
+      "salePriceMinor": 1300,
+      "purchasePriceMinor": null
+    },
+    "after": {
+      "name": "Eau 1,5L",
+      "salePriceMinor": 1350,
+      "purchasePriceMinor": null
+    },
+    "eventId": null,
+    "id": 227
+  },
+  {
+    "entityType": "PRODUCT",
+    "entityId": "e9cf4f83-63d4-4bc4-904e-6c4829f178d0",
+    "action": "PRICE_CHANGED",
+    "userId": "49d29424-848f-41f5-acae-938612d679ce",
+    "userName": "omar",
+    "occurredAt": 1793534284357,
+    "before": {
+      "name": "Eau 1,5L",
+      "salePriceMinor": 1200,
+      "purchasePriceMinor": null
+    },
+    "after": {
+      "name": "Eau 1,5L",
+      "salePriceMinor": 1300,
+      "purchasePriceMinor": null
+    },
+    "eventId": null,
+    "id": 225
+  }
+]
+
+GET /api/v1/audit-log/search?entityType=SALES_LAYOUT&limit=1
+
+[
+  {
+    "entityType": "SALES_LAYOUT",
+    "entityId": "1bb12840-e803-4ff5-97d5-97a821305341",
+    "action": "PUBLISHED",
+    "userId": "49d29424-848f-41f5-acae-938612d679ce",
+    "userName": "omar",
+    "occurredAt": 1793534265753,
+    "before": {
+      "name": "Écran de vente",
+      "pages": 2,
+      "buttons": 7,
+      "version": 2,
+      "isDefault": true,
+      "deviceRole": "REGISTER"
+    },
+    "after": {
+      "name": "Écran de vente",
+      "pages": 2,
+      "buttons": 7,
+      "version": 3,
+      "isDefault": true,
+      "deviceRole": "REGISTER"
+    },
+    "eventId": null,
+    "id": 224
+  }
+]

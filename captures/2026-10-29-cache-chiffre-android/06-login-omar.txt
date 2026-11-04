@@ -1,0 +1,9 @@
+# Login d'Omar (PIN 2468) après migration — hors ligne, hash déchiffré via l'Android Keystore (2026-10-29 17:13:07)
+$ sqlite3 -header pos-login.db "SELECT u.display_name, s.user_id, datetime(s.opened_at/1000,'unixepoch') AS ouverte_utc FROM local_user_session s JOIN local_auth_user u ON u.user_id = s.user_id"
+display_name|user_id|ouverte_utc
+omar|49d29424-848f-41f5-acae-938612d679ce|2026-10-29 16:12:55
+$ sqlite3 -header pos-login.db "SELECT type, user_id, status FROM outbox_event ORDER BY local_seq DESC LIMIT 1"
+type|user_id|status
+UserSessionOpened|49d29424-848f-41f5-acae-938612d679ce|PENDING
+$ sqlite3 pos-login.db "SELECT count(*) FROM local_auth_user WHERE pin_hash IS NOT NULL AND pin_hash NOT LIKE 'enc1:%'"
+0

@@ -1,0 +1,39 @@
+== Réglages (version 2, OWNER : modifiable=True, devise TND)
+   DISCOUNT_FREQUENCY           seuil 10     fenêtre  1 j  occurrences 1  active=True
+   DISCOUNT_AMOUNT              seuil 1000   fenêtre  1 j  occurrences 1  active=True
+   VOID_FREQUENCY               seuil 3      fenêtre  1 j  occurrences 1  active=True
+   DRAWER_OPEN_NO_SALE          seuil 3      fenêtre  1 j  occurrences 1  active=True
+   RECURRING_CASH_DISCREPANCY   seuil 5000   fenêtre 30 j  occurrences 3  active=True
+   OFF_HOURS_SALE               seuil 0      fenêtre  1 j  occurrences 1  active=True
+   horaires : 1 08:00–20:00, 2 08:00–20:00, 3 08:00–20:00, 4 08:00–20:00, 5 08:00–20:00, 6 08:00–12:00
+== Version périmée → 409, fermeture avant ouverture → 422
+   409 — Réglages modifiés entre-temps : version courante 2, reçue 0
+   422 — Fermeture avant l'ouverture (20:00 – 08:00)
+== Tableau par caissier (30 jours)
+   omar             ventes  38 · remises 5 (438 bp) · suppressions 0 · tickets annulés 2 · tiroir 0 · hors horaires 7 · alertes ['OFF_HOURS_SALE', 'DISCOUNT_AMOUNT']
+   Sami             ventes   1 · remises 0 (0 bp) · suppressions 6 · tickets annulés 0 · tiroir 0 · hors horaires 1 · alertes ['OFF_HOURS_SALE']
+   Karim            ventes   1 · remises 0 (0 bp) · suppressions 0 · tickets annulés 0 · tiroir 0 · hors horaires 0 · alertes []
+   Sans utilisateur ventes   9 · remises 2 (2448 bp) · suppressions 0 · tickets annulés 0 · tiroir 1 · hors horaires 3 · alertes []
+== Alertes
+   ACKNOWLEDGED Sami : 6 annulations et suppressions de lignes le 31/10 (seuil 3/jour) — « Vu avec Sami : erreurs de saisie au rush, rappel de la procédure » par omar
+   OPEN         Sami : 1 vente(s) hors des heures d'ouverture le 31/10
+   OPEN         omar : 1 vente(s) hors des heures d'ouverture le 31/10
+   DISMISSED    omar : 4 vente(s) hors des heures d'ouverture le 30/10 — « Horaires publiés le 31/10 : jour antérieur réévalué à tort (corrigé) » par omar
+   DISMISSED    Caisse Demo : 3 vente(s) hors des heures d'ouverture le 29/10 — « Horaires publiés le 31/10 : jour antérieur réévalué à tort (corrigé) » par omar
+   DISMISSED    omar : 2 vente(s) hors des heures d'ouverture le 29/10 — « Horaires publiés le 31/10 : jour antérieur réévalué à tort (corrigé) » par omar
+   OPEN         omar : 10,27 % du CA remisé le 31/10 (seuil 10,00 %)
+== Preuves de « Sami : 6 annulations et suppressions de lignes le 31/10 (seuil 3/jour) »
+   Lignes supprimées avant encaissement · Sami · Caisse-Android-2 · Ligne supprimée : Croissant (0,800 TND)
+   Lignes supprimées avant encaissement · Sami · Caisse-Android-2 · Panier vidé : Café express (Normal) (1,500 TND)
+   Lignes supprimées avant encaissement · Sami · Caisse-Android-2 · Panier vidé : Croissant (1,600 TND)
+   Lignes supprimées avant encaissement · Sami · Caisse-Android-2 · Ligne supprimée : Croissant (0,800 TND)
+   Lignes supprimées avant encaissement · Sami · Caisse-Android-2 · Panier vidé : Croissant (0,800 TND)
+   Lignes supprimées avant encaissement · Sami · iPhone caisse retours · Ligne supprimée : Croissant (0,800 TND)
+== Acquittement sans motif → 400 ; alerte déjà traitée → 409
+   400 — Motif obligatoire pour traiter une alerte
+   409 — Alerte déjà traitée
+== Audit de l'alerte
+   ACKNOWLEDGED {'reason': 'Vu avec Sami : erreurs de saisie au rush, rappel de la procédure', 'status': 'ACKNOWLEDGED'}
+== Alertes de stock
+   NEGATIVE     Café express     stock  -1.0  seuil 5.0
+   LOW          Thé à la menthe  stock   9.0  seuil 10.0

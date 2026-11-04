@@ -1,0 +1,18 @@
+== Thème du magasin avant : logo propre et langue
+  theme.logoAssetId 29812ce0-e2f7-4070-ae6a-2197c13fa5d3 | resolved.logoAssetId 29812ce0-e2f7-4070-ae6a-2197c13fa5d3 | locale fr | version 11
+== Logo de MARQUE (tenant) téléversé
+  brand.version 2 logoAssetId 567c92e6-1e7d-432e-adbe-9413617417d2
+== Le magasin garde SON logo (prioritaire) ; retrait du logo magasin → héritage du logo de marque
+  theme.logoAssetId None | resolved.logoAssetId 567c92e6-1e7d-432e-adbe-9413617417d2 (= logo de marque)
+== Langue du magasin → en (PUT theme), appareil Android → ar (surcharge)
+  theme v13 locale en → resolved.locale en
+ HTTP 422
+  Caisse-Android-2 config v2 locale ar mode DARK
+== Preset kiosque publié puis assigné au device « Preuve API »
+  preset Accueil café v1 PAY_AT_TERMINAL 2 bannières
+ HTTP 409
+ HTTP 422
+  Preuve API config v1 kioskPresetId 4df07613-cdb7-4e37-b8ab-a3c52c10be23
+== Audit
+  PUBLISHED BRAND_THEME {"version": 2, "tenantId": "c6653b40-2c54-43a5-9e03-83b14b295b38", "displayName": null, "logoAssetId": "567c92e6-1e7d-43
+  PUBLISHED KIOSK_PRESET {"id": "4df07613-cdb7-4e37-b8ab-a3c52c10be23", "name": "Accueil café", "banners": [{"title": "Menu du midi", "validTo": 

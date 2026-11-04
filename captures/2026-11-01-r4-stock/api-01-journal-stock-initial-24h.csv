@@ -1,0 +1,4 @@
+﻿Date;Produit;Catégorie;Type;Quantité;Motif;Détail;Utilisateur;Validé par;Appareil;Vente;Correction de
+2026-11-01 08:05:26;Thé à la menthe;Boissons;Stock initial;-30;Correction (mouvement inverse);Erreur de saisie : 3 cartons, pas 30;omar;omar;Back-office (serveur);;2775f249-e0d0-4ac7-a7ee-3fcd9427a93b
+2026-11-01 08:04:45;Thé à la menthe;Boissons;Stock initial;30;Stock initial;;omar;omar;Back-office (serveur);;
+2026-11-01 08:04:45;Croissant;Viennoiseries;Stock initial;24;Stock initial;;omar;omar;Back-office (serveur);;

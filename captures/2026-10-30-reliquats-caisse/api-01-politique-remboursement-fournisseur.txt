@@ -1,0 +1,37 @@
+STORE=eef60f24-1445-4452-93b1-a02bbf1b0edb
+== GET sales-policy (avant)
+{"policy":{"storeId":"eef60f24-1445-4452-93b1-a02bbf1b0edb","version":0,"allowReturnsWithoutReceipt":true,"refundFallbackMethod":"CASH","returnWindowDays":0},"canEdit":true}
+== PUT sales-policy (OWNER) version 0 → retours sans ticket autorisés, repli CARTE, fenêtre 30 j
+{"policy":{"storeId":"eef60f24-1445-4452-93b1-a02bbf1b0edb","version":1,"allowReturnsWithoutReceipt":true,"refundFallbackMethod":"CARD","returnWindowDays":30},"canEdit":true}
+== PUT périmé → 409
+409
+== Appairage d'un device de preuve API
+{"deviceId":"cd4f794e-20c0-4d9e-bede-c6a148a0a6f7","deviceToken":"•••","storeId":"eef60f24-1445-4452-93b1-a02bbf1b0edb","deviceRole":"REGISTER"}
+
+== Fournisseurs actifs du magasin
+{"providers":[{"code":"FLOUCI","label":"Flouci (QR)"},{"code":"KONNECT","label":"Konnect"},{"code":"PAYMEE","label":"Paymee"},{"code":"TPE_CB","label":"TPE carte bancaire","kind":"TERMINAL"}]}
+== Intent FLOUCI 12,500 → payé (mock) → refund 2,500 → refund 10,001 (422) → refund 10,000
+{"id":"feaa3a5d-ea71-4781-807c-7ec223474100","provider":"FLOUCI","amountMinor":12500,"currencyCode":"TND","status":"PENDING","qrPayload":"flouci://pay?ref=FL-6415FE2220&amount=12500&currency=TND&merchant=mock-f","providerTxId":"FL-6415FE2220","createdAt":1793389158831,"expiresAt":1793389458831}
+
+-- refund avant confirmation :
+{"error":"Seul un paiement confirmé se rembourse (statut PENDING)"} HTTP 422
+statut après 7 s → CONFIRMED FLTX-6415FE2220
+-- refund partiel 2,500 :
+{"id":"feaa3a5d-ea71-4781-807c-7ec223474100","provider":"FLOUCI","amountMinor":12500,"currencyCode":"TND","status":"CONFIRMED","qrPayload":"flouci://pay?ref=FL-6415FE2220&amount=12500&currency=TND&merchant=mock-f","providerTxId":"FLTX-6415FE2220","createdAt":1793389158831,"expiresAt":1793389458831,"refundedMinor":2500,"refundTxId":"RF-FEAA3A-2500"}
+-- refund 10,001 (dépasse le reste) :
+{"error":"Montant à rembourser invalide (déjà remboursé 2500 sur 12500)"} HTTP 422
+-- refund du reste 10,000 :
+refundedMinor 12500 refundTxId RF-FEAA3A-10000
+
+== Après la preuve sur les caisses (Android : session #3, vente Flouci 1,200 puis retour remboursé chez Flouci ; réimpression du Z n° 2 sous PIN ; export PDF du Z n° 2)
+-- GET /stores/{id}/cash-sessions
+  Caisse-Android-2 session # 3 ouverte ventes 2 mouvements 0 Z None
+-- GET .../x-report (session #3)
+  ventes 1 CA TTC 0 paiements [{'method': 'PROVIDER', 'amountMinor': 0}] retours {'count': 1, 'amountMinor': 1200} théorique espèces 10000
+-- GET /audit-log?entityType=Z_REPORT&entityId=3168c6e6-c521-4a6f-9ddb-15d502420376/2
+  REPRINTED | 49d29424-848f-41f5-acae-938612d679ce | {"zNumber": 2, "deviceId": "3168c6e6-c521-4a6f-9ddb-15d502420376", "approvalId": "247078ae-9e82-48ec-a7da-18eecf7eb8db", "approverUserId": "49d29424-848f-41f5-acae-938612d679ce"}
+  EXPORTED_PDF | 49d29424-848f-41f5-acae-938612d679ce | {"zNumber": 2, "deviceId": "3168c6e6-c521-4a6f-9ddb-15d502420376"}
+-- GET /stores/{id}/payment-intents (3 derniers)
+  FLOUCI CONFIRMED 1200 FLTX-5CA40DC5BB rapprochement ANOMALY
+  FLOUCI CONFIRMED 12500 FLTX-6415FE2220 rapprochement None
+  FLOUCI CONFIRMED 1200 FLTX-9F2DFEE0B4 rapprochement OK

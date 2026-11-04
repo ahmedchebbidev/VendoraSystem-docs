@@ -1,0 +1,55 @@
+== Ventes au-delà du stock dérogées sous PIN manager (event_log SaleCompleted.stockOverride, manager_approvals)
+   ticket    |       appareil        | caissier |             motif             | approuve_par 
+-------------+-----------------------+----------+-------------------------------+--------------
+ 3168c6-3-11 | Caisse-Android-2      | Sami     | Livraison du matin non saisie | omar
+ 3467f9-2-11 | iPhone caisse retours | Sami     | rayon                         | omar
+(2 rows)
+
+     action     |            reason             | status 
+----------------+-------------------------------+--------
+ NEGATIVE_STOCK | Livraison du matin non saisie | OK
+ NEGATIVE_STOCK | rayon                         | OK
+(2 rows)
+
+== Politique de vente : stock négatif autorisé = False
+== Emails envoyés aux responsables (boîte simulée, mode MOCK)
+   à lina.invitee@epicerie.tn [Épicerie Omar Centre] Stock bas : 2 produits
+      - Café express : stock -1 pour un seuil de 5
+      - Thé à la menthe : stock 9 pour un seuil de 10
+      
+      Suggestion de commande fournisseur : http://localhost:4200/purchase-orders
+   à omar@epicerie.tn         [Épicerie Omar Centre] Stock bas : 2 produits
+      - Café express : stock -1 pour un seuil de 5
+      - Thé à la menthe : stock 9 pour un seuil de 10
+      
+      Suggestion de commande fournisseur : http://localhost:4200/purchase-orders
+   à lina.invitee@epicerie.tn [Épicerie Omar Centre] Alerte anti-fraude : Remises fréquentes
+      omar : 5 remises le 31/10 (seuil 3/jour).
+      
+      5 événement(s) en preuve. Traiter l'alerte (acquitter ou rejeter avec un motif) : http://localhost:4200/fraud
+   à omar@epicerie.tn         [Épicerie Omar Centre] Alerte anti-fraude : Remises fréquentes
+      omar : 5 remises le 31/10 (seuil 3/jour).
+      
+      5 événement(s) en preuve. Traiter l'alerte (acquitter ou rejeter avec un motif) : http://localhost:4200/fraud
+== Historique des réglages
+   v4 depuis 31/10/2026 14:26 par omar — samedi [('08:00', '20:00')]
+   v3 depuis 31/10/2026 14:25 par omar — samedi [('08:00', '20:00')]
+   v2 depuis 31/10/2026 12:58 par omar — samedi [('08:00', '12:00')]
+== Tableau (score, écarts d'inventaire, pertes, dérogations)
+   Sans utilisateur score 100 CRITICAL (DISCOUNT_AMOUNT) · écarts inv. 0 (0) · pertes 0 (0) · retours sans ticket 0 · dérogations stock 0
+   omar             score  50 WATCH    (OFF_HOURS_SALE) · écarts inv. 1 (0) · pertes 3 (-1616) · retours sans ticket 2 · dérogations stock 0
+   Sami             score  50 WATCH    (OFF_HOURS_SALE) · écarts inv. 1 (458) · pertes 1 (-600) · retours sans ticket 0 · dérogations stock 2
+   Karim            score   0 OK       (None) · écarts inv. 0 (0) · pertes 0 (0) · retours sans ticket 0 · dérogations stock 0
+== Nouvelle alerte après abaissement du seuil (v4) : email aux responsables, pas au caissier
+   DISCOUNT_FREQUENCY omar : 5 remises le 31/10 (seuil 3/jour) notifiée
+   OFF_HOURS_SALE Sami : 3 vente(s) hors des heures d'ouverture le 31/10 
+   OFF_HOURS_SALE omar : 1 vente(s) hors des heures d'ouverture le 31/10 
+   DISCOUNT_AMOUNT omar : 10,27 % du CA remisé le 31/10 (seuil 10,00 %) 
+   à lina.invitee@epicerie.tn [Épicerie Omar Centre] Alerte anti-fraude : Remises fréquentes
+      omar : 5 remises le 31/10 (seuil 3/jour).
+      
+      5 événement(s) en preuve. Traiter l'alerte (acquitter ou rejeter avec un motif) : http://localhost:4200/fraud
+   à omar@epicerie.tn         [Épicerie Omar Centre] Alerte anti-fraude : Remises fréquentes
+      omar : 5 remises le 31/10 (seuil 3/jour).
+      
+      5 événement(s) en preuve. Traiter l'alerte (acquitter ou rejeter avec un motif) : http://localhost:4200/fraud

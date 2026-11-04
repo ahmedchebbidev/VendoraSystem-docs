@@ -1,0 +1,17 @@
+== Back-office : création d'une cliente (téléphone saisi en national → E.164)
+  POST /customers → Leila Ben Ali · +21655123456 · id 1ee17240
+  même téléphone (+216 55 123 456) → HTTP 409 · Téléphone déjà utilisé par Leila Ben Ali · fiche proposée 1ee17240
+  téléphone invalide → HTTP 422
+== Carte de fidélité (EAN-13 interne préfixe 29) et consentement SMS
+  carte attribuée : 2900000000018
+  consentement SMS → [('SMS', True, 'BACKOFFICE')]
+== Deux caisses hors ligne créent la même cliente (même téléphone) avec chacune une vente
+  caisse « Preuve API » : push CustomerCreated + SaleCompleted → 2 accepté(s)
+  seconde création hors ligne du même numéro + vente → 2 accepté(s)
+  GET /customers?search=5432 → 1 fiche · [('Sami Trabelsi', 'a4b9e132', 2, 11700)]
+  fiche fusionnée f02e6c5d → redirigée vers a4b9e132 · ['cd4f79-9-1', 'cd4f79-9-2']
+  CustomerMerged diffusé aux caisses : AUTO f02e6c5d → a4b9e132
+== Audit
+   CONSENT par omar → {"channel": "SMS", "granted": true}
+   CARD_LINKED par omar → {"code": "2900000000018"}
+   CREATED par omar → {"phone": "+216 •• ••• 456", "displayName": "Leila Ben Ali"}

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Console Vendora</title>
+<meta name="description" content="La Console Vendora, outil de l'équipe éditrice : clients, formules et limites, cycle de vie, support tracé, supervision, factures, devis et paramètres.">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F6F7F6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1210" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../../logo.svg">
+<link rel="preload" href="../fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../_tokens.generated.css">
+<link rel="stylesheet" href="../vendora.css">
+</head>
+<body>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M2 3h3l1 3m0 0h15l-1.6 8.2a2 2 0 0 1-2 1.8H8.6a2 2 0 0 1-2-1.6zM9 20.5h.01M18 20.5h.01"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h9M18 6h2M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15.5" cy="6" r="2.2"/><circle cx="9" cy="12" r="2.2"/><circle cx="17" cy="18" r="2.2"/></symbol>
+  <symbol id="i-support" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m5.6 5.6 3.6 3.6M14.8 14.8l3.6 3.6M14.8 9.2l3.6-3.6M5.6 18.4l3.6-3.6"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2zM9 7h6M9 11h6M9 15h4"/></symbol>
+</svg>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="Vendora, accueil">
+      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect class="m-bg" width="32" height="32" rx="7"/><rect class="m-screen" x="7" y="8" width="18" height="11" rx="2"/><rect class="m-bar" x="10" y="21" width="12" height="3" rx="1.5"/></svg>
+      Vendora <span class="vd-badge accent nodot">Console</span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <a href="#parcours">Parcours</a>
+      <a href="#fonctionnalites">Fonctionnalités</a>
+      <a href="../fonctionnalites/">Le produit</a>
+      <a class="vd-btn s" href="../../">Documentation</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <section class="hero" aria-labelledby="titre">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Outil interne de l'équipe Vendora</p>
+        <h1 id="titre" style="font-size: clamp(32px, 4.8vw, 50px)">La Console Vendora</h1>
+        <p class="lead">L'espace de l'éditeur pour vendre, suivre et facturer les commerçants. Une application web dédiée, branchée sur le même serveur que les caisses, avec ses propres comptes, une double authentification obligatoire et un journal que personne ne peut modifier.</p>
+        <ul class="proof" style="margin-block-start: var(--vd-space-l)">
+          <li><svg class="ic s16" aria-hidden="true"><use href="#i-check"/></svg>Administrateur, commercial, support</li>
+          <li><svg class="ic s16" aria-hidden="true"><use href="#i-check"/></svg>Double authentification</li>
+          <li><svg class="ic s16" aria-hidden="true"><use href="#i-check"/></svg>Journal non modifiable</li>
+        </ul>
+      </div>
+      <div class="shot"><picture>
+        <source media="(prefers-color-scheme: dark)" srcset="../img/console-tableau-de-bord-sombre.webp">
+        <img src="../img/console-tableau-de-bord-clair.webp" alt="Tableau de bord de la Console Vendora : alertes en tête (appareils muets, propriétaires sans compte activé), revenu mensuel récurrent, clients par statut, nouveaux inscrits" width="1200" height="496" fetchpriority="high">
+      </picture></div>
+    </div>
+  </section>
+
+  <section class="block alt" id="principes" aria-labelledby="principes-titre">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Les règles du jeu</p>
+        <h2 id="principes-titre">Quatre engagements tenus par le serveur.</h2>
+      </div>
+      <div class="grid grid-2">
+        <div class="vd-card padded feature-card"><div class="icon-tile"><svg class="ic s24" aria-hidden="true"><use href="#i-cart"/></svg></div><h3>La vente n'est jamais coupée</h3><p>Essai fini, impayé, suspension : caisses, téléphones de salle et écrans cuisine encaissent, envoient en cuisine, clôturent leur Z et synchronisent. Seul le back-office passe en lecture seule, avec une bannière explicite partout.</p></div>
+        <div class="vd-card padded feature-card"><div class="icon-tile"><svg class="ic s24" aria-hidden="true"><use href="#i-sliders"/></svg></div><h3>Les formules sont réelles</h3><p>Un appareil ou un module au-delà de la formule est refusé avec la marche à suivre. Une baisse de formule ne retire jamais l'existant ; une nouvelle version du catalogue ne change pas le prix des abonnés.</p></div>
+        <div class="vd-card padded feature-card"><div class="icon-tile"><svg class="ic s24" aria-hidden="true"><use href="#i-support"/></svg></div><h3>Support tracé et visible</h3><p>Lire les données d'un client demande une séance motivée de 60 minutes, en lecture seule. Chaque consultation est enregistrée avant d'être servie et apparaît dans «&nbsp;Accès Vendora&nbsp;» chez le client.</p></div>
+        <div class="vd-card padded feature-card"><div class="icon-tile"><svg class="ic s24" aria-hidden="true"><use href="#i-receipt"/></svg></div><h3>Factures sans trou</h3><p>Numérotation annuelle continue, factures immuables corrigées par avoir, TVA et mentions légales paramétrées puis figées sur chaque facture, retard relancé à 15 jours, suspension seulement proposée à 30.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="parcours" aria-labelledby="parcours-titre">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Parcours</p>
+        <h2 id="parcours-titre">Du devis à la facture.</h2>
+        <p class="lead">Une demande de devis arrive de la page publique ; elle devient un client en quelques clics, avec sa formule, son propriétaire invité et ses factures.</p>
+      </div>
+      <div class="gallery">
+        <figure><div class="shot"><img src="../img/console-devis.webp" alt="Demandes de devis reçues de la page publique, avec intérêts en badges et bouton Convertir en client" width="1200" height="546" loading="lazy"></div><figcaption><b>1. Demandes de devis</b>, converties en client avec l'assistant prérempli.</figcaption></figure>
+        <figure><div class="shot"><picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../img/console-fiche-client-sombre.webp">
+          <img src="../img/console-fiche-client-clair.webp" alt="Fiche d'un client dans la console : actions en tête, onglets, colonne Formule et usage avec jauges et modules inclus" width="1200" height="750" loading="lazy">
+        </picture></div><figcaption><b>2. Abonnement</b> : formule, usage des limites, dérogations motivées.</figcaption></figure>
+        <figure><div class="shot"><img src="../img/console-factures.webp" alt="Factures : revenu récurrent, retards, liste et détail d'une facture avec paiement à saisir et avoir" width="1200" height="904" loading="lazy"></div><figcaption><b>3. Factures</b>, virements saisis, avoirs, export pour le comptable.</figcaption></figure>
+        <figure><div class="shot"><img src="../img/console-support.webp" alt="En-tête de la fiche client avec le bouton Séance de support" width="1200" height="467" loading="lazy"></div><figcaption><b>4. Support</b> : séance motivée ouverte depuis la fiche, chaque lecture journalisée.</figcaption></figure>
+        <figure><div class="shot"><picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../img/back-office-acces-vendora-sombre.webp">
+          <img src="../img/back-office-acces-vendora-clair.webp" alt="Page Accès Vendora du back-office : séance de support avec son motif et chaque donnée consultée, heure par heure" width="1200" height="392" loading="lazy">
+        </picture></div><figcaption><b>5. Côté commerçant</b> : «&nbsp;Accès Vendora&nbsp;» liste chaque consultation.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt" id="fonctionnalites" style="padding-block-end: 20px" aria-labelledby="fonct-titre">
+    <div class="wrap">
+      <div class="section-head" style="margin-block-end: 10px">
+        <p class="eyebrow">Fonctionnalités</p>
+        <h2 id="fonct-titre">Tout ce que fait la console.</h2>
+        <div class="stats" id="stats" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <div class="wrap">
+      <div class="search vd-input with-icon">
+        <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+        <input id="q" type="search" placeholder="Rechercher («&nbsp;facture&nbsp;», «&nbsp;suspension&nbsp;», «&nbsp;devis&nbsp;»…)" aria-label="Rechercher une fonctionnalité de la console" autocomplete="off">
+      </div>
+      <div class="tabs" role="group" aria-label="Domaine" id="groups"></div>
+    </div>
+  </div>
+
+  <div class="wrap" id="results"></div>
+  <div class="wrap" id="remaining" style="padding-block: 32px 64px"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Vendora · <span id="updated"></span></span>
+    <nav aria-label="Liens du pied de page">
+      <a href="../">Présentation</a>
+      <a href="../fonctionnalites/">Fonctionnalités du produit</a>
+      <a href="../../modules/17-platform-console">Spécification détaillée</a>
+      <a href="../../design/charte.html">Charte graphique</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const norm = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const ORDER = ['Équipe Vendora', 'Clients', 'Formules et limites', 'Cycle de vie', 'Support', 'Supervision', 'Facturation'];
+  const order = (g) => { const i = ORDER.indexOf(g); return i < 0 ? 99 : i; };
+  let features = [];
+  const state = { q: '', group: '' };
+
+  const render = () => {
+    const terms = norm(state.q).split(/\s+/).filter(Boolean);
+    const matching = features.filter((f) => terms.every((t) => f.hay.includes(t)));
+    const groups = [...new Set(features.map((f) => f.group))].sort((a, b) => order(a) - order(b));
+    $('groups').innerHTML = ['', ...groups].map((g) => `<button type="button" data-group="${esc(g)}" aria-pressed="${state.group === g}">${g ? esc(g) : 'Tous'}<span class="n">${matching.filter((f) => !g || f.group === g).length}</span></button>`).join('');
+    const shown = matching.filter((f) => !state.group || f.group === state.group);
+    const shownGroups = [...new Set(shown.map((f) => f.group))].sort((a, b) => order(a) - order(b));
+    $('results').innerHTML = shownGroups.map((g) => {
+      const list = shown.filter((f) => f.group === g);
+      return `<section class="module" aria-label="${esc(g)}"><h2>${esc(g)} <small>${list.length} fonctionnalité${list.length > 1 ? 's' : ''}</small></h2><div class="feats">${
+        list.map((f) => `<article class="feat"><div class="group">${esc(f.where.join(' · ') || 'Console')}</div><h3>${esc(f.name)}</h3><p>${esc(f.description)}</p><div class="meta">${
+          f.done ? '<span class="tag">Livré</span>' : '<span class="tag soon">À venir</span>'}${f.lot ? `<span class="tag app">Lot ${esc(f.lot)}</span>` : ''}</div></article>`).join('')
+      }</div></section>`;
+    }).join('') || '<p class="empty">Aucune fonctionnalité ne correspond à cette recherche.</p>';
+  };
+
+  fetch('data.json').then((r) => r.json()).then((data) => {
+    features = data.features.map((f) => ({ ...f, hay: norm(`${f.name} ${f.description} ${f.group}`) }));
+    $('updated').textContent = `mis à jour le ${new Date(data.generatedAt).toLocaleDateString('fr-FR')}`;
+    const done = features.filter((f) => f.done).length;
+    $('stats').innerHTML = `<div class="stat"><b>${done}</b><span>fonctionnalités livrées</span></div><div class="stat"><b>6</b><span>lots (C1 → C6)</span></div><div class="stat"><b>3</b><span>rôles d'équipe</span></div>`;
+    if (data.remaining.length) $('remaining').innerHTML = `<div class="callout"><strong>Reste à faire</strong><ul>${data.remaining.map((r) => `<li>${esc(r)}</li>`).join('')}</ul></div>`;
+    render();
+  }).catch(() => { $('results').innerHTML = '<p class="empty">La liste n\'a pas pu être chargée. Rechargez la page.</p>'; });
+
+  $('q').addEventListener('input', (e) => { state.q = e.target.value; render(); });
+  $('groups').addEventListener('click', (e) => { const b = e.target.closest('[data-group]'); if (b) { state.group = b.dataset.group; render(); } });
+})();
+</script>
+</body>
+</html>

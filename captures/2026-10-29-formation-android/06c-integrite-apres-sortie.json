@@ -1,0 +1,53 @@
+{
+    "status": "OK",
+    "trainingDevices": [],
+    "trainingSales": 1,
+    "sealedSales": 2,
+    "sealAnomalies": [],
+    "devices": [
+        {
+            "deviceId": "1498cd2c-dac0-4a21-a0c5-d97a0ac2105d",
+            "lastFiscalSeq": 2,
+            "sealedSales": 2,
+            "anomalies": 0
+        }
+    ],
+    "closures": [
+        {
+            "periodType": "DAILY",
+            "count": 0,
+            "chainOk": true,
+            "perpetualOk": true,
+            "lastPerpetual": null
+        },
+        {
+            "periodType": "MONTHLY",
+            "count": 0,
+            "chainOk": true,
+            "perpetualOk": true,
+            "lastPerpetual": null
+        },
+        {
+            "periodType": "ANNUAL",
+            "count": 0,
+            "chainOk": true,
+            "perpetualOk": true,
+            "lastPerpetual": null
+        }
+    ],
+    "recentEvents": [
+        {
+            "type": "TRAINING_OFF",
+            "detail": "Mode formation désactivé — approuvé par 49d29424-848f-41f5-acae-938612d679ce",
+            "deviceId": "1498cd2c-dac0-4a21-a0c5-d97a0ac2105d",
+            "occurredAt": 1793297558249
+        },
+        {
+            "type": "TRAINING_ON",
+            "detail": "Mode formation activé — approuvé par 49d29424-848f-41f5-acae-938612d679ce",
+            "deviceId": "1498cd2c-dac0-4a21-a0c5-d97a0ac2105d",
+            "occurredAt": 1793297466638
+        }
+    ],
+    "zanomalies": 0
+}

@@ -1,0 +1,21 @@
+GET /api/v1/audit-log?entityType=SALE&entityId=669054f4-d51c-4ce3-89ff-3727635d7493
+[
+  {
+    "entityType": "SALE",
+    "entityId": "669054f4-d51c-4ce3-89ff-3727635d7493",
+    "action": "CUSTOMER_ATTACHED",
+    "userId": "49d29424-848f-41f5-acae-938612d679ce",
+    "userName": "omar",
+    "occurredAt": 1793530657378,
+    "before": null,
+    "after": {
+      "cashierId": "49d29424-848f-41f5-acae-938612d679ce",
+      "approvalId": "d89e0564-8e11-4e04-80fc-daa557ca8451",
+      "customerId": "1ee17240-d5b0-4f51-aa95-dce190a50563",
+      "localNumber": "de5823-4-6",
+      "pointsEarned": 0
+    },
+    "eventId": "355838cc-a3c0-4b57-a406-3bd2aafe7153",
+    "id": 213
+  }
+]

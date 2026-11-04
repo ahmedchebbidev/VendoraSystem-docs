@@ -1,0 +1,5 @@
+iPhone 18 Pro (simulateur), appairé à neuf comme caisse du magasin Épicerie Omar Centre — base locale lue après le premier démarrage
+curseur de pull : 859
+événements appliqués sur l'appareil : 204
+journal du magasin jusqu'à ce curseur (serveur, count | max server_seq) : 744|859
+produits dans le miroir local : 8

@@ -1,0 +1,34 @@
+== Programme de fidélité du tenant (RG-CUST-10/11/13)
+  GET /loyalty-config → version 0 · actif False · owner peut publier True
+  activé sans palier → HTTP 422 · Au moins un palier pour activer la fidélité
+  la MANAGER Lina publie → HTTP 403 (seul l'owner publie)
+  l'owner publie 1 pt / 1 TND, paliers 100 pts = 1 DT offert et 300 pts = 10 % (max 5 DT), expiration 12 mois → version 1 · 2 paliers
+  LoyaltyConfigUpdated diffusé : 1 événement(s) pour ce magasin
+== Ajustements motivés (RG-CUST-14 : jamais de « set solde »)
+  sans motif → HTTP 422
+  Leila :
+   solde 120 pts · palier atteint : 1 DT offert · Plus que 180 pts pour 10 % (max 5 DT)
+     ADJUSTED  +120 · Points de bienvenue
+  Karim :
+   solde 320 pts · palier atteint : 10 % (max 5 DT) · None
+     ADJUSTED  +320 · Reprise de la carte papier
+== Après les ventes en caisse (Android : Leila, iPhone : Karim)
+  Leila :
+   solde 21 pts · palier atteint : None · Plus que 79 pts pour 1 DT offert
+     REDEEMED  -100 · remise 1.0 TND
+     EARNED    +1 · 
+     ADJUSTED  +120 · Points de bienvenue
+  Karim :
+   solde 22 pts · palier atteint : None · Plus que 78 pts pour 1 DT offert
+     REDEEMED  -300 · remise 0.27 TND
+     EARNED    +2 · 
+     ADJUSTED  +320 · Reprise de la carte papier
+== Expiration FIFO (RG-CUST-13) : 50 pts gagnés par Sami il y a 13 mois
+  push du gain ancien → 1 accepté
+  POST /loyalty/expire → 50 pts expirés pour 1 client(s)
+  seconde passe → 0 pts (idempotent)
+  Sami :
+   solde 0 pts · palier atteint : None · Plus que 100 pts pour 1 DT offert
+     EXPIRED   -50 · Expiration après 12 mois
+     EARNED    +50 · 
+  LoyaltyPointsExpired diffusé aux caisses : 1

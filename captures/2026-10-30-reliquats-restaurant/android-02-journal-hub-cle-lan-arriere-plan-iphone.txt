@@ -1,0 +1,16 @@
+# Journal du hub local côté Android (Caisse-Android-2, logcat pos.hub) — lot 2.26, 30/10/2026
+# 1) Android redémarré après l'iPhone : élection → iPhone hub, Hello v2 signé par la clé LAN accepté (« connecté au hub »).
+# 2) 22:31:17 iPhone mis en arrière-plan (bouton Home) → le nœud iOS quitte proprement le réseau : perte détectée en 2 s, ré-élection, Android devient hub.
+
+10-30 22:30:51.183 30143 30174 I pos.hub : hub: démarre (rôle=REGISTER, port 43899)
+10-30 22:30:51.461 30143 30174 I pos.hub : hub: pair 3467f99e-6ad7-4139-8577-dc74ba562437 (REGISTER) sur 192.168.1.27:55276
+10-30 22:30:52.426 30143 30177 I pos.hub : annoncé pos-eef60f24-3168c6e6-c521-4a6f-9ddb-15d502420376
+10-30 22:30:52.848 30143 30167 I pos.hub : hub: ÉLECTION (démarrage) → hub = 3467f99e-6ad7-4139-8577-dc74ba562437
+10-30 22:30:53.568 30143 30174 I pos.hub : hub: connecté au hub 3467f99e-6ad7-4139-8577-dc74ba562437 (rattrapage annoncé : 0)
+10-30 22:31:07.464 30143 30160 I pos.hub : hub: annonce de 3467f99e-6ad7-4139-8577-dc74ba562437 disparue mais connexion vivante : conservé
+10-30 22:31:13.499 30143 30174 I pos.hub : hub: pair 3467f99e-6ad7-4139-8577-dc74ba562437 (REGISTER) sur 192.168.1.27:55276
+10-30 22:31:19.395 30143 30159 I pos.hub : hub: hub 3467f99e-6ad7-4139-8577-dc74ba562437 perdu → suspicion 5 s, ré-élection
+10-30 22:31:19.395 30143 30159 I pos.hub : hub: ÉLECTION (hub perdu) → je suis le hub
+10-30 22:31:24.453 30143 30167 I pos.hub : hub: ÉLECTION (fin de suspicion) → hub = 3467f99e-6ad7-4139-8577-dc74ba562437
+10-30 22:31:35.518 30143 30159 I pos.hub : hub: pair 3467f99e-6ad7-4139-8577-dc74ba562437 disparu
+10-30 22:31:35.519 30143 30159 I pos.hub : hub: ÉLECTION (pair disparu) → je suis le hub

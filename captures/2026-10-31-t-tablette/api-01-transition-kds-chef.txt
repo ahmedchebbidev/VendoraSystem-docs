@@ -1,0 +1,5 @@
+# Lot T / reste R3 — transitions du KDS tracées au nom du chef choisi sur l'écran (event_log serveur, 31/10/2026)
+# occurred_at | état | changedByUserId | nom
+2026-10-31 21:56:07.284+00|IN_PREPARATION|eb99a8c7-6b7b-4258-9b48-b0aabb05350d|Sami
+2026-10-31 21:14:51.25+00|READY|(aucun — avant le lot T)|
+2026-10-31 21:14:42.61+00|IN_PREPARATION|(aucun — avant le lot T)|

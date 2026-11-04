@@ -1,0 +1,17 @@
+# APRÈS — nouvelle version (ChiffrementCacheAuth) installée PAR-DESSUS, lancée une fois, login Omar (2468)
+# 2026-10-29 17:21:13  simulateur iPhone 17 Pro D0964C57-DBD2-4240-8C4B-9E02E72A6FD0
+## demo.db : SELECT user_id, substr(pin_hash,1,20) FROM local_auth_user
+demo-omar|enc1:62Ngm2HVZig6ZCU
+demo-karim|enc1:+0x8gzgSeD6ooO8
+(lignes : 2 ; en clair (pbkdf2) : 0)
+## pos.db : SELECT user_id, substr(pin_hash,1,20) FROM local_auth_user
+(lignes : 0 ; en clair (pbkdf2) : 0)
+## demo.db : session utilisateur ouverte (local_user_session)
+1|41ec7616-ed80-4589-bff0-cf16c19a6c3a|demo-omar|1793290846915|1793290857118
+## demo.db : outbox UserSessionOpened
+UserSessionOpened|demo-omar
+## exclusion de sauvegarde (xattr com.apple.metadata:com_apple_backup_excludeItem) :
+databases : exclu
+demo.db : exclu
+demo.db-wal : exclu
+pos.db : exclu

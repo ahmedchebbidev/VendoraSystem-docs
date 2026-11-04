@@ -1,0 +1,24 @@
+== Inventaire « Rayon boissons » — VALIDATED, validé par omar
+   compteurs : omar (2 produit(s)), Sami (1 produit(s))
+   Café express   théorique  -15.0 · compté   14.0 · écart +29.0 · valeur None · conflit=False
+       omar : 14.0  ← retenu
+   Eau 1,5L       théorique   20.0 · compté   21.0 · écart  +1.0 · valeur 458 · conflit=True
+       Sami : 21.0  ← retenu
+       omar : 20.0
+== Revalider un inventaire déjà validé
+   409 — INVENTORY_ALREADY_VALIDATED
+== RG-STOCK-05 : jamais de quantité cible
+   422 — SET_QUANTITY_FORBIDDEN : le stock se corrige par un delta (réel − théorique), jamais par une quantité cible
+== RG-STOCK-06 : PIN faux → 422 (pas 401 : la session web reste ouverte)
+   422 — PIN invalide
+== Perte en ENTRÉE refusée, motif obligatoire
+   422 — Une perte ou un vol est une sortie (quantité négative)
+   422 — Motif obligatoire (BREAKAGE, EXPIRY, DAMAGED, THEFT, COUNT_ERROR, INVENTORY, OTHER)
+== Journal Eau 1,5L (motifs, validation, appareil)
+   THEFT                   -1.0 · motif THEFT       · bouteille disparue du rayon · validé par omar · Back-office (serveur)
+   ADJUSTMENT_INVENTORY    +1.0 · motif INVENTORY   · Rayon boissons · validé par omar · Back-office (serveur)
+   SUPPLIER_RETURN         -2.0 · motif None        ·  · validé par None · Back-office (serveur)
+   RECEPTION               +6.0 · motif None        ·  · validé par None · Back-office (serveur)
+== Audit inventaire
+   VALIDATED {'lines': 2, 'adjustments': 2, 'varianceValueMinor': 458}
+   STARTED {'label': 'Rayon boissons', 'scope': 'PARTIAL'}

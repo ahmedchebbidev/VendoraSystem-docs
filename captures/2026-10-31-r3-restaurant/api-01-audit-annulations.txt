@@ -1,0 +1,14 @@
+# Lot R3 — additions annulées (31/10/2026) : historique du back-office et journal d'audit serveur
+
+Table 1 · CANCELLED · motif « Patti’s » · lignes {'VOIDED': 1} · total 0
+  audit CANCELLED    opérateur 49d29424-848f-41f5-acae-938612d679ce · approbateur 49d29424-848f-41f5-acae-938612d679ce · appareil 3467f99e-6ad7-4139-8577-dc74ba562437 · motif « Patti’s » · lignes annulées ['SENT']
+
+Table 1 · CANCELLED · motif « Clients partis » · lignes {'VOIDED': 1} · total 0
+  audit CANCELLED    opérateur 49d29424-848f-41f5-acae-938612d679ce · approbateur 49d29424-848f-41f5-acae-938612d679ce · appareil 3168c6e6-c521-4a6f-9ddb-15d502420376 · motif « Clients partis » · lignes annulées ['SENT']
+
+Table 3 · CANCELLED · motif « Patti’s » · lignes {'VOIDED': 2} · total 0
+  audit CANCELLED    opérateur 49d29424-848f-41f5-acae-938612d679ce · approbateur 49d29424-848f-41f5-acae-938612d679ce · appareil 3467f99e-6ad7-4139-8577-dc74ba562437 · motif « Patti’s » · lignes annulées ['READY', 'READY']
+
+Table 2 · CANCELLED · motif « Erreur de table » · lignes {'VOIDED': 2} · total 0
+  audit CANCELLED    opérateur 49d29424-848f-41f5-acae-938612d679ce · approbateur 49d29424-848f-41f5-acae-938612d679ce · appareil 3168c6e6-c521-4a6f-9ddb-15d502420376 · motif « Erreur de table » · lignes annulées ['READY']
+  audit LINE_VOIDED  opérateur 49d29424-848f-41f5-acae-938612d679ce · approbateur 49d29424-848f-41f5-acae-938612d679ce · appareil 3168c6e6-c521-4a6f-9ddb-15d502420376 · motif « Plus de croissants » · état SENT

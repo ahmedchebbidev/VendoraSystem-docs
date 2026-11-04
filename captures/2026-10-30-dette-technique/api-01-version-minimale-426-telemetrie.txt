@@ -1,0 +1,12 @@
+== Version minimale d'app (RG-SYNC-27) — serveur : pos.app.min-version = 0.1.0
+  GET /sync/pull  X-App-Version: 0.0.9  → HTTP 426 {"code":"UPGRADE_REQUIRED","minAppVersion":"0.1.0","appVersion":"0.0.9","message":"Mise à jour requise : version minimale 0.1.0 — l'app continue hors ligne, synchronisation suspendue"}
+  GET /sync/pull  sans X-App-Version     → HTTP 426 (ancienne app muette = refusée)
+  GET /sync/pull  X-App-Version: 0.1.0  → HTTP 200 (app à jour)
+  GET /pos/lan-key X-App-Version: 0.0.1 → HTTP 426 (tous les appels appareil sont couverts)
+  GET /stores/{id}/supervision/alerts (JWT back-office, sans version) → HTTP 200 (le back-office n'est pas concerné)
+== Télémétrie de latence (spec 00 §6.1) — rapport d'un appareil puis lecture back-office
+  POST /pos/telemetry/latency (Preuve API, p95 recherche 142 ms) → HTTP 202
+  POST /pos/telemetry/latency (2e rapport, p95 recherche 38 ms) → HTTP 202
+  GET /stores/{id}/telemetry/latency → 1 appareil(s), 0 action(s) hors budget
+    Preuve API 2.23 api 0.1.0 · search · n=55 · p50 9 ms · p95 38 ms · max 90 ms · dans le budget
+    Preuve API 2.23 api 0.1.0 · add_to_cart · n=120 · p50 4 ms · p95 12 ms · max 30 ms · dans le budget

@@ -1,0 +1,89 @@
+import{_ as a,o as e,c as n,a5 as p}from"./chunks/framework.CslsFoWx.js";const l="/VendoraSystem-docs/captures/2026-10-30-identite-appareil/android-02-boutons-1x1-noms-longs.png",i="/VendoraSystem-docs/captures/2026-10-30-identite-appareil/ios-02-boutons-1x1-noms-longs.png",b=JSON.parse('{"title":"Lot 2.28 — Identité Ed25519 par appareil, fiscalSeq partagé, boutons 1×1 — 30/10/2026","description":"","frontmatter":{},"headers":[],"relativePath":"preuves/2026-10-30-identite-appareil.md","filePath":"generated/preuves/2026-10-30-identite-appareil.md","lastUpdated":null}'),r={name:"preuves/2026-10-30-identite-appareil.md"};function t(o,s,c,d,u,E){return e(),n("div",null,[...s[0]||(s[0]=[p('<h1 id="lot-2-28-—-identite-ed25519-par-appareil-fiscalseq-partage-boutons-1×1-—-30-10-2026" tabindex="-1">Lot 2.28 — Identité Ed25519 par appareil, <code>fiscalSeq</code> partagé, boutons 1×1 — 30/10/2026 <a class="header-anchor" href="#lot-2-28-—-identite-ed25519-par-appareil-fiscalseq-partage-boutons-1×1-—-30-10-2026" aria-label="Permalink to &quot;Lot 2.28 — Identité Ed25519 par appareil, `fiscalSeq` partagé, boutons 1×1 — 30/10/2026&quot;">​</a></h1><p class="muted">Dossier <code>docs/captures/2026-10-30-identite-appareil</code> · 2 image(s) · 2 trace(s)</p><div><p>Vraie stack : serveur local (migration <strong>V31</strong> <code>devices.public_key</code>), émulateur Android « Caisse-Android-2 » (BouncyCastle), simulateur iPhone (CryptoKit), appareil « Preuve API ». Étape 2 de la sécurité LAN (spec 10 §8) : chaque appareil a sa paire Ed25519, enregistre sa clé publique <strong>une fois</strong>, et le hub local (protocole <strong>v3</strong>) vérifie l&#39;identité de chaque pair et de chaque émetteur — un appareil <strong>révoqué</strong> ou <strong>inconnu du magasin</strong> est refusé sur le LAN sans passer par le serveur.</p><table tabindex="0"><thead><tr><th>Capture</th><th>Ce qu&#39;il faut voir</th></tr></thead><tbody><tr><td><a href="/VendoraSystem-docs/captures/2026-10-30-identite-appareil/api-01-cles-publiques-pairs-revocation.txt">api-01-cles-publiques-pairs-revocation.txt</a></td><td><code>GET /pos/lan-peers</code> : Caisse-Android-2, iPhone et Preuve API avec leur <strong>clé publique (64 hex)</strong> enregistrée par eux-mêmes après leur pull ; <code>PUT /pos/devices/me/public-key</code> : <strong>422</strong> hex invalide, <strong>204</strong> puis idempotent, <strong>409</strong> pour une autre clé ; appareil jetable appairé puis <strong>révoqué</strong> par l&#39;OWNER → listé <strong>REVOKED</strong> avec sa clé (refusé sur le LAN), son jeton répond 401</td></tr><tr><td><a href="/VendoraSystem-docs/captures/2026-10-30-identite-appareil/android-ios-01-annuaire-pairs-et-journal-hub.txt">android-ios-01-annuaire-pairs-et-journal-hub.txt</a></td><td><code>local_lan_peer</code> sur Android et sur l&#39;iPhone (16 appareils du magasin, statut, clé si enregistrée) ; <code>devices.public_key</code> côté serveur ; journal du hub Android : <strong>« connecté au hub 3467f9… »</strong> = <code>Hello</code> v3 signé par sa clé Ed25519 accepté par le hub iPhone ; l&#39;iPhone connaît la clé Android après son pull suivant</td></tr><tr><td><a href="/VendoraSystem-docs/captures/2026-10-30-identite-appareil/android-02-boutons-1x1-noms-longs.png">android-02-boutons-1x1-noms-longs.png</a></td><td>Android, écran de vente : le bouton 1×1 « <strong>Thé à la menthe</strong> » tient sur deux lignes en corps réduit (plus de « Thé à la m… »), « Café express » complet</td></tr><tr><td><a href="/VendoraSystem-docs/captures/2026-10-30-identite-appareil/ios-02-boutons-1x1-noms-longs.png">ios-02-boutons-1x1-noms-longs.png</a></td><td>iPhone : parité — « Thé à la menthe » sur deux lignes</td></tr></tbody></table><h2 id="ce-qui-est-prouve-par-les-tests-pas-de-capture" tabindex="-1">Ce qui est prouvé par les tests (pas de capture) <a class="header-anchor" href="#ce-qui-est-prouve-par-les-tests-pas-de-capture" aria-label="Permalink to &quot;Ce qui est prouvé par les tests (pas de capture)&quot;">​</a></h2><ul><li>Protocole : appareil <strong>révoqué</strong> refusé, appareil <strong>inconnu</strong> refusé, <code>Hello</code> au nom d&#39;un autre appareil refusé (<code>signature d&#39;appareil invalide</code>), enveloppe au nom de la salle signée par un autre ignorée, signature de l&#39;émetteur <strong>relayée intacte</strong> par le hub — <code>HubNodeTest</code> (JVM + natif, identités factices).</li><li>Ed25519 réel : vecteur <strong>RFC 8032</strong> (clé publique dérivée, signature déterministe) côté JDK (<code>JdkEd25519Test</code>), BouncyCastle ↔ JDK (<code>IdentiteAppareilTest</code>, Android) et CryptoKit → vérification par le code partagé (<code>IdentiteAppareilTests</code>, iOS) : les trois implémentations sont interopérables.</li><li>Serveur : <code>LanPeersIntegrationTest</code> (enregistrement unique, 409, liste avec statut, révoqué listé, back-office refusé).</li><li><code>fiscalSeq</code> : porté par <code>LocalSaleSummary</code> — l&#39;historique des deux apps n&#39;interroge plus <code>local_sale</code> à part (tests existants verts).</li></ul><h2 id="transition-et-limites" tabindex="-1">Transition et limites <a class="header-anchor" href="#transition-et-limites" aria-label="Permalink to &quot;Transition et limites&quot;">​</a></h2><ul><li>Un appareil sans clé enregistrée (ancienne version, jamais resynchronisé) est accepté sur la seule <strong>clé LAN du magasin</strong> ; dès que sa clé est connue, elle est exigée. Un appareil absent de l&#39;annuaire est refusé seulement une fois l&#39;annuaire reçu.</li><li>L&#39;annuaire se met à jour <strong>au pull</strong> (20 s) : une clé enregistrée à l&#39;instant est connue des autres au pull suivant.</li><li>Reste (spec 10 §8) : signature Ed25519 des <strong>lots push</strong> vérifiée par le serveur (<code>event_log.signature</code>, RG-SYNC-20) — le serveur stocke déjà la clé publique.</li><li>Montage émulateur / simulateur : l&#39;iPhone doit être hub (l&#39;émulateur est derrière un NAT) — voir lot 2.26.</li></ul><h2 id="pieges-rencontres" tabindex="-1">Pièges rencontrés <a class="header-anchor" href="#pieges-rencontres" aria-label="Permalink to &quot;Pièges rencontrés&quot;">​</a></h2><ul><li><code>java.security</code> n&#39;a Ed25519 qu&#39;à l&#39;API 33 : BouncyCastle (API légère, sans provider) côté Android, JDK côté serveur, CryptoKit côté iOS ; le JDK ne dérive pas la clé publique d&#39;une graine seule → <code>KeyPairGenerator</code> nourri d&#39;un <code>SecureRandom</code> déterministe.</li><li><code>HubNode</code> a déjà un champ <code>peers</code> (découverte) : le paramètre s&#39;appelle <code>knownPeers</code>.</li><li><code>KotlinPair</code> exige des types classes côté Swift (<code>NSString</code>) ; l&#39;ordre des arguments de l&#39;init membre à membre suit la déclaration.</li><li>Jackson omet les champs <code>null</code> : <code>publicKey</code> absent du JSON quand l&#39;appareil n&#39;a pas de clé (<code>r.get(&quot;publicKey&quot;)</code>).</li><li>Après une reconstruction du XCFramework par la phase Xcode, le premier build échoue encore sur l&#39;ancien module ; le second passe.</li></ul></div><h2 id="galerie" tabindex="-1">Galerie <a class="header-anchor" href="#galerie" aria-label="Permalink to &quot;Galerie&quot;">​</a></h2><div class="proof-grid"><figure class="proof"><a href="/VendoraSystem-docs/captures/2026-10-30-identite-appareil/android-02-boutons-1x1-noms-longs.png" target="_blank"><img src="'+l+'" alt="android-02-boutons-1x1-noms-longs.png" loading="lazy"></a><figcaption>android-02-boutons-1x1-noms-longs.png</figcaption></figure><figure class="proof"><a href="/VendoraSystem-docs/captures/2026-10-30-identite-appareil/ios-02-boutons-1x1-noms-longs.png" target="_blank"><img src="'+i+`" alt="ios-02-boutons-1x1-noms-longs.png" loading="lazy"></a><figcaption>ios-02-boutons-1x1-noms-longs.png</figcaption></figure></div><h2 id="traces-api-journaux-bases" tabindex="-1">Traces (API, journaux, bases) <a class="header-anchor" href="#traces-api-journaux-bases" aria-label="Permalink to &quot;Traces (API, journaux, bases)&quot;">​</a></h2><details><summary>android-ios-01-annuaire-pairs-et-journal-hub.txt</summary><div class="language-text vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span># Annuaire des pairs (local_lan_peer) relu après le pull — Android puis iPhone — lot 2.28, 30/10/2026</span></span>
+<span class="line"><span># Les deux appareils connaissent la clé publique de l&#39;autre : le Hello v3 et chaque enveloppe sont vérifiés contre elle.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>$ sqlite3 (Android) select device_id, role, status, substr(public_key,1,16) from local_lan_peer</span></span>
+<span class="line"><span>1498cd2c|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>19daae44|KDS|ACTIVE|—</span></span>
+<span class="line"><span>3168c6e6|REGISTER|ACTIVE|ca84f706bd492ac4…</span></span>
+<span class="line"><span>3467f99e|REGISTER|ACTIVE|f3dd2115864bccec…</span></span>
+<span class="line"><span>367bf296|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>73e21321|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>89377dcc|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>b1fab473|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>c21d4e14|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>c5202822|BACKOFFICE|ACTIVE|—</span></span>
+<span class="line"><span>cd4f794e|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>d8851134|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>e6f91545|WAITER_TERMINAL|ACTIVE|—</span></span>
+<span class="line"><span>f06e0dce|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>f249d50e|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>f42e3aa2|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>$ sqlite3 (iPhone) idem</span></span>
+<span class="line"><span>1498cd2c|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>19daae44|KDS|ACTIVE|—</span></span>
+<span class="line"><span>3168c6e6|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>3467f99e|REGISTER|ACTIVE|f3dd2115864bccec…</span></span>
+<span class="line"><span>367bf296|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>73e21321|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>89377dcc|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>b1fab473|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>c21d4e14|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>c5202822|BACKOFFICE|ACTIVE|—</span></span>
+<span class="line"><span>cd4f794e|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>d8851134|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>e6f91545|WAITER_TERMINAL|ACTIVE|—</span></span>
+<span class="line"><span>f06e0dce|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>f249d50e|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span>f42e3aa2|REGISTER|ACTIVE|—</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>$ serveur : devices.public_key</span></span>
+<span class="line"><span>c5202822|Back-office (serveur)|ACTIVE|—</span></span>
+<span class="line"><span>f249d50e|Caisse-Android|ACTIVE|—</span></span>
+<span class="line"><span>3168c6e6|Caisse-Android-2|ACTIVE|ca84f706bd492ac4…</span></span>
+<span class="line"><span>1498cd2c|Caisse Demo|ACTIVE|—</span></span>
+<span class="line"><span>367bf296|Caisse iPhone|ACTIVE|—</span></span>
+<span class="line"><span>f06e0dce|Caisse iPhone 2|ACTIVE|—</span></span>
+<span class="line"><span>f42e3aa2|Caisse principale|ACTIVE|—</span></span>
+<span class="line"><span>d8851134|Caisse Stock Test|ACTIVE|—</span></span>
+<span class="line"><span>19daae44|Ecran-cuisine|ACTIVE|—</span></span>
+<span class="line"><span>b1fab473|Injecteur Catalogue|ACTIVE|—</span></span>
+<span class="line"><span>89377dcc|iPhone caisse|ACTIVE|—</span></span>
+<span class="line"><span>3467f99e|iPhone caisse retours|ACTIVE|f3dd2115864bccec…</span></span>
+<span class="line"><span>18864e4f|Jetable 2.28|REVOKED|da4983954faedada…</span></span>
+<span class="line"><span>73e21321|Pousseur Stock Android|ACTIVE|—</span></span>
+<span class="line"><span>cd4f794e|Preuve API 2.23|ACTIVE|49435f9b9a73f7da…</span></span>
+<span class="line"><span>c21d4e14|Sonde Diagnostic|ACTIVE|—</span></span>
+<span class="line"><span>e6f91545|T√©l√©phone salle|ACTIVE|—</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># Journal du hub Android (client) — Hello v3 signé par sa clé Ed25519, accepté par le hub iPhone qui connaît sa clé publique :</span></span>
+<span class="line"><span>10-30 23:47:15.052 32566 32605 I pos.hub : hub: démarre (rôle=REGISTER, port 45781)</span></span>
+<span class="line"><span>10-30 23:47:15.648 32566 32597 I pos.hub : hub: pair 3467f99e-6ad7-4139-8577-dc74ba562437 (REGISTER) sur 192.168.1.27:62152</span></span>
+<span class="line"><span>10-30 23:47:16.530 32566 32607 I pos.hub : annoncé pos-eef60f24-3168c6e6-c521-4a6f-9ddb-15d502420376</span></span>
+<span class="line"><span>10-30 23:47:16.691 32566 32605 I pos.hub : hub: ÉLECTION (démarrage) → hub = 3467f99e-6ad7-4139-8577-dc74ba562437</span></span>
+<span class="line"><span>10-30 23:47:16.805 32566 32597 I pos.hub : hub: connecté au hub 3467f99e-6ad7-4139-8577-dc74ba562437 (rattrapage annoncé : 0)</span></span>
+<span class="line"><span>10-30 23:47:31.552 32566 32589 I pos.hub : hub: annonce de 3467f99e-6ad7-4139-8577-dc74ba562437 disparue mais connexion vivante : conservé</span></span>
+<span class="line"><span>10-30 23:47:37.659 32566 32588 I pos.hub : hub: pair 3467f99e-6ad7-4139-8577-dc74ba562437 (REGISTER) sur 192.168.1.27:62152</span></span>
+<span class="line"><span>10-30 23:47:59.684 32566 32589 I pos.hub : hub: annonce de 3467f99e-6ad7-4139-8577-dc74ba562437 disparue mais connexion vivante : conservé</span></span>
+<span class="line"><span>3467f99e|ACTIVE|f3dd2115864bccec…</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>== iPhone local_lan_peer après sa connexion et le pull suivant : la clé Android et l&#39;appareil jetable RÉVOQUÉ sont connus (il serait refusé au Hello sans passer par le serveur)</span></span>
+<span class="line"><span>18864e4f|REVOKED|da4983954faedada…</span></span>
+<span class="line"><span>3168c6e6|ACTIVE|ca84f706bd492ac4…</span></span>
+<span class="line"><span>3467f99e|ACTIVE|f3dd2115864bccec…</span></span>
+<span class="line"><span>cd4f794e|ACTIVE|49435f9b9a73f7da…</span></span></code></pre></div></details><details><summary>api-01-cles-publiques-pairs-revocation.txt</summary><div class="language-text vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>== Pairs du magasin (GET /pos/lan-peers) — clés Ed25519 enregistrées par les appareils eux-mêmes après leur pull</span></span>
+<span class="line"><span>   18864e4f Jetable 2.28 · REGISTER · REVOKED · clé da4983954faedada… (64 hex)</span></span>
+<span class="line"><span>   3168c6e6 Caisse-Android-2 · REGISTER · ACTIVE · clé ca84f706bd492ac4… (64 hex)</span></span>
+<span class="line"><span>   3467f99e iPhone caisse · REGISTER · ACTIVE · clé f3dd2115864bccec… (64 hex)</span></span>
+<span class="line"><span>   cd4f794e Preuve API · REGISTER · ACTIVE · clé 49435f9b9a73f7da… (64 hex)</span></span>
+<span class="line"><span>   … + 13 appareils d anciens lots, ACTIVE, sans clé enregistrée (acceptés sur la seule clé LAN tant qu ils ne se resynchronisent pas)</span></span>
+<span class="line"><span>== Enregistrement de la clé de l&#39;appareil « Preuve API » : 422 hex invalide, 204 puis idempotent, 409 pour une autre clé</span></span>
+<span class="line"><span>  PUT /pos/devices/me/public-key {zz} → HTTP 422</span></span>
+<span class="line"><span>  PUT (clé A) → HTTP 204</span></span>
+<span class="line"><span>  PUT (clé A, à nouveau) → HTTP 204 (idempotent)</span></span>
+<span class="line"><span>  PUT (clé B) → HTTP 409 (une autre clé : refusée, ré-appairer pour en changer)</span></span>
+<span class="line"><span>== Révocation d&#39;un appareil jetable → il reste listé en REVOKED (refusé sur le LAN sans passer par le serveur)</span></span>
+<span class="line"><span>  appareil jetable 18864e4f appairé, clé enregistrée</span></span>
+<span class="line"><span>  POST /devices/{id}/revoke (OWNER) → HTTP 204</span></span>
+<span class="line"><span>  lan-peers → 18864e4f Jetable 2.28 · REVOKED · clé da4983954faedada…</span></span>
+<span class="line"><span>  GET /pos/lan-peers avec le jeton du révoqué → HTTP 401 (jeton mort côté serveur)</span></span></code></pre></div></details>`,8)])])}const T=a(r,[["render",t]]);export{b as __pageData,T as default};

@@ -1,0 +1,36 @@
+== Réception directe sans commande chez Mabrouk (RG-SUP-09) : 6 Eau à 0,480
+   Boulangerie Mabrouk · Réception directe sans commande · [('Eau 1,5L', 6)]
+   CMP Eau 1,5L : 0.458 TND
+   Sté Ben Ali · dernier prix 0.45 · tendance None
+   Boulangerie Mabrouk · dernier prix 0.48 · tendance None
+== Bons et réceptions (statuts recalculés par le serveur)
+   PO-PIC-2026-0001 · Sté Ben Ali · PARTIALLY_RECEIVED
+      Eau 1,5L         commandé 24 reçu 18 reliquat 6
+      Thé à la menthe  commandé 12 reçu 12 reliquat 0
+      réception sur la caisse par omar · 2 ligne(s) · 1 écart(s)
+   PO-EPI-2026-0002 · Boulangerie Mabrouk · RECEIVED
+      Croissant        commandé 60 reçu 60 reliquat 0
+      réception sur la caisse par omar · 1 ligne(s) · 0 écart(s)
+      name       | recu | cout |  ecart   
+-----------------+------+------+----------
+ Croissant       |   60 |  350 | 
+ Eau 1,5L        |   18 |  450 | SHORTAGE
+ Eau 1,5L        |    6 |  480 | 
+ Thé à la menthe |   12 |  600 | 
+(4 rows)
+
+      name       |   type    | qte | cout |       appareil        
+-----------------+-----------+-----+------+-----------------------
+ Croissant       | RECEPTION |  60 |  350 | iPhone caisse retours
+ Eau 1,5L        | RECEPTION |  18 |  450 | Caisse-Android-2
+ Thé à la menthe | RECEPTION |  12 |  600 | Caisse-Android-2
+ Eau 1,5L        | RECEPTION |   6 |  480 | Back-office (serveur)
+(4 rows)
+
+      name       | cmp 
+-----------------+-----
+ Croissant       | 350
+ Eau 1,5L        | 458
+ Thé à la menthe | 600
+(3 rows)
+

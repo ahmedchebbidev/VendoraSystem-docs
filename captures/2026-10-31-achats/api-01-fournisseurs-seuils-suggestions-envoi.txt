@@ -1,0 +1,22 @@
+== Fournisseurs (RG-SUP-01/02)
+  sans nom → HTTP 422
+   Sté Ben Ali · paiement 30 j · TND
+   Boulangerie Mabrouk · comptant · TND
+== Produits fournis (RG-SUP-03 : prix d'achat, référence, colisage, un seul préféré)
+   Eau 1,5L · BA-EAU15 · 0.45 TND · colis 6 · préféré
+   Thé à la menthe · BA-THE · 0.6 TND · colis 12 · préféré
+   Croissant · MB-CR · 0.35 TND · colis 10 · préféré
+   Pain maison · MB-PM · 0.3 TND · colis 10 · préféré
+   Eau 1,5L · MB-EAU · 0.48 TND · colis 6 
+== Seuils de stock bas (RG-SUP-07) et alertes du magasin
+   Café express     stock -15.0 / seuil 5.0 · sans fournisseur préféré
+   Croissant        stock -16.0 / seuil 20.0 · Boulangerie Mabrouk
+   Eau 1,5L         stock -2.0 / seuil 10.0 · Sté Ben Ali
+   Thé à la menthe  stock -2.0 / seuil 5.0 · Sté Ben Ali
+== Suggestions (RG-SUP-07 : un brouillon par fournisseur préféré, colisage, jamais envoyé seul)
+   Sté Ben Ali · DRAFT · suggéré · Eau 1,5L × 24, Thé à la menthe × 12 · total 18.0 TND
+   Boulangerie Mabrouk · DRAFT · suggéré · Croissant × 60 · total 21.0 TND
+   à affecter : ['Café express']
+== Envoi des brouillons (RG-SUP-06/08 : numéro, PDF, email si adresse)
+   PO-EPI-2026-0002 · Boulangerie Mabrouk · SENT · email : aucun (PDF à remettre)
+  PurchaseOrderSent diffusés au magasin : 2

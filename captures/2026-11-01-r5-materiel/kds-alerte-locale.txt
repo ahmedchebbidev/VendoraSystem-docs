@@ -1,0 +1,1 @@
+local_print_alert (écran cuisine) : host=127.0.0.1, postes Cuisine chaude / Bar, OFFLINE, 22 bons, alerte reçue 09:09:38, rétablie 09:23:04 (KitchenTicketPrintRecovered relayé par le hub local)

@@ -1,0 +1,16 @@
+== Pairs du magasin (GET /pos/lan-peers) — clés Ed25519 enregistrées par les appareils eux-mêmes après leur pull
+   18864e4f Jetable 2.28 · REGISTER · REVOKED · clé da4983954faedada… (64 hex)
+   3168c6e6 Caisse-Android-2 · REGISTER · ACTIVE · clé ca84f706bd492ac4… (64 hex)
+   3467f99e iPhone caisse · REGISTER · ACTIVE · clé f3dd2115864bccec… (64 hex)
+   cd4f794e Preuve API · REGISTER · ACTIVE · clé 49435f9b9a73f7da… (64 hex)
+   … + 13 appareils d anciens lots, ACTIVE, sans clé enregistrée (acceptés sur la seule clé LAN tant qu ils ne se resynchronisent pas)
+== Enregistrement de la clé de l'appareil « Preuve API » : 422 hex invalide, 204 puis idempotent, 409 pour une autre clé
+  PUT /pos/devices/me/public-key {zz} → HTTP 422
+  PUT (clé A) → HTTP 204
+  PUT (clé A, à nouveau) → HTTP 204 (idempotent)
+  PUT (clé B) → HTTP 409 (une autre clé : refusée, ré-appairer pour en changer)
+== Révocation d'un appareil jetable → il reste listé en REVOKED (refusé sur le LAN sans passer par le serveur)
+  appareil jetable 18864e4f appairé, clé enregistrée
+  POST /devices/{id}/revoke (OWNER) → HTTP 204
+  lan-peers → 18864e4f Jetable 2.28 · REVOKED · clé da4983954faedada…
+  GET /pos/lan-peers avec le jeton du révoqué → HTTP 401 (jeton mort côté serveur)

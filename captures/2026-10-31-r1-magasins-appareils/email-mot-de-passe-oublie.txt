@@ -1,0 +1,8 @@
+Vendora — choisissez un nouveau mot de passe
+Bonjour omar,
+
+Vous avez demandé à changer le mot de passe de votre back-office Vendora. Choisissez-en un nouveau avec ce lien (valable 24 heures, une seule fois) :
+http://localhost:4200/reinitialiser/<jeton>
+
+Si vous n'êtes pas à l'origine de cette demande, ignorez ce message : votre mot de passe actuel reste valable.
+L'équipe Vendora

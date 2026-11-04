@@ -1,0 +1,40 @@
+{
+    "status": "OK",
+    "trainingDevices": [],
+    "trainingSales": 0,
+    "sealedSales": 2,
+    "sealAnomalies": [],
+    "devices": [
+        {
+            "deviceId": "1498cd2c-dac0-4a21-a0c5-d97a0ac2105d",
+            "lastFiscalSeq": 2,
+            "sealedSales": 2,
+            "anomalies": 0
+        }
+    ],
+    "closures": [
+        {
+            "periodType": "DAILY",
+            "count": 0,
+            "chainOk": true,
+            "perpetualOk": true,
+            "lastPerpetual": null
+        },
+        {
+            "periodType": "MONTHLY",
+            "count": 0,
+            "chainOk": true,
+            "perpetualOk": true,
+            "lastPerpetual": null
+        },
+        {
+            "periodType": "ANNUAL",
+            "count": 0,
+            "chainOk": true,
+            "perpetualOk": true,
+            "lastPerpetual": null
+        }
+    ],
+    "recentEvents": [],
+    "zanomalies": 0
+}

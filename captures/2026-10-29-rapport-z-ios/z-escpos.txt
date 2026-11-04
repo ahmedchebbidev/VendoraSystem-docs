@@ -1,0 +1,34 @@
+POS
+------------------------------------------------
+RAPPORT Z No 2
+DUPLICATA
+Session 2 - caisse DEMO01-c
+Ouverture : 29/10/2026 12:10
+Cloture   : 29/10/2026 12:10
+------------------------------------------------
+Ventes                                         1
+CA TTC TND        16,000
+Annulations (0)                            0,000
+Retours (0)                                0,000
+------------------------------------------------
+CA par mode de paiement
+  Especes                                 16,000
+------------------------------------------------
+TVA par taux
+  7% (HT 1,121)                            0,079
+  19% (HT 12,437)                          2,363
+------------------------------------------------
+Especes
+  Fond de caisse                         100,000
+  Theorique                              116,000
+  Compte                                 115,500
+ECART                                     -0,500
+  Motif : Erreur de rendu monnaie
+------------------------------------------------
+Empreinte SHA-256 :
+5d678e8cf1b9045713643451853c0fca06a0e7364d861b91
+cbafc5aea3f227e0
+Z precedent :
+aadd196a6aecc39da0c702e7c82de6c1956720e110d2fd67
+963f8f158f2dcbb7
+VB

@@ -1,0 +1,25 @@
+== Magasins du tenant
+  eef60f24-1445-4452-93b1-a02bbf1b0edb Épicerie Omar Centre
+== GET auth-policy (avant)
+{"policy":{"storeId":"eef60f24-1445-4452-93b1-a02bbf1b0edb","version":0,"inactivityTimeoutSeconds":300,"inactivityTimeoutMillis":300000},"canEdit":true}
+== PUT auth-policy (OWNER) version 0 → délai 60 s
+{"policy":{"storeId":"eef60f24-1445-4452-93b1-a02bbf1b0edb","version":1,"inactivityTimeoutSeconds":60,"inactivityTimeoutMillis":60000},"canEdit":true}
+== PUT périmé → 409 ; 10 s → 422
+409
+{"error":"Délai d'inactivité entre 30 s et 4 h"} HTTP 422
+== Cache d'auth du device de preuve API (jeton d'appareil)
+  omar OWNER hash pbkdf2-sha256$1000… updatedAt 1793288461935
+  Sami CASHIER hash pbkdf2-sha256$1000… updatedAt 1793289091783
+-- même URL avec le JWT (pas un appareil) :
+403
+-- cache d'un AUTRE appareil (Caisse-Android-2) avec ce jeton :
+403
+
+
+== Après les PIN faux saisis sur les caisses (Android puis iOS : « 0000 »), poussés à la sync
+-- GET /audit-log?entityType=USER_PIN&entityId=49d29424-848f-41f5-acae-938612d679ce
+  FAILED | {"userId": "49d29424-848f-41f5-acae-938612d679ce", "deviceId": "3467f99e-6ad7-4139-8577-dc74ba562437", "failures": 1, "remaining": 4}
+  FAILED | {"userId": "49d29424-848f-41f5-acae-938612d679ce", "deviceId": "3168c6e6-c521-4a6f-9ddb-15d502420376", "failures": 1, "remaining": 4}
+  total 2
+-- GET /audit-log?entityType=STORE_AUTH_POLICY&entityId=eef60f24-1445-4452-93b1-a02bbf1b0edb
+  PUBLISHED | {"storeId": "eef60f24-1445-4452-93b1-a02bbf1b0edb", "version": 1, "inactivityTimeoutMillis": 60000, "inactivityTimeoutSeconds": 60}

@@ -1,0 +1,26 @@
+POST /api/v1/sync/push (appareil de test « Caisse de test R6 (API) », sans clé enregistrée : lot non signé accepté)
+{
+ "accepted": [
+  "74826e94-135b-4ac1-a6aa-227d5caed505"
+ ],
+ "alreadyKnown": [],
+ "gapDetected": null,
+ "rejected": [
+  {
+   "eventId": "dbecc91e-330a-46d3-9b63-19bc4a2e2320",
+   "code": "INVALID_PAYLOAD",
+   "message": "Contenu de CartLinesRemoved illisible (objet JSON attendu)"
+  }
+ ]
+}
+
+GET /api/v1/stores/{magasin}/sync/dead-letter
+[
+ {
+  "type": "CartLinesRemoved",
+  "deviceName": "Caisse de test R6 (API)",
+  "code": "INVALID_PAYLOAD",
+  "label": "contenu illisible",
+  "message": "Contenu de CartLinesRemoved illisible (objet JSON attendu)"
+ }
+]

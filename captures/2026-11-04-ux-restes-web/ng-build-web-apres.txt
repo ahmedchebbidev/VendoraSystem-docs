@@ -1,0 +1,28 @@
+Initial chunk files | Names           |  Raw size | Estimated transfer size
+main-AA7QLYZ2.js    | main            | 309.09 kB |                84.11 kB
+styles-NWZ6NW4E.css | styles          |  52.36 kB |                 8.13 kB
+
+                    | Initial total   | 361.46 kB |                92.24 kB
+
+Lazy chunk files    | Names           |  Raw size | Estimated transfer size
+chunk-DVcosycK.js   | ar              | 222.85 kB |                54.05 kB
+chunk-DKaR3jEq.js   | en              | 176.25 kB |                48.15 kB
+chunk-Ds5sW4K_.js   | -               |  54.51 kB |                11.12 kB
+chunk-Biks9Xde.js   | appearance      |  48.97 kB |                11.81 kB
+chunk-DJ67yZWQ.js   | customers       |  32.91 kB |                 8.65 kB
+chunk-DMA1KUM-.js   | shell           |  31.68 kB |                10.28 kB
+chunk-DwcGwbJ1.js   | fraud           |  27.77 kB |                 8.10 kB
+chunk-DMLp08bH.js   | dashboard       |  27.32 kB |                 7.58 kB
+chunk-B6nwZS0g.js   | purchase-orders |  26.67 kB |                 7.22 kB
+chunk-YCnb6-1q.js   | layout-editor   |  25.92 kB |                 7.20 kB
+chunk-CkEAlR22.js   | team            |  25.91 kB |                 6.93 kB
+chunk-CfgPIsJV.js   | transfers       |  25.14 kB |                 6.72 kB
+chunk-evXVgNAd.js   | supplier-debts  |  24.39 kB |                 6.49 kB
+chunk-DR_CxW-c.js   | inventory       |  24.07 kB |                 6.77 kB
+chunk-CSRtEBAc.js   | orders          |  22.64 kB |                 6.75 kB
+...and 82 more lazy chunks files. Use "--verbose" to show all the files.
+
+Application bundle generation complete. [5.241 seconds] - 2026-11-04T17:16:32.930Z
+
+Output location: /Users/ahmedchebbi/Documents/POS/.claude/worktrees/agent-a63c7e49190af72ca/web/dist/pos-backoffice
+

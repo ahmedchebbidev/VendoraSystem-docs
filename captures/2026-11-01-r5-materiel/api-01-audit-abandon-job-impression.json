@@ -1,0 +1,26 @@
+[
+ {
+  "entityType": "PRINT_JOB",
+  "entityId": "cc86585a-e677-4fab-a965-ce45b9a9b4f4",
+  "action": "ABANDONED",
+  "userId": "49d29424-848f-41f5-acae-938612d679ce",
+  "userName": "omar",
+  "occurredAt": 1793520796501,
+  "before": null,
+  "after": {
+   "host": "127.0.0.1",
+   "kind": "RECEIPT",
+   "port": 9102,
+   "jobId": "cc86585a-e677-4fab-a965-ce45b9a9b4f4",
+   "label": null,
+   "reason": "Ancien bon du bar deja servi",
+   "attempts": 5,
+   "deviceId": "3168c6e6-c521-4a6f-9ddb-15d502420376",
+   "lastError": "Connection refused",
+   "abandonedAt": 1793520676038,
+   "abandonedByUserId": "49d29424-848f-41f5-acae-938612d679ce"
+  },
+  "eventId": "5daf406a-9d26-425d-91b4-ef7f1072a126",
+  "id": 170
+ }
+]

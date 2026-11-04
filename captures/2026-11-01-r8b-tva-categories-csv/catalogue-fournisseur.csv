@@ -1,0 +1,12 @@
+id;name;category;barcode;salePrice;purchasePrice;taxRate;trackStock;active
+1bd42057-0ae5-41fb-96af-636f606ab7d6;Café express;Boissons;6190000000011;1,500;;19;oui;oui
+74cbbfc0-2310-4a16-a70a-b22c55d97d8a;Croissant;Viennoiseries;6190000000035;0,800;;7;oui;oui
+e9cf4f83-63d4-4bc4-904e-6c4829f178d0;Eau 1,5L;Boissons;6191234567890;1,400;;19;oui;oui
+50b4c374-f743-4ef0-bf24-94c99a919e5f;Fromage à la coupe (kg);;2400789;28,000;;7;non;oui
+d1bdc494-9c48-4ca9-853d-b52648b639e4;Pain maison;;2000000000015;0,800;;7;non;oui
+43533d58-9076-45f2-99b8-7906fd26e60c;Pommes vrac (créé en EUR par erreur);;2100123;32,00;;0;non;non
+f8311e35-d47d-4fa8-a861-b597b6e8cafd;Pommes vrac (kg);;2100456;3,200;;0;non;oui
+e874d525-f3e4-4e24-abd8-eac6cde8535e;Thé à la menthe;Boissons;6190000000028;1,300;;19;oui;oui
+;Thon à l'huile 160 g;Épicerie > Conserves;;3,950;2,900;7;oui;oui
+;Pois chiches 400 g;Épicerie > Conserves;;2,200;;7;oui;oui
+;Vin rouge 75 cl;Boissons;;25,000;;20;oui;oui

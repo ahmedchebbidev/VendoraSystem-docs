@@ -1,0 +1,8 @@
+== Fiches : email de Leila (consentement EMAIL) et de Karim (sans consentement)
+  Leila : leila.benali@exemple.tn
+  consentements Leila : [('EMAIL', True, 'BACKOFFICE'), ('SMS', True, 'BACKOFFICE')]
+  Karim : karim.haddad@exemple.tn · consentements []
+== QR client signé (RG-CUST-04 b)
+  QR de Leila : pos://c/1ee17240-d5b0-4f51-aa95-dce190a50563.Rt_Z_n2h_i7ZdHyuydKi5w · clé v1
+  CustomerQrKeyIssued diffusé : 1 événement(s)
+  clé en base : version 1, 256 bits

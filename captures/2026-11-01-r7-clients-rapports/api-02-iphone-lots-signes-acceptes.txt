@@ -1,0 +1,5 @@
+be89edfb-904a-4624-a3cd-71936c1d58a4|9|SaleCompleted|MreiLudu458JYtB4
+be89edfb-904a-4624-a3cd-71936c1d58a4|12|SaleCustomerAttached|MreiLudu458JYtB4
+e6a4e5-1-1|Leila Ben Ali
+CUSTOMER_ATTACHED|de5823-4-6
+CUSTOMER_ATTACHED|e6a4e5-1-1

@@ -1,0 +1,74 @@
+# Annuaire des pairs (local_lan_peer) relu après le pull — Android puis iPhone — lot 2.28, 30/10/2026
+# Les deux appareils connaissent la clé publique de l'autre : le Hello v3 et chaque enveloppe sont vérifiés contre elle.
+
+$ sqlite3 (Android) select device_id, role, status, substr(public_key,1,16) from local_lan_peer
+1498cd2c|REGISTER|ACTIVE|—
+19daae44|KDS|ACTIVE|—
+3168c6e6|REGISTER|ACTIVE|ca84f706bd492ac4…
+3467f99e|REGISTER|ACTIVE|f3dd2115864bccec…
+367bf296|REGISTER|ACTIVE|—
+73e21321|REGISTER|ACTIVE|—
+89377dcc|REGISTER|ACTIVE|—
+b1fab473|REGISTER|ACTIVE|—
+c21d4e14|REGISTER|ACTIVE|—
+c5202822|BACKOFFICE|ACTIVE|—
+cd4f794e|REGISTER|ACTIVE|—
+d8851134|REGISTER|ACTIVE|—
+e6f91545|WAITER_TERMINAL|ACTIVE|—
+f06e0dce|REGISTER|ACTIVE|—
+f249d50e|REGISTER|ACTIVE|—
+f42e3aa2|REGISTER|ACTIVE|—
+
+$ sqlite3 (iPhone) idem
+1498cd2c|REGISTER|ACTIVE|—
+19daae44|KDS|ACTIVE|—
+3168c6e6|REGISTER|ACTIVE|—
+3467f99e|REGISTER|ACTIVE|f3dd2115864bccec…
+367bf296|REGISTER|ACTIVE|—
+73e21321|REGISTER|ACTIVE|—
+89377dcc|REGISTER|ACTIVE|—
+b1fab473|REGISTER|ACTIVE|—
+c21d4e14|REGISTER|ACTIVE|—
+c5202822|BACKOFFICE|ACTIVE|—
+cd4f794e|REGISTER|ACTIVE|—
+d8851134|REGISTER|ACTIVE|—
+e6f91545|WAITER_TERMINAL|ACTIVE|—
+f06e0dce|REGISTER|ACTIVE|—
+f249d50e|REGISTER|ACTIVE|—
+f42e3aa2|REGISTER|ACTIVE|—
+
+$ serveur : devices.public_key
+c5202822|Back-office (serveur)|ACTIVE|—
+f249d50e|Caisse-Android|ACTIVE|—
+3168c6e6|Caisse-Android-2|ACTIVE|ca84f706bd492ac4…
+1498cd2c|Caisse Demo|ACTIVE|—
+367bf296|Caisse iPhone|ACTIVE|—
+f06e0dce|Caisse iPhone 2|ACTIVE|—
+f42e3aa2|Caisse principale|ACTIVE|—
+d8851134|Caisse Stock Test|ACTIVE|—
+19daae44|Ecran-cuisine|ACTIVE|—
+b1fab473|Injecteur Catalogue|ACTIVE|—
+89377dcc|iPhone caisse|ACTIVE|—
+3467f99e|iPhone caisse retours|ACTIVE|f3dd2115864bccec…
+18864e4f|Jetable 2.28|REVOKED|da4983954faedada…
+73e21321|Pousseur Stock Android|ACTIVE|—
+cd4f794e|Preuve API 2.23|ACTIVE|49435f9b9a73f7da…
+c21d4e14|Sonde Diagnostic|ACTIVE|—
+e6f91545|T√©l√©phone salle|ACTIVE|—
+
+# Journal du hub Android (client) — Hello v3 signé par sa clé Ed25519, accepté par le hub iPhone qui connaît sa clé publique :
+10-30 23:47:15.052 32566 32605 I pos.hub : hub: démarre (rôle=REGISTER, port 45781)
+10-30 23:47:15.648 32566 32597 I pos.hub : hub: pair 3467f99e-6ad7-4139-8577-dc74ba562437 (REGISTER) sur 192.168.1.27:62152
+10-30 23:47:16.530 32566 32607 I pos.hub : annoncé pos-eef60f24-3168c6e6-c521-4a6f-9ddb-15d502420376
+10-30 23:47:16.691 32566 32605 I pos.hub : hub: ÉLECTION (démarrage) → hub = 3467f99e-6ad7-4139-8577-dc74ba562437
+10-30 23:47:16.805 32566 32597 I pos.hub : hub: connecté au hub 3467f99e-6ad7-4139-8577-dc74ba562437 (rattrapage annoncé : 0)
+10-30 23:47:31.552 32566 32589 I pos.hub : hub: annonce de 3467f99e-6ad7-4139-8577-dc74ba562437 disparue mais connexion vivante : conservé
+10-30 23:47:37.659 32566 32588 I pos.hub : hub: pair 3467f99e-6ad7-4139-8577-dc74ba562437 (REGISTER) sur 192.168.1.27:62152
+10-30 23:47:59.684 32566 32589 I pos.hub : hub: annonce de 3467f99e-6ad7-4139-8577-dc74ba562437 disparue mais connexion vivante : conservé
+3467f99e|ACTIVE|f3dd2115864bccec…
+
+== iPhone local_lan_peer après sa connexion et le pull suivant : la clé Android et l'appareil jetable RÉVOQUÉ sont connus (il serait refusé au Hello sans passer par le serveur)
+18864e4f|REVOKED|da4983954faedada…
+3168c6e6|ACTIVE|ca84f706bd492ac4…
+3467f99e|ACTIVE|f3dd2115864bccec…
+cd4f794e|ACTIVE|49435f9b9a73f7da…

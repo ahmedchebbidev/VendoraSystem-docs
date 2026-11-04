@@ -1,0 +1,30 @@
+De 127.0.0.1
+
+[LOGO]
+Epicerie Omar Centre
+1 rue de la Demo, Tunis
+Tel : 00 000 000
+SARL Epicerie Demo
+MF : 0000000/X/X/000
+------------------------------------------------
+RAPPORT X No 1
+LECTURE INTERMEDIAIRE
+NE VAUT PAS CLOTURE
+Session 4 - caisse 3168c6e6
+Ouverture : 31/10/2026 18:15
+Edition   : 01/11/2026 09:08
+------------------------------------------------
+Ventes                                         3
+CA TTC TND        12,600
+------------------------------------------------
+CA par mode de paiement
+  Especes                                 10,200
+  Cheque                                   2,400
+------------------------------------------------
+TVA par taux
+  0% (HT 2,400)                            0,000
+  7% (HT 9,533)                            0,667
+------------------------------------------------
+Especes
+  Fond de caisse                          20,000
+THEORIQUE                                 30,200

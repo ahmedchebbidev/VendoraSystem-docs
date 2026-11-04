@@ -1,0 +1,26 @@
+Objet : [Essai] Récap du 01/11/2026 — Tous les magasins
+À : gerant@exemple.tn, compta@exemple.tn
+
+Récapitulatif du 01/11/2026 — Tous les magasins
+Données à jour à 01/11/2026 14:59
+
+CA : 26,596 TND (-68,8 % vs hier, — vs semaine dernière)
+Tickets : 7 (hier 20)
+Panier moyen : 3,799 TND
+Marge : 50,5 % (lignes au coût connu)
+
+Top produits :
+  1. Fromage à la coupe (kg) — 14,000 TND
+  2. Pommes vrac (kg) — 8,896 TND
+  3. Croissant — 2,400 TND
+  4. Thé à la menthe — 1,300 TND
+
+Écarts de caisse du jour : aucun
+Alertes anti-fraude ouvertes : 5
+  omar : 6 vente(s) hors des heures d'ouverture le 01/11
+  omar : 5 remises le 31/10 (seuil 3/jour)
+  omar : 5 vente(s) hors des heures d'ouverture le 31/10
+  Sami : 3 vente(s) hors des heures d'ouverture le 31/10
+  omar : 10,27 % du CA remisé le 31/10 (seuil 10,00 %)
+
+Détail au back-office : Tableau de bord, Rapports de ventes.
