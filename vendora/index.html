@@ -93,7 +93,7 @@
       <div class="grid grid-3">
         <div class="vd-card padded feature-card"><div class="icon-tile"><svg class="ic s24" aria-hidden="true"><use href="#i-scan"/></svg></div><h3>Vente sans attente</h3><p>Recherche instantanée sur des dizaines de milliers de produits, scan douchette, caméra ou étiquette de balance, produits au poids, tailles et couleurs, boutons rapides. Espèces avec le rendu en très grand, carte, titre-restaurant, ardoise, pourboire, paiement scindé.</p></div>
         <div class="vd-card padded feature-card"><div class="icon-tile"><svg class="ic s24" aria-hidden="true"><use href="#i-cloud-off"/></svg></div><h3>Même sans internet</h3><p>Coupure de réseau ? Vous continuez d'encaisser. Tout se synchronise dès le retour de la connexion, sans perte ni doublon.</p></div>
-        <div class="vd-card padded feature-card"><div class="icon-tile"><svg class="ic s24" aria-hidden="true"><use href="#i-utensils"/></svg></div><h3>Salle et cuisine</h3><p>Plan de salle, additions par table, envoi en cuisine par poste, écran cuisine, partage et encaissement à la table. Fiches techniques des plats et food-cost réel contre théorique.</p></div>
+        <div class="vd-card padded feature-card"><div class="icon-tile"><svg class="ic s24" aria-hidden="true"><use href="#i-utensils"/></svg></div><h3>Salle et cuisine</h3><p>Plan de salle, additions par table, envoi en cuisine par poste, écran cuisine, partage et encaissement à la table. Fiches techniques des plats et food-cost réel contre théorique. Borne de commande en libre-service sur tablette : vos clients commandent seuls et paient au comptoir ou sur le terminal.</p></div>
         <div class="vd-card padded feature-card"><div class="icon-tile"><svg class="ic s24" aria-hidden="true"><use href="#i-box"/></svg></div><h3>Stock et achats</h3><p>Stock en temps réel, alertes de stock bas et de péremption, lots et dates limites, inventaires sur mobile, fournisseurs, bons de commande et réceptions sur le téléphone.</p></div>
         <div class="vd-card padded feature-card"><div class="icon-tile"><svg class="ic s24" aria-hidden="true"><use href="#i-star"/></svg></div><h3>Clients fidèles</h3><p>Fiches clients, fidélité par points et paliers, ardoise, reçu digital, remises encadrées.</p></div>
         <div class="vd-card padded feature-card"><div class="icon-tile"><svg class="ic s24" aria-hidden="true"><use href="#i-shield"/></svg></div><h3>Rien ne se perd</h3><p>Clôture Z numérotée et scellée, journal non modifiable, approbations par PIN responsable, alertes anti-fraude.</p></div>
@@ -287,8 +287,9 @@
         <h3>${esc(p.name)}</h3>${price}<ul>${items.join('')}</ul>
         <a class="btn ${featured ? 'btn-primary' : ''}" href="#devis" data-plan="${esc(p.name)}">${p.customPricing ? 'Demander un devis' : `Choisir ${esc(p.name)}`}</a></article>`;
     }).join('');
-    $('plans-note').textContent = `${c.trialDays ? `Essai gratuit de ${c.trialDays} jours, sans carte bancaire. ` : ''}Prix hors taxes, facturés en euros${state.currency === 'TND' ? ` — montants en dinars indicatifs (1 € ≈ ${EUR_TO_TND.toLocaleString('fr-FR')} DT)` : ''}.`;
-    if (c.trialDays) $('trial-proof').textContent = `Essai gratuit ${c.trialDays} jours`;
+    const trialLabel = c.trialDays >= 60 && c.trialDays % 30 === 0 ? `${c.trialDays / 30} mois (${c.trialDays} jours)` : `${c.trialDays} jours`;
+    $('plans-note').textContent = `${c.trialDays ? `Essai gratuit de ${trialLabel}, sans carte bancaire ni engagement. ` : ''}Prix hors taxes, facturés en euros${state.currency === 'TND' ? ` — montants en dinars indicatifs (1 € ≈ ${EUR_TO_TND.toLocaleString('fr-FR')} DT)` : ''}.`;
+    if (c.trialDays) $('trial-proof').textContent = `Essai gratuit ${c.trialDays >= 60 && c.trialDays % 30 === 0 ? `${c.trialDays / 30} mois` : `${c.trialDays} jours`}`;
     const select = $('f-plan');
     select.innerHTML = '<option>Je ne sais pas encore</option>' + c.plans.map((p) => `<option>${esc(p.name)}</option>`).join('');
   };
