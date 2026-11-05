@@ -1,7 +1,7 @@
 {
   "currency": "EUR",
   "yearlyMonthsPaid": 10,
-  "trialDays": 14,
+  "trialDays": 60,
   "plans": [
     {
       "code": "ESSENTIEL",
