@@ -1,0 +1,22 @@
+À : gerant.bistrot@vendora.test
+Objet : [Essai] Récapitulatif du 09/11/2026 — Le Petit Bistrot (démo)
+
+Récapitulatif du 09/11/2026 — Le Petit Bistrot (démo)
+Données à jour à 10/11/2026 00:05
+
+CA : 115,50 EUR (-58,2 % vs hier, — vs semaine dernière)
+Tickets : 6 (hier 13)
+Panier moyen : 19,25 EUR
+Marge : 76,6 % (lignes au coût connu)
+
+Top produits :
+  1. Burger du bistrot — 115,50 EUR
+
+Écarts de caisse du jour : aucun
+Alertes anti-fraude ouvertes : 0
+
+Food-cost du mois (plats à fiche technique) : théorique 23,4 %, réel 28,83 %
+Plats en dérive (au-delà de 10 %) : 1
+  Burger du bistrot : +23,19 % (coût réel 30,27 EUR pour 24,57 EUR théorique)
+
+Détail au back-office : Tableau de bord, Rapports de ventes, Food-cost.
