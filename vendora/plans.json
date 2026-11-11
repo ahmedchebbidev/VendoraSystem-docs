@@ -10,7 +10,12 @@
       "extraDeviceCents": 900,
       "maxStores": 1,
       "maxDevices": 1,
-      "modules": [],
+      "modules": [
+        {
+          "code": "MCP_ACCESS",
+          "label": "Assistant IA"
+        }
+      ],
       "customPricing": false
     },
     {
@@ -40,6 +45,10 @@
         {
           "code": "FRAUD",
           "label": "Anti-fraude et alertes"
+        },
+        {
+          "code": "MCP_ACCESS",
+          "label": "Assistant IA"
         }
       ],
       "customPricing": false
@@ -83,6 +92,10 @@
         {
           "code": "TIPS",
           "label": "Pourboires"
+        },
+        {
+          "code": "MCP_ACCESS",
+          "label": "Assistant IA"
         }
       ],
       "customPricing": false
@@ -134,6 +147,10 @@
         {
           "code": "MULTI_STORE",
           "label": "Plusieurs magasins"
+        },
+        {
+          "code": "MCP_ACCESS",
+          "label": "Assistant IA"
         }
       ],
       "customPricing": true
