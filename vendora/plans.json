@@ -1,0 +1,160 @@
+{
+  "currency": "EUR",
+  "yearlyMonthsPaid": 10,
+  "trialDays": 60,
+  "plans": [
+    {
+      "code": "ESSENTIEL",
+      "name": "Essentiel",
+      "monthlyPriceCents": 2900,
+      "extraDeviceCents": 900,
+      "maxStores": 1,
+      "maxDevices": 1,
+      "modules": [
+        {
+          "code": "MCP_ACCESS",
+          "label": "Assistant IA"
+        }
+      ],
+      "customPricing": false
+    },
+    {
+      "code": "COMMERCE",
+      "name": "Commerce",
+      "monthlyPriceCents": 4900,
+      "extraDeviceCents": 900,
+      "maxStores": 1,
+      "maxDevices": 3,
+      "modules": [
+        {
+          "code": "LOYALTY",
+          "label": "Fidélité"
+        },
+        {
+          "code": "CREDIT",
+          "label": "Ardoise"
+        },
+        {
+          "code": "SUPPLIERS",
+          "label": "Fournisseurs et achats"
+        },
+        {
+          "code": "INVENTORY_COUNTS",
+          "label": "Inventaires et pertes"
+        },
+        {
+          "code": "FRAUD",
+          "label": "Anti-fraude et alertes"
+        },
+        {
+          "code": "MCP_ACCESS",
+          "label": "Assistant IA"
+        }
+      ],
+      "customPricing": false
+    },
+    {
+      "code": "RESTAURANT",
+      "name": "Restaurant",
+      "monthlyPriceCents": 7900,
+      "extraDeviceCents": 900,
+      "maxStores": 1,
+      "maxDevices": 6,
+      "modules": [
+        {
+          "code": "LOYALTY",
+          "label": "Fidélité"
+        },
+        {
+          "code": "CREDIT",
+          "label": "Ardoise"
+        },
+        {
+          "code": "SUPPLIERS",
+          "label": "Fournisseurs et achats"
+        },
+        {
+          "code": "INVENTORY_COUNTS",
+          "label": "Inventaires et pertes"
+        },
+        {
+          "code": "FRAUD",
+          "label": "Anti-fraude et alertes"
+        },
+        {
+          "code": "TABLES",
+          "label": "Tables et salle"
+        },
+        {
+          "code": "KITCHEN",
+          "label": "Écrans cuisine"
+        },
+        {
+          "code": "TIPS",
+          "label": "Pourboires"
+        },
+        {
+          "code": "MCP_ACCESS",
+          "label": "Assistant IA"
+        }
+      ],
+      "customPricing": false
+    },
+    {
+      "code": "SUR_MESURE",
+      "name": "Sur mesure",
+      "monthlyPriceCents": null,
+      "extraDeviceCents": 900,
+      "maxStores": null,
+      "maxDevices": null,
+      "modules": [
+        {
+          "code": "LOYALTY",
+          "label": "Fidélité"
+        },
+        {
+          "code": "CREDIT",
+          "label": "Ardoise"
+        },
+        {
+          "code": "SUPPLIERS",
+          "label": "Fournisseurs et achats"
+        },
+        {
+          "code": "INVENTORY_COUNTS",
+          "label": "Inventaires et pertes"
+        },
+        {
+          "code": "FRAUD",
+          "label": "Anti-fraude et alertes"
+        },
+        {
+          "code": "TABLES",
+          "label": "Tables et salle"
+        },
+        {
+          "code": "KITCHEN",
+          "label": "Écrans cuisine"
+        },
+        {
+          "code": "TIPS",
+          "label": "Pourboires"
+        },
+        {
+          "code": "WHITE_LABEL",
+          "label": "Marque blanche"
+        },
+        {
+          "code": "MULTI_STORE",
+          "label": "Plusieurs magasins"
+        },
+        {
+          "code": "MCP_ACCESS",
+          "label": "Assistant IA"
+        }
+      ],
+      "customPricing": true
+    }
+  ],
+  "fetchedAt": "2026-11-11"
+}
