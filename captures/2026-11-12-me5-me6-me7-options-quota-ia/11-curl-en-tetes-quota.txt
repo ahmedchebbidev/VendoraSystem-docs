@@ -47,8 +47,21 @@ X-Quota-Remaining: 0
 X-Quota-Reset: 2026-12-01T00:00+01:00
 {"error":"Quota mensuel de 5 000 appels atteint et aucun pack d'appels disponible : les appels reprendront le 01/12/2026. Vendora vend des packs de 10 000 appels (15,000 DT) sans expiration : contactez l'équipe.","code":"QUOTA_EXCEEDED","reason":"NO_PACK","limit":5000,"used":5000,"resetAt":"2026-12-01T00:00+01:00","planCode":"COMMERCE","planName":"Commerce","upgradePlanCode":null,"upgradePlanName":null,"spendCapMinor":null,"currency":"TND"}
 
-# Après la vente d'un pack de 10 000 appels par l'équipe (console) : les appels repassent
+# Après la vente d'un pack de 10 000 appels par l'équipe (console) : les appels repassent.
+# Recapturé le 12/11 après correctif (origin/main 07714fc2) : X-Quota-Remaining = reste du quota (0) + solde de packs.
+# Quota de 5 000 dépassé (5 026 appels du mois), solde de packs 9 974 avant ces deux appels :
+$ curl -i http://localhost:8081/api/v1/catalog/products -H "Authorization: Bearer vd_live_…"
 HTTP/1.1 200 
+X-RateLimit-Limit: 600
+X-RateLimit-Remaining: 599
 X-Quota-Limit: 5000
-X-Quota-Remaining: 0
+X-Quota-Remaining: 9973
+X-Quota-Reset: 2026-12-01T00:00+01:00
+
+# Appel suivant : le solde de packs se décompte (9 973 → 9 972)
+HTTP/1.1 200 
+X-RateLimit-Limit: 600
+X-RateLimit-Remaining: 598
+X-Quota-Limit: 5000
+X-Quota-Remaining: 9972
 X-Quota-Reset: 2026-12-01T00:00+01:00
