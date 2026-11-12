@@ -21,8 +21,8 @@
     {
       "code": "COMMERCE",
       "name": "Commerce",
-      "monthlyPriceCents": 4900,
-      "extraDeviceCents": 900,
+      "monthlyPriceCents": 2900,
+      "extraDeviceCents": 700,
       "maxStores": 1,
       "maxDevices": 3,
       "modules": [
@@ -56,8 +56,8 @@
     {
       "code": "RESTAURANT",
       "name": "Restaurant",
-      "monthlyPriceCents": 7900,
-      "extraDeviceCents": 900,
+      "monthlyPriceCents": 5900,
+      "extraDeviceCents": 700,
       "maxStores": 1,
       "maxDevices": 6,
       "modules": [
@@ -104,7 +104,7 @@
       "code": "SUR_MESURE",
       "name": "Sur mesure",
       "monthlyPriceCents": null,
-      "extraDeviceCents": 900,
+      "extraDeviceCents": 700,
       "maxStores": null,
       "maxDevices": null,
       "modules": [
@@ -154,7 +154,17 @@
         }
       ],
       "customPricing": true
+    },
+    {
+      "code": "GRATUIT",
+      "name": "Gratuit",
+      "monthlyPriceCents": 0,
+      "extraDeviceCents": 700,
+      "maxStores": 1,
+      "maxDevices": 1,
+      "modules": [],
+      "customPricing": false
     }
   ],
-  "fetchedAt": "2026-11-11"
+  "fetchedAt": "2026-11-12"
 }
