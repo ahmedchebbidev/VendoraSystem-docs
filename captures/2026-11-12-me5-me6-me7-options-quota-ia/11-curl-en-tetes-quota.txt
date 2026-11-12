@@ -1,0 +1,54 @@
+# ME5 — en-têtes X-Quota-* d'un appel de l'API publique (clé standard de « Boutique Lilas (démo) », formule Commerce, 12/11/2026)
+$ curl -i http://localhost:8081/api/v1/catalog/products -H "Authorization: Bearer vd_live_…"
+HTTP/1.1 200 
+X-RateLimit-Limit: 600
+X-RateLimit-Remaining: 588
+X-Quota-Limit: 5000
+X-Quota-Remaining: 4988
+X-Quota-Reset: 2026-12-01T00:00+01:00
+Content-Type: application/json
+
+# Appel d'une clé « Assistant IA » du même commerce (ne compte pas) :
+HTTP/1.1 200 
+# Appel avec une clé invalide (401, ne compte pas) :
+HTTP/1.1 401 
+# Appel suivant de la clé standard : X-Quota-Remaining baisse de 1 seulement
+HTTP/1.1 200 
+X-Quota-Limit: 5000
+X-Quota-Remaining: 4987
+X-Quota-Reset: 2026-12-01T00:00+01:00
+
+# Plafond de dépense de 2 € atteint (quota 5 000 + 2 000 appels au-delà) : l'appel suivant est refusé
+$ curl -i http://localhost:8081/api/v1/stores -H "Authorization: Bearer vd_live_…"
+HTTP/1.1 429 
+X-RateLimit-Limit: 600
+X-RateLimit-Remaining: 598
+X-Quota-Limit: 5000
+X-Quota-Remaining: 0
+X-Quota-Reset: 2026-12-01T00:00+01:00
+Retry-After: 1622831
+Content-Type: application/json;charset=UTF-8
+Content-Length: 496
+
+{"error":"Plafond de dépense de 2,00 € atteint ce mois-ci (quota de 5 000 appels + 2 000 appels au-delà) : les appels reprendront le 01/12/2026. Un propriétaire ou un administrateur peut relever le plafond au back-office Vendora : Réglages › Clés d'API.","code":"QUOTA_EXCEEDED","reason":"SPEND_CAP","limit":5000,"used":7000,"resetAt":"2026-12-01T00:00+01:00","planCode":"COMMERCE","planName":"Commerce","upgradePlanCode":null,"upgradePlanName":null,"spendCapMinor":200,"currency":"EUR"}
+
+# Commerce Gratuit (« Bazar Amel (démo) ») au quota de 1 000 appels : bloqué, « passez en Commerce »
+HTTP/1.1 429 
+X-Quota-Limit: 1000
+X-Quota-Remaining: 0
+X-Quota-Reset: 2026-12-01T00:00+01:00
+Retry-After: 1622770
+{"error":"Quota mensuel de 1 000 appels de la formule Gratuit atteint : les appels reprendront le 01/12/2026. Pour aller au-delà, passez en Commerce (5 000 appels par mois, puis paiement à l'usage).","code":"QUOTA_EXCEEDED","reason":"FREE_PLAN","limit":1000,"used":1000,"resetAt":"2026-12-01T00:00+01:00","planCode":"GRATUIT","planName":"Gratuit","upgradePlanCode":"COMMERCE","upgradePlanName":"Commerce","spendCapMinor":null,"currency":"TND"}
+
+# Commerce en dinars (« Épicerie Jasmin (démo) ») au quota, sans pack d'appels
+HTTP/1.1 429 
+X-Quota-Limit: 5000
+X-Quota-Remaining: 0
+X-Quota-Reset: 2026-12-01T00:00+01:00
+{"error":"Quota mensuel de 5 000 appels atteint et aucun pack d'appels disponible : les appels reprendront le 01/12/2026. Vendora vend des packs de 10 000 appels (15,000 DT) sans expiration : contactez l'équipe.","code":"QUOTA_EXCEEDED","reason":"NO_PACK","limit":5000,"used":5000,"resetAt":"2026-12-01T00:00+01:00","planCode":"COMMERCE","planName":"Commerce","upgradePlanCode":null,"upgradePlanName":null,"spendCapMinor":null,"currency":"TND"}
+
+# Après la vente d'un pack de 10 000 appels par l'équipe (console) : les appels repassent
+HTTP/1.1 200 
+X-Quota-Limit: 5000
+X-Quota-Remaining: 0
+X-Quota-Reset: 2026-12-01T00:00+01:00

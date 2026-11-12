@@ -177,6 +177,58 @@
       </div>
       <div class="plans" id="plans" aria-live="polite"><p class="muted">Chargement des tarifs…</p></div>
       <p class="note" id="plans-note"></p>
+
+      <div class="pricing-part" aria-labelledby="comparer-titre">
+        <h3 class="part-title" id="comparer-titre">Comparer les formules</h3>
+        <p class="part-lead">Ce que chaque formule comprend, pour le pays choisi plus haut.</p>
+        <div class="compare vd-card" tabindex="0" role="region" aria-labelledby="comparer-titre">
+          <table id="compare"><caption class="sr-only">Fonctionnalités incluses dans chaque formule Vendora</caption></table>
+        </div>
+        <p class="scroll-hint" aria-hidden="true">Faites glisser le tableau pour voir toutes les formules <svg class="ic s16"><use href="#i-arrow-r"/></svg></p>
+      </div>
+
+      <div class="pricing-part" aria-labelledby="options-titre">
+        <h3 class="part-title" id="options-titre">Options</h3>
+        <p class="part-lead">À ajouter ou retirer quand vous voulez, au mois, prix hors taxes.</p>
+        <div class="options" id="options"></div>
+      </div>
+
+      <div class="pricing-part" aria-labelledby="api-titre">
+        <h3 class="part-title" id="api-titre">Connecter vos outils (API)</h3>
+        <p class="part-lead">Pour brancher votre comptable, votre site marchand ou un outil maison sur Vendora. Un quota d'appels est inclus chaque mois, à vie.</p>
+        <ul class="api-lines vd-card" id="api-lines"></ul>
+        <p class="note" id="api-note"></p>
+      </div>
+
+      <div class="pricing-part" aria-labelledby="faq-titre">
+        <h3 class="part-title" id="faq-titre">Questions fréquentes</h3>
+        <div class="faq">
+          <details open>
+            <summary>Pourquoi Vendora est-il gratuit ?</summary>
+            <p>Parce qu'une caisse doit d'abord vous aider à vendre. La formule Gratuit suffit pour encaisser, sortir votre clôture et suivre vos ventes, sans limite de durée : <span data-free="maxStores">1</span> magasin, <span data-free="maxDevices">1</span> appareil de vente, jusqu'à <span data-free="maxProducts">300</span> produits et <span data-free="maxUsers">3</span> utilisateurs. Vendora ne prend aucune commission sur vos ventes : nous vivons des formules payantes, choisies par les commerces qui veulent la fidélité, le stock avancé, l'anti-fraude ou la salle et la cuisine.</p>
+          </details>
+          <details>
+            <summary>Que se passe-t-il à la fin de l'essai ?</summary>
+            <p>Pendant l'essai de <span data-trial>2 mois</span>, vous utilisez les fonctions des formules payantes. Si vous ne choisissez pas de formule à la fin, votre commerce passe simplement en Gratuit : rien n'est supprimé. Vos ventes, vos clôtures, vos produits et vos clients restent là ; seules les fonctions payantes se mettent en pause, et reviennent dès que vous choisissez une formule.</p>
+          </details>
+          <details>
+            <summary>J'ai besoin d'une caisse de plus, comment faire ?</summary>
+            <p>Ajoutez un appareil supplémentaire pour <span data-opt="EXTRA_DEVICE">10 DT</span> par mois, même en formule Gratuit. Commerce comprend déjà <span data-plan-lim="COMMERCE:maxDevices">3</span> appareils et Restaurant <span data-plan-lim="RESTAURANT:maxDevices">6</span> : au-delà de deux ou trois appareils en plus, la formule supérieure revient souvent moins cher.</p>
+          </details>
+          <details>
+            <summary>Y a-t-il un engagement ou une commission ?</summary>
+            <p>Non. Aucun engagement : au mois, vous arrêtez quand vous voulez. Aucune commission sur vos ventes, quelle que soit la formule. En annuel, vous payez <span data-paid-months>10</span> mois pour 12.</p>
+          </details>
+          <details>
+            <summary>En Tunisie, suis-je facturé en dinars ?</summary>
+            <p>Oui. Un commerce installé en Tunisie est facturé en dinars, hors taxes, y compris les options et les packs d'appels d'API. Un commerce en France est facturé en euros.</p>
+          </details>
+          <details>
+            <summary>L'Assistant IA est-il obligatoire ?</summary>
+            <p>Non, c'est une option. Avec une formule payante, il est offert pendant 3 mois ; ensuite vous le gardez pour <span data-opt="AI_ASSISTANT">15 DT</span> par mois, ou vous le retirez depuis votre back-office. Il est inclus dans la formule Sur mesure. Vendora fonctionne entièrement sans lui.</p>
+          </details>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -273,6 +325,165 @@
     return cur === 'EUR' ? { monthly: p.monthlyPriceCents, extra: p.extraDeviceCents } : null;
   };
   const limit = (n, one, many) => (n == null ? `${many} illimités` : `${n} ${n > 1 ? many : one}`);
+  const num = (n) => n.toLocaleString('fr-FR');
+
+  /*
+   * Offre hors formules — À ALIGNER SUR LA CONSOLE (catalogue des options, prix validés le 12/11/2026 ; règles d'API
+   * ApiQuotaRules). Le catalogue public (GET /api/v1/public/plans) ne publie pas encore les options : c'est la seule
+   * place à changer sur la page. Montants HT en unités mineures (millimes pour TND, centimes pour EUR) ; pas de prix
+   * dans une devise = option non proposée dans ce pays.
+   * `defaults` = valeurs du modèle économique (§ 2, § 3), affichées seulement quand le catalogue ne donne pas le champ
+   * (null = illimité).
+   */
+  const OFFER = {
+    options: [
+      { code: 'EXTRA_DEVICE', name: 'Appareil supplémentaire', price: { TND: 10000, EUR: 700 }, unit: 'par mois et par appareil', who: 'Toutes les formules, même Gratuit.' },
+      { code: 'KIOSK', name: 'Borne de commande en libre-service', price: { TND: 29000, EUR: 1900 }, unit: 'par mois et par borne', who: 'Formules payantes : vos clients commandent et paient seuls sur une tablette.' },
+      { code: 'E_REPORTING', name: 'E-reporting France', price: { EUR: 500 }, unit: 'par mois', who: 'Transmission de vos ventes aux impôts (obligatoire en France à partir de 2027). Option de la formule Commerce, incluse en Restaurant et Sur mesure.' },
+      { code: 'PRIORITY_SUPPORT', name: 'Support prioritaire soir et week-end', price: { TND: 20000, EUR: 900 }, unit: 'par mois', who: 'Formules payantes.' },
+      { code: 'AI_ASSISTANT', name: 'Assistant IA', price: { TND: 15000, EUR: 700 }, unit: 'par mois après l\'offre', who: 'Posez vos questions sur vos ventes et votre stock en français. Formules payantes, inclus en Sur mesure.', badge: '3 mois offerts' },
+    ],
+    api: { packCalls: 10000, packPrice: { TND: 15000 }, trancheCalls: 1000, tranchePrice: { EUR: 100 }, spendCap: { EUR: 5000 } },
+    defaults: {
+      GRATUIT: { name: 'Gratuit', maxStores: 1, maxDevices: 1, maxProducts: 300, maxUsers: 3, apiMonthlyQuota: 1000 },
+      COMMERCE: { name: 'Commerce', maxStores: 1, maxDevices: 3, maxProducts: null, maxUsers: null, apiMonthlyQuota: 5000 },
+      RESTAURANT: { name: 'Restaurant', maxStores: 1, maxDevices: 6, maxProducts: null, maxUsers: null, apiMonthlyQuota: 10000 },
+      SUR_MESURE: { name: 'Sur mesure', maxStores: null, maxDevices: null, maxProducts: null, maxUsers: null, apiMonthlyQuota: 50000 },
+    },
+  };
+  const CODES = Object.keys(OFFER.defaults);
+  const planOf = (code) => (state.catalog?.plans || []).find((p) => p.code === code);
+  /** Champ d'une formule : catalogue s'il le donne, sinon valeur du modèle économique. */
+  const field = (code, key) => { const p = planOf(code); return p && p[key] !== undefined ? p[key] : OFFER.defaults[code][key]; };
+  /** Prix mensuel d'une option dans la devise du pays ; l'appareil en plus suit le catalogue de la formule Gratuit. */
+  const optionPrice = (code) => {
+    if (code === 'EXTRA_DEVICE') { const g = planOf('GRATUIT'); const pr = g && priceOf(g); if (pr && pr.extra) return pr.extra; }
+    return OFFER.options.find((o) => o.code === code)?.price[currency()] ?? null;
+  };
+
+  /*
+   * Tableau comparatif (modèle économique § 3), sans jargon. Cellule : true = inclus, false = non inclus, texte sinon ;
+   * `lim` = ligne lue dans le catalogue ; `only` = ligne propre à un pays.
+   */
+  const LIM_TEXT = {
+    maxStores: (n) => (n == null ? 'Plusieurs' : String(n)),
+    maxDevices: (n) => (n == null ? 'À la carte' : String(n)),
+    maxProducts: (n) => (n == null ? 'Illimité' : num(n)),
+    maxUsers: (n) => (n == null ? 'Illimité' : String(n)),
+    apiMonthlyQuota: (n) => (n == null ? 'Illimité' : num(n)),
+  };
+  const COMPARE = [
+    { title: 'L\'essentiel', rows: [
+      { label: 'Magasins', lim: 'maxStores' },
+      { label: 'Appareils de vente inclus', hint: 'le back-office sur ordinateur en plus', lim: 'maxDevices' },
+      { label: 'Produits', lim: 'maxProducts' },
+      { label: 'Utilisateurs', lim: 'maxUsers' },
+      { label: 'Engagement, commission sur les ventes', cells: ['Aucun', 'Aucun', 'Aucun', 'Aucun'] },
+    ] },
+    { title: 'Vendre', rows: [
+      { label: 'Vente, encaissement, retours, ticket et reçu par QR code', cells: [true, true, true, true] },
+      { label: 'Fonctionne sans internet', cells: [true, true, true, true] },
+      { label: 'Ouverture et clôture de caisse, rapports scellés', cells: [true, true, true, true] },
+      { label: 'Catalogue, codes-barres, produits au poids, import de fichier', cells: [true, true, true, true] },
+      { label: 'Votre logo, vos couleurs, français, anglais et arabe', cells: [true, true, true, true] },
+    ] },
+    { title: 'Stock et clients', rows: [
+      { label: 'Stock et alertes de stock bas', cells: [true, true, true, true] },
+      { label: 'Inventaire par scan, lots et dates limites, coût moyen', cells: [false, true, true, true] },
+      { label: 'Fiche et historique client', cells: [true, true, true, true] },
+      { label: 'Ardoise (vente à crédit avec plafond, règlements, solde)', cells: [true, true, true, true] },
+      { label: 'Rappels d\'ardoise automatiques, suivi des ardoises ouvertes', cells: [false, true, true, true] },
+      { label: 'Fidélité par points et paliers', cells: [false, true, true, true] },
+      { label: 'Fournisseurs, achats, suggestion de commande', cells: [false, true, true, true] },
+      { label: 'Anti-fraude : écarts de caisse, alertes, journal', cells: [false, true, true, true] },
+    ] },
+    { title: 'Suivre son activité', rows: [
+      { label: 'Rapports', cells: ['Ventes du jour et clôture', 'Complets, récapitulatif quotidien par email', 'Complets, coût matière, pourboires', 'Complets, tous magasins réunis'] },
+      { label: 'Exports pour le comptable', cells: [false, true, true, true] },
+    ] },
+    { title: 'Restaurant et réseau', rows: [
+      { label: 'Plan de salle, écran cuisine, téléphone du serveur, partage d\'addition', cells: [false, false, true, true] },
+      { label: 'Fiches techniques et marge par plat', cells: [false, false, true, true] },
+      { label: 'Plusieurs magasins : catalogue commun, transferts de stock', cells: [false, false, false, true] },
+      { label: 'Votre marque à la place de Vendora', cells: [false, false, false, true] },
+    ] },
+    { title: 'En règle', rows: [
+      { label: 'Clôtures numérotées et scellées, archive de 6 ans', cells: [true, true, true, true] },
+      { label: 'Caisse homologuée en Tunisie', hint: 'dès l\'homologation obtenue', only: 'TN', cells: [false, true, true, true] },
+      { label: 'Transmission des ventes aux impôts (e-reporting 2027)', only: 'FR', cells: [false, 'En option', true, true] },
+      { label: 'Mention « Propulsé par Vendora » sur le ticket', cells: ['Oui', 'Non', 'Non', 'Non'] },
+    ] },
+    { title: 'Accompagnement', rows: [
+      { label: 'Aide', cells: ['Centre d\'aide en ligne', 'Email et WhatsApp', 'Email et WhatsApp, en priorité', 'Un interlocuteur dédié'] },
+      { label: 'Appels d\'API inclus par mois', lim: 'apiMonthlyQuota' },
+      { label: 'Assistant IA', cells: [false, '3 mois offerts', '3 mois offerts', 'Inclus'] },
+    ] },
+  ];
+  const cell = (v) => (v === true
+    ? '<svg class="ic s16 yes" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only">Inclus</span>'
+    : v === false ? '<span class="no" aria-hidden="true">—</span><span class="sr-only">Non inclus</span>' : esc(v));
+
+  /** Prix court d'une formule pour l'en-tête du tableau (même calcul que les cartes). */
+  const shortPrice = (code) => {
+    const p = planOf(code);
+    if (code === 'SUR_MESURE' || p?.customPricing) return 'Sur devis';
+    const pr = p && priceOf(p);
+    if (!pr) return '';
+    const paid = state.catalog.yearlyMonthsPaid || 12;
+    return pr.monthly === 0 ? `${money(0)} pour toujours` : `${money(state.cycle === 'YEARLY' ? Math.round(pr.monthly * paid / 12) : pr.monthly)} HT / mois`;
+  };
+
+  const renderCompare = () => {
+    const head = `<thead><tr><th scope="col" class="cmp-feat"><span class="sr-only">Fonctionnalité</span></th>${CODES.map((code) =>
+      `<th scope="col"><span class="plan-name">${esc(planOf(code)?.name || OFFER.defaults[code].name)}</span><span class="plan-price">${esc(shortPrice(code))}</span></th>`).join('')}</tr></thead>`;
+    const body = COMPARE.map((g) => {
+      const rows = g.rows.filter((r) => !r.only || r.only === state.country).map((r) => {
+        const cells = r.lim ? CODES.map((code) => LIM_TEXT[r.lim](field(code, r.lim))) : r.cells;
+        return `<tr><th scope="row" class="cmp-feat">${esc(r.label)}${r.hint ? `<small>${esc(r.hint)}</small>` : ''}</th>${cells.map((v) => `<td>${cell(v)}</td>`).join('')}</tr>`;
+      }).join('');
+      return `<tbody><tr class="cmp-group"><th scope="colgroup" colspan="${CODES.length + 1}"><span>${esc(g.title)}</span></th></tr>${rows}</tbody>`;
+    }).join('');
+    $('compare').innerHTML = `<caption class="sr-only">Fonctionnalités incluses dans chaque formule Vendora</caption>${head}${body}`;
+  };
+
+  const renderOptions = () => {
+    $('options').innerHTML = OFFER.options.map((o) => {
+      const v = optionPrice(o.code);
+      const price = v == null
+        ? `<p class="opt-price na">${state.country === 'TN' ? 'France seulement' : 'Non proposé dans ce pays'}</p>`
+        : `<p class="opt-price">${money(v)} <small>HT ${esc(o.unit)}</small></p>`;
+      return `<div class="option vd-card padded${v == null ? ' unavailable' : ''}">${o.badge ? `<span class="vd-badge accent">${esc(o.badge)}</span>` : ''}
+        <h4>${esc(o.name)}</h4>${price}<p class="opt-who">${esc(o.who)}</p></div>`;
+    }).join('');
+  };
+
+  const renderApi = () => {
+    const a = OFFER.api;
+    const tn = currency() === 'TND';
+    const beyond = tn
+      ? `puis packs prépayés : ${num(a.packCalls)} appels pour ${money(a.packPrice.TND)}`
+      : `puis ${money(a.tranchePrice.EUR)} les ${num(a.trancheCalls)} appels, plafonné à ${money(a.spendCap.EUR)} par mois (plafond modifiable)`;
+    $('api-lines').innerHTML = CODES.map((code) => {
+      const q = field(code, 'apiMonthlyQuota');
+      const name = esc(planOf(code)?.name || OFFER.defaults[code].name);
+      const text = q == null ? 'Appels illimités.'
+        : code === 'GRATUIT' ? `${num(q)} appels par mois inclus. Au-delà, l'API attend le mois suivant ou une formule payante.`
+          : `${num(q)} appels par mois inclus, ${beyond}.`;
+      return `<li><b>${name}</b><span>${text}</span></li>`;
+    }).join('');
+    $('api-note').textContent = `${tn ? 'Packs facturés en dinars, sans carte bancaire, valables jusqu\'à épuisement.' : 'Paiement à l\'usage facturé en euros, avec une alerte à 80 % du plafond.'} Les notifications envoyées à vos outils et les appels de l'Assistant IA ne sont jamais décomptés.`;
+  };
+
+  /** Textes de la FAQ : limites Gratuit, prix des options, essai et annuel suivent le catalogue et le pays. */
+  const renderFaq = () => {
+    document.querySelectorAll('[data-free]').forEach((el) => { const n = field('GRATUIT', el.dataset.free); el.textContent = n == null ? 'illimité' : num(n); });
+    document.querySelectorAll('[data-plan-lim]').forEach((el) => { const [code, key] = el.dataset.planLim.split(':'); const n = field(code, key); el.textContent = n == null ? 'illimité' : num(n); });
+    document.querySelectorAll('[data-opt]').forEach((el) => { const v = optionPrice(el.dataset.opt); if (v != null) el.textContent = money(v); });
+    const c = state.catalog;
+    if (c?.trialDays) document.querySelectorAll('[data-trial]').forEach((el) => { el.textContent = c.trialDays % 30 === 0 ? `${c.trialDays / 30} mois` : `${c.trialDays} jours`; });
+    if (c?.yearlyMonthsPaid) document.querySelectorAll('[data-paid-months]').forEach((el) => { el.textContent = String(c.yearlyMonthsPaid); });
+  };
+  const renderAll = () => { renderPlans(); renderCompare(); renderOptions(); renderApi(); renderFaq(); };
 
   const renderPlans = () => {
     const c = state.catalog;
@@ -327,17 +538,17 @@
     }
     return (await fetch('plans.json', { cache: 'no-store' })).json();
   };
-  loadCatalog().then((c) => { state.catalog = c; renderPlans(); }).catch(() => { state.catalog = null; renderPlans(); });
+  loadCatalog().then((c) => { state.catalog = c; renderAll(); }).catch(() => { state.catalog = null; renderAll(); });
 
   document.querySelectorAll('[data-cycle]').forEach((b) => b.addEventListener('click', () => {
     state.cycle = b.dataset.cycle;
     document.querySelectorAll('[data-cycle]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    renderPlans();
+    renderAll();
   }));
   document.querySelectorAll('[data-country]').forEach((b) => b.addEventListener('click', () => {
     state.country = b.dataset.country;
     document.querySelectorAll('[data-country]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    renderPlans();
+    renderAll();
   }));
   $('plans').addEventListener('click', (e) => {
     const plan = e.target.closest('[data-plan]')?.dataset.plan;

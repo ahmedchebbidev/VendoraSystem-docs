@@ -4,19 +4,36 @@
   "trialDays": 60,
   "plans": [
     {
-      "code": "ESSENTIEL",
-      "name": "Essentiel",
-      "monthlyPriceCents": 2900,
-      "extraDeviceCents": 900,
+      "code": "GRATUIT",
+      "name": "Gratuit",
+      "monthlyPriceCents": 0,
+      "extraDeviceCents": 700,
       "maxStores": 1,
       "maxDevices": 1,
       "modules": [
         {
-          "code": "MCP_ACCESS",
-          "label": "Assistant IA"
+          "code": "CREDIT",
+          "label": "Ardoise"
         }
       ],
-      "customPricing": false
+      "customPricing": false,
+      "maxProducts": 300,
+      "maxUsers": 3,
+      "apiMonthlyQuota": 1000,
+      "prices": [
+        {
+          "currency": "EUR",
+          "monthlyPriceMinor": 0,
+          "extraDeviceMinor": 700,
+          "exponent": 2
+        },
+        {
+          "currency": "TND",
+          "monthlyPriceMinor": 0,
+          "extraDeviceMinor": 10000,
+          "exponent": 3
+        }
+      ]
     },
     {
       "code": "COMMERCE",
@@ -35,19 +52,48 @@
           "label": "Ardoise"
         },
         {
+          "code": "CREDIT_ADVANCED",
+          "label": "Ardoise avancée"
+        },
+        {
           "code": "SUPPLIERS",
           "label": "Fournisseurs et achats"
         },
         {
-          "code": "FRAUD",
-          "label": "Anti-fraude et alertes"
+          "code": "STOCK_ADVANCED",
+          "label": "Stock avancé (inventaires, lots, marges)"
         },
         {
-          "code": "MCP_ACCESS",
-          "label": "Assistant IA"
+          "code": "REPORTS_ADVANCED",
+          "label": "Rapports complets"
+        },
+        {
+          "code": "ACCOUNTING_EXPORT",
+          "label": "Export comptable"
+        },
+        {
+          "code": "FRAUD",
+          "label": "Anti-fraude et alertes"
         }
       ],
-      "customPricing": false
+      "customPricing": false,
+      "maxProducts": null,
+      "maxUsers": null,
+      "apiMonthlyQuota": 5000,
+      "prices": [
+        {
+          "currency": "EUR",
+          "monthlyPriceMinor": 2900,
+          "extraDeviceMinor": 700,
+          "exponent": 2
+        },
+        {
+          "currency": "TND",
+          "monthlyPriceMinor": 39000,
+          "extraDeviceMinor": 10000,
+          "exponent": 3
+        }
+      ]
     },
     {
       "code": "RESTAURANT",
@@ -66,8 +112,24 @@
           "label": "Ardoise"
         },
         {
+          "code": "CREDIT_ADVANCED",
+          "label": "Ardoise avancée"
+        },
+        {
           "code": "SUPPLIERS",
           "label": "Fournisseurs et achats"
+        },
+        {
+          "code": "STOCK_ADVANCED",
+          "label": "Stock avancé (inventaires, lots, marges)"
+        },
+        {
+          "code": "REPORTS_ADVANCED",
+          "label": "Rapports complets"
+        },
+        {
+          "code": "ACCOUNTING_EXPORT",
+          "label": "Export comptable"
         },
         {
           "code": "FRAUD",
@@ -84,13 +146,26 @@
         {
           "code": "TIPS",
           "label": "Pourboires"
-        },
-        {
-          "code": "MCP_ACCESS",
-          "label": "Assistant IA"
         }
       ],
-      "customPricing": false
+      "customPricing": false,
+      "maxProducts": null,
+      "maxUsers": null,
+      "apiMonthlyQuota": 10000,
+      "prices": [
+        {
+          "currency": "EUR",
+          "monthlyPriceMinor": 5900,
+          "extraDeviceMinor": 700,
+          "exponent": 2
+        },
+        {
+          "currency": "TND",
+          "monthlyPriceMinor": 69000,
+          "extraDeviceMinor": 10000,
+          "exponent": 3
+        }
+      ]
     },
     {
       "code": "SUR_MESURE",
@@ -109,8 +184,24 @@
           "label": "Ardoise"
         },
         {
+          "code": "CREDIT_ADVANCED",
+          "label": "Ardoise avancée"
+        },
+        {
           "code": "SUPPLIERS",
           "label": "Fournisseurs et achats"
+        },
+        {
+          "code": "STOCK_ADVANCED",
+          "label": "Stock avancé (inventaires, lots, marges)"
+        },
+        {
+          "code": "REPORTS_ADVANCED",
+          "label": "Rapports complets"
+        },
+        {
+          "code": "ACCOUNTING_EXPORT",
+          "label": "Export comptable"
         },
         {
           "code": "FRAUD",
@@ -141,23 +232,31 @@
           "label": "Assistant IA"
         }
       ],
-      "customPricing": true
-    },
-    {
-      "code": "GRATUIT",
-      "name": "Gratuit",
-      "monthlyPriceCents": 0,
-      "extraDeviceCents": 700,
-      "maxStores": 1,
-      "maxDevices": 1,
-      "modules": [
+      "customPricing": true,
+      "maxProducts": null,
+      "maxUsers": null,
+      "apiMonthlyQuota": 50000,
+      "prices": [
         {
-          "code": "CREDIT",
-          "label": "Ardoise"
+          "currency": "EUR",
+          "monthlyPriceMinor": null,
+          "extraDeviceMinor": 700,
+          "exponent": 2
+        },
+        {
+          "currency": "TND",
+          "monthlyPriceMinor": null,
+          "extraDeviceMinor": 10000,
+          "exponent": 3
         }
-      ],
-      "customPricing": false
+      ]
     }
   ],
+  "country": null,
+  "currencies": [
+    "EUR",
+    "TND"
+  ],
+  "exponent": 2,
   "fetchedAt": "2026-11-12"
 }

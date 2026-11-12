@@ -1,0 +1,20 @@
+# ME6 — appel MCP refusé (serveur MCP local :8191 → serveur 8081), commerce fictif « Restaurant Olivier (démo) », option Assistant IA retirée
+# Clé « Assistant IA » masquée (vd_live_…)
+
+$ curl -s http://localhost:8191/mcp -H "X-API-Key: vd_live_…" -H "MCP-Protocol-Version: 2025-06-18" -d '{"jsonrpc":"2.0","id":2,"method":"tools/list"}'
+{
+    "jsonrpc": "2.0",
+    "id": 2,
+    "error": {
+        "code": -32003,
+        "message": "Activez l'option Assistant IA : l'accès des assistants IA n'est pas actif pour ce commerce (formule Restaurant). Le propriétaire peut ajouter l'option au back-office Vendora (Réglages › Abonnement) ou contacter Vendora ; les clés existantes reprennent aussitôt. Le commerçant doit activer l'option Assistant IA dans Vendora › Abonnement (les clés existantes reprennent aussitôt)."
+    }
+}
+
+# Même clé, appel direct de l'API publique :
+$ curl -i http://localhost:8081/api/v1/stores -H "Authorization: Bearer vd_live_…"
+HTTP/1.1 402 
+Content-Type: application/json;charset=UTF-8
+Content-Length: 404
+
+{"error":"Activez l'option Assistant IA : l'accès des assistants IA n'est pas actif pour ce commerce (formule Restaurant). Le propriétaire peut ajouter l'option au back-office Vendora (Réglages › Abonnement) ou contacter Vendora ; les clés existantes reprennent aussitôt.","code":"AGENT_ACCESS_NOT_IN_PLAN","action":"ADD_OPTION","planName":"Restaurant","option":"AI_ASSISTANT","state":"SUSPENDED"}
