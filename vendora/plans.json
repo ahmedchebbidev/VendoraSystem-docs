@@ -39,10 +39,6 @@
           "label": "Fournisseurs et achats"
         },
         {
-          "code": "INVENTORY_COUNTS",
-          "label": "Inventaires et pertes"
-        },
-        {
           "code": "FRAUD",
           "label": "Anti-fraude et alertes"
         },
@@ -72,10 +68,6 @@
         {
           "code": "SUPPLIERS",
           "label": "Fournisseurs et achats"
-        },
-        {
-          "code": "INVENTORY_COUNTS",
-          "label": "Inventaires et pertes"
         },
         {
           "code": "FRAUD",
@@ -121,10 +113,6 @@
           "label": "Fournisseurs et achats"
         },
         {
-          "code": "INVENTORY_COUNTS",
-          "label": "Inventaires et pertes"
-        },
-        {
           "code": "FRAUD",
           "label": "Anti-fraude et alertes"
         },
@@ -162,7 +150,12 @@
       "extraDeviceCents": 700,
       "maxStores": 1,
       "maxDevices": 1,
-      "modules": [],
+      "modules": [
+        {
+          "code": "CREDIT",
+          "label": "Ardoise"
+        }
+      ],
       "customPricing": false
     }
   ],
