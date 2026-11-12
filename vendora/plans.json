@@ -257,6 +257,93 @@
     "EUR",
     "TND"
   ],
+  "options": [
+    {
+      "code": "EXTRA_DEVICE",
+      "name": "Appareil supplémentaire",
+      "freeAllowed": true,
+      "offerMonths": null,
+      "prices": [
+        {
+          "currency": "EUR",
+          "monthlyMinor": 700,
+          "exponent": 2
+        },
+        {
+          "currency": "TND",
+          "monthlyMinor": 10000,
+          "exponent": 3
+        }
+      ]
+    },
+    {
+      "code": "KIOSK",
+      "name": "Borne",
+      "freeAllowed": false,
+      "offerMonths": null,
+      "prices": [
+        {
+          "currency": "EUR",
+          "monthlyMinor": 1900,
+          "exponent": 2
+        },
+        {
+          "currency": "TND",
+          "monthlyMinor": 29000,
+          "exponent": 3
+        }
+      ]
+    },
+    {
+      "code": "E_REPORTING",
+      "name": "E-reporting",
+      "freeAllowed": false,
+      "offerMonths": null,
+      "prices": [
+        {
+          "currency": "EUR",
+          "monthlyMinor": 500,
+          "exponent": 2
+        }
+      ]
+    },
+    {
+      "code": "PRIORITY_SUPPORT",
+      "name": "Support prioritaire",
+      "freeAllowed": false,
+      "offerMonths": null,
+      "prices": [
+        {
+          "currency": "EUR",
+          "monthlyMinor": 900,
+          "exponent": 2
+        },
+        {
+          "currency": "TND",
+          "monthlyMinor": 20000,
+          "exponent": 3
+        }
+      ]
+    },
+    {
+      "code": "AI_ASSISTANT",
+      "name": "Assistant IA",
+      "freeAllowed": false,
+      "offerMonths": 3,
+      "prices": [
+        {
+          "currency": "EUR",
+          "monthlyMinor": 700,
+          "exponent": 2
+        },
+        {
+          "currency": "TND",
+          "monthlyMinor": 15000,
+          "exponent": 3
+        }
+      ]
+    }
+  ],
   "exponent": 2,
   "fetchedAt": "2026-11-12"
 }

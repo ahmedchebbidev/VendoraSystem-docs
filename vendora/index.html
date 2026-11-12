@@ -328,20 +328,20 @@
   const num = (n) => n.toLocaleString('fr-FR');
 
   /*
-   * Offre hors formules — À ALIGNER SUR LA CONSOLE (catalogue des options, prix validés le 12/11/2026 ; règles d'API
-   * ApiQuotaRules). Le catalogue public (GET /api/v1/public/plans) ne publie pas encore les options : c'est la seule
-   * place à changer sur la page. Montants HT en unités mineures (millimes pour TND, centimes pour EUR) ; pas de prix
-   * dans une devise = option non proposée dans ce pays.
+   * Offre hors formules — `options` : textes commerçants seulement ; les **prix** et les mois offerts viennent du
+   * catalogue public (GET /api/v1/public/plans → `options`, page Options de la console). `api` : règles d'API
+   * (ApiQuotaRules), pas encore publiées par le catalogue. Montants HT en unités mineures (millimes pour TND, centimes
+   * pour EUR).
    * `defaults` = valeurs du modèle économique (§ 2, § 3), affichées seulement quand le catalogue ne donne pas le champ
    * (null = illimité).
    */
   const OFFER = {
     options: [
-      { code: 'EXTRA_DEVICE', name: 'Appareil supplémentaire', price: { TND: 10000, EUR: 700 }, unit: 'par mois et par appareil', who: 'Toutes les formules, même Gratuit.' },
-      { code: 'KIOSK', name: 'Borne de commande en libre-service', price: { TND: 29000, EUR: 1900 }, unit: 'par mois et par borne', who: 'Formules payantes : vos clients commandent et paient seuls sur une tablette.' },
-      { code: 'E_REPORTING', name: 'E-reporting France', price: { EUR: 500 }, unit: 'par mois', who: 'Transmission de vos ventes aux impôts (obligatoire en France à partir de 2027). Option de la formule Commerce, incluse en Restaurant et Sur mesure.' },
-      { code: 'PRIORITY_SUPPORT', name: 'Support prioritaire soir et week-end', price: { TND: 20000, EUR: 900 }, unit: 'par mois', who: 'Formules payantes.' },
-      { code: 'AI_ASSISTANT', name: 'Assistant IA', price: { TND: 15000, EUR: 700 }, unit: 'par mois après l\'offre', who: 'Posez vos questions sur vos ventes et votre stock en français. Formules payantes, inclus en Sur mesure.', badge: '3 mois offerts' },
+      { code: 'EXTRA_DEVICE', name: 'Appareil supplémentaire', unit: 'par mois et par appareil', who: 'Toutes les formules, même Gratuit.' },
+      { code: 'KIOSK', name: 'Borne de commande en libre-service', unit: 'par mois et par borne', who: 'Formules payantes : vos clients commandent et paient seuls sur une tablette.' },
+      { code: 'E_REPORTING', name: 'E-reporting France', unit: 'par mois', who: 'Transmission de vos ventes aux impôts (obligatoire en France à partir de 2027). Option de la formule Commerce, incluse en Restaurant et Sur mesure.' },
+      { code: 'PRIORITY_SUPPORT', name: 'Support prioritaire soir et week-end', unit: 'par mois', who: 'Formules payantes.' },
+      { code: 'AI_ASSISTANT', name: 'Assistant IA', unit: 'par mois après l\'offre', who: 'Posez vos questions sur vos ventes et votre stock en français. Formules payantes, inclus en Sur mesure.' },
     ],
     api: { packCalls: 10000, packPrice: { TND: 15000 }, trancheCalls: 1000, tranchePrice: { EUR: 100 }, spendCap: { EUR: 5000 } },
     defaults: {
@@ -356,10 +356,13 @@
   /** Champ d'une formule : catalogue s'il le donne, sinon valeur du modèle économique. */
   const field = (code, key) => { const p = planOf(code); return p && p[key] !== undefined ? p[key] : OFFER.defaults[code][key]; };
   /** Prix mensuel d'une option dans la devise du pays ; l'appareil en plus suit le catalogue de la formule Gratuit. */
-  const optionPrice = (code) => {
-    if (code === 'EXTRA_DEVICE') { const g = planOf('GRATUIT'); const pr = g && priceOf(g); if (pr && pr.extra) return pr.extra; }
-    return OFFER.options.find((o) => o.code === code)?.price[currency()] ?? null;
-  };
+  /*
+   * Options : textes commerçants ici, **prix lus dans le catalogue public** (`options[].prices`, page Options de la
+   * console) — plus aucun prix en dur (reste ME8, 12/11/2026). Option sans prix dans la devise du pays = non proposée.
+   */
+  const catalogOption = (code) => (state.catalog?.options || []).find((o) => o.code === code);
+  const optionPrice = (code) => catalogOption(code)?.prices?.find((p) => p.currency === currency())?.monthlyMinor ?? null;
+  const optionBadge = (code) => { const m = catalogOption(code)?.offerMonths; return m ? `${m} mois offerts` : null; };
 
   /*
    * Tableau comparatif (modèle économique § 3), sans jargon. Cellule : true = inclus, false = non inclus, texte sinon ;
@@ -452,7 +455,8 @@
       const price = v == null
         ? `<p class="opt-price na">${state.country === 'TN' ? 'France seulement' : 'Non proposé dans ce pays'}</p>`
         : `<p class="opt-price">${money(v)} <small>HT ${esc(o.unit)}</small></p>`;
-      return `<div class="option vd-card padded${v == null ? ' unavailable' : ''}">${o.badge ? `<span class="vd-badge accent">${esc(o.badge)}</span>` : ''}
+      const badge = optionBadge(o.code);
+      return `<div class="option vd-card padded${v == null ? ' unavailable' : ''}">${badge ? `<span class="vd-badge accent">${esc(badge)}</span>` : ''}
         <h4>${esc(o.name)}</h4>${price}<p class="opt-who">${esc(o.who)}</p></div>`;
     }).join('');
   };
