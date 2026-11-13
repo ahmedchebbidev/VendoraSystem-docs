@@ -1,0 +1,9 @@
+Relevé du 13/11/2026 sur le staging (critère 14), après pose des règles /m/* par l'API Render :
+== https://vendora-backoffice-staging.onrender.com/m/testjeton
+HTTP/2 200 
+referrer-policy: no-referrer
+x-robots-tag: noindex
+== https://vendora-api-staging.onrender.com/api/v1/public/menu/<jeton inconnu>
+HTTP/2 404 
+referrer-policy: no-referrer
+x-robots-tag: noindex

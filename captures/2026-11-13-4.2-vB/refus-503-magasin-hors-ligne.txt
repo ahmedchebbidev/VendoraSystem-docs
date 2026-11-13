@@ -1,0 +1,11 @@
+POST /api/v1/public/menu/<jeton>/orders  (1 expresso, aucun appareil vu depuis plus de 3 min, politique BLOCK)
+HTTP 503
+{
+ "error": "Commande momentanément indisponible — adressez-vous au personnel",
+ "code": "STORE_UNREACHABLE",
+ "warning": {
+  "fr": "Commande momentanément indisponible — adressez-vous au personnel",
+  "en": "Ordering is temporarily unavailable — please ask the staff",
+  "ar": "الطلب غير متاح مؤقتًا — يرجى التوجه إلى أحد الموظفين"
+ }
+}

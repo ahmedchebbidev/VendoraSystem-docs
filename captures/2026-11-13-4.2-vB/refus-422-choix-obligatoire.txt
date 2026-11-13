@@ -1,0 +1,12 @@
+POST /api/v1/public/menu/<jeton>/orders  (table T5, burger sans cuisson ni accompagnement, requête forcée hors navigateur)
+HTTP 422
+{
+ "error": "Choix obligatoire : Accompagnement",
+ "code": "MODIFIER_REQUIRED",
+ "lineIndex": 0,
+ "stepId": null,
+ "productId": "a2bbcb93-eb95-4496-a091-5754fc16580a",
+ "productName": "Burger du bistrot",
+ "groupId": "012eb9b6-d9cd-4075-86e3-4c4d4f722d7b",
+ "groupName": "Accompagnement"
+}

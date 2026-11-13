@@ -1,0 +1,39 @@
+{
+ "storeId": "<masqué>",
+ "from": "2026-10-15",
+ "to": "2026-11-13",
+ "currency": "EUR",
+ "ordersCreated": 4,
+ "batchesAdded": 2,
+ "amountMinor": 12940,
+ "averageBasketMinor": 2156,
+ "refused": {
+  "MODIFIER": 1
+ },
+ "days": [
+  {
+   "day": "2026-11-13",
+   "channel": "QR_TABLE",
+   "kind": "BATCH_ADDED",
+   "count": 2,
+   "amountMinor": 5940
+  },
+  {
+   "day": "2026-11-13",
+   "channel": "QR_TABLE",
+   "kind": "MODIFIER",
+   "count": 1,
+   "amountMinor": 0
+  },
+  {
+   "day": "2026-11-13",
+   "channel": "QR_TABLE",
+   "kind": "ORDER_CREATED",
+   "count": 4,
+   "amountMinor": 7000
+  }
+ ],
+ "blockedSessions": [],
+ "tableConflicts": [],
+ "paidAfterMerge": 0
+}
