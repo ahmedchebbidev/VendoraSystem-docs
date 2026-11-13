@@ -1,0 +1,28 @@
+{
+ "POST /api/v1/public/menu/<jeton>/orders (magasin injoignable, politique QUEUE)": {
+  "orderId": "527381e5-6984-4d79-86bd-ab70f269c778",
+  "number": "W-007",
+  "tableName": null,
+  "totalMinor": 4500,
+  "channel": "ONLINE",
+  "batchNumber": 1,
+  "addedToExistingOrder": false,
+  "currency": "TND",
+  "currencyExponent": 3,
+  "lines": [
+   {
+    "lineId": "44ee1e2a-efbc-457d-9e44-ddcc0539b472",
+    "productId": "1661ff50-295c-4286-8d57-73a5dc54c54e",
+    "name": "Baklawa",
+    "quantity": 1,
+    "unitPriceMinor": 4500,
+    "totalMinor": 4500,
+    "modifiers": [],
+    "kind": null
+   }
+  ],
+  "pickupSlotAt": "2026-11-13T23:30:00+01:00",
+  "status": "QUEUED",
+  "trackingToken": "<jeton>"
+ }
+}
