@@ -1,0 +1,65 @@
+{
+ "outil": "Lighthouse 13.6.0",
+ "page": "/m/<jeton> (menu de « Le Petit Bistrot (démo) », build de production de web/ servi en gzip, API réelle locale)",
+ "profil": "mobile, simulation « 4G lente » (RTT 150 ms, débit 1 638 kb/s, CPU ×4)",
+ "score_performance": 1,
+ "mesures": {
+  "first-contentful-paint": "0.6 s",
+  "largest-contentful-paint": "0.6 s",
+  "speed-index": "1.3 s",
+  "total-blocking-time": "60 ms",
+  "cumulative-layout-shift": "0",
+  "interactive": "2.1 s"
+ },
+ "poids_transfere": "Total size was 296 KiB",
+ "requetes": [
+  {
+   "url": "/m/<jeton>",
+   "octets": 2059
+  },
+  {
+   "url": "/chunk-CrYMwsRD.js",
+   "octets": 63757
+  },
+  {
+   "url": "/main-A6VYAKDD.js",
+   "octets": 55419
+  },
+  {
+   "url": "/styles-NWZ6NW4E.css",
+   "octets": 9593
+  },
+  {
+   "url": "/chunk-Y-y7r7fL.js",
+   "octets": 5497
+  },
+  {
+   "url": "/media/inter-latin-wght-normal-NRMW37G5.woff2",
+   "octets": 48466
+  },
+  {
+   "url": "/chunk-B4VmpcoF.js",
+   "octets": 797
+  },
+  {
+   "url": "/chunk-CRJC9d6Y.js",
+   "octets": 1743
+  },
+  {
+   "url": "/favicon.ico",
+   "octets": 15298
+  },
+  {
+   "url": "/api/v1/public/menu/<jeton>",
+   "octets": 10182
+  },
+  {
+   "url": "/api/v1/public/menu/<jeton>/logo",
+   "octets": 5307
+  },
+  {
+   "url": "/media/inter-latin-ext-wght-normal-HA22NDSG.woff2",
+   "octets": 85279
+  }
+ ]
+}

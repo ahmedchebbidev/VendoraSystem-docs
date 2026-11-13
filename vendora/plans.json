@@ -230,6 +230,10 @@
         {
           "code": "MCP_ACCESS",
           "label": "Assistant IA"
+        },
+        {
+          "code": "ONLINE_ORDERING",
+          "label": "Menu QR et commande en ligne"
         }
       ],
       "customPricing": true,
@@ -342,8 +346,26 @@
           "exponent": 3
         }
       ]
+    },
+    {
+      "code": "ONLINE_ORDERING",
+      "name": "Menu QR et commande en ligne",
+      "freeAllowed": false,
+      "offerMonths": null,
+      "prices": [
+        {
+          "currency": "EUR",
+          "monthlyMinor": 1500,
+          "exponent": 2
+        },
+        {
+          "currency": "TND",
+          "monthlyMinor": 19000,
+          "exponent": 3
+        }
+      ]
     }
   ],
   "exponent": 2,
-  "fetchedAt": "2026-11-12"
+  "fetchedAt": "2026-11-13"
 }

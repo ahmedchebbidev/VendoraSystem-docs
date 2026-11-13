@@ -1,0 +1,18 @@
+# Décodage des QR imprimés (planches A4 rendues à 300 dpi, décodeur ZXing QRCodeMultiReader) — jetons tronqués
+
+## Le Petit Bistrot (démo) — planche de 12 tables + « Menu » (avant régénération du lien)
+13 QR décodés sur la page (12 tables + 1 menu seul) ; exemples :
+  http://localhost:4220/m/6iYv1e…
+  http://localhost:4220/m/6iYv1e…?t=tZYycu…
+  http://localhost:4220/m/6iYv1e…?t=MVgha4…
+Vérification : le menu et l'étiquette de la table ouvrent bien le menu (GET /api/v1/public/menu/<jeton>?t=<jeton de table> -> 200) ; après régénération, la même URL -> 404 {"error":"Menu introuvable"}, corps identique à un jeton inconnu.
+
+## Café Yasmine (démo) — planche arabe, 5 tables + 1 table au nom long + « القائمة » (lien non régénéré)
+  http://localhost:4220/m/zLqKZL… -> 200
+  http://localhost:4220/m/zLqKZL…?t=-3Zoen… -> 200
+  http://localhost:4220/m/zLqKZL…?t=w6jRAM… -> 200
+  http://localhost:4220/m/zLqKZL…?t=R8Qo-D… -> 200
+  http://localhost:4220/m/zLqKZL…?t=GVdXW8… -> 200
+  http://localhost:4220/m/zLqKZL…?t=yXX4-q… -> 200
+  http://localhost:4220/m/zLqKZL…?t=MzV7Br… -> 200
+7/7 QR ouvrent le menu (200).

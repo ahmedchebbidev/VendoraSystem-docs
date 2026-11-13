@@ -1,0 +1,34 @@
+# Relevé des en-têtes (13/11/2026, serveur local 8080 + back-office ng serve 4220) — jeton tronqué
+
+$ curl -I http://localhost:8080/api/v1/public/menu/<jeton>
+HTTP/1.1 200 
+X-Robots-Tag: noindex
+Referrer-Policy: no-referrer
+Cache-Control: no-cache
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+
+
+$ curl -I http://localhost:4220/m/<jeton>
+HTTP/1.1 200 OK
+Vary: Origin
+Content-Type: text/html
+Cache-Control: no-cache
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+
+$ curl -I http://localhost:8080/api/v1/public/menu/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+HTTP/1.1 404 
+X-Robots-Tag: noindex
+Referrer-Policy: no-referrer
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+
