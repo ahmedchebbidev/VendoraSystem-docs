@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-05",
+ "generatedAt": "2026-11-17",
  "chapters": [
   {
    "title": "Ouvrir la caisse",
@@ -1042,6 +1042,96 @@
      "title": "Rapports en sombre.",
      "text": "Mêmes chiffres, confort du soir.",
      "alt": "Page Rapports de ventes en mode sombre"
+    }
+   ]
+  },
+  {
+   "title": "L'assistant prépare, vous validez",
+   "intro": "Votre assistant IA peut proposer un prix ou un bon de commande : rien ne change tant qu'un responsable n'a pas validé, au back-office ou sur la caisse avec son PIN. Vous choisissez ce que l'assistant a le droit de proposer.",
+   "items": [
+    {
+     "src": "11-propositions-liste-iphone.webp",
+     "w": 600,
+     "h": 1304,
+     "frame": "phone",
+     "app": "phone",
+     "lang": "fr",
+     "theme": "light",
+     "title": "Les propositions en attente.",
+     "text": "Filtre par famille, risque en évidence, échéance : le plus urgent d'abord.",
+     "alt": "Liste des propositions de l'assistant sur iPhone"
+    },
+    {
+     "src": "11-propositions-prix-iphone.webp",
+     "w": 600,
+     "h": 1304,
+     "frame": "phone",
+     "app": "phone",
+     "lang": "fr",
+     "theme": "light",
+     "title": "Un changement de prix.",
+     "text": "L'ancien prix, le nouveau, l'écart et les chiffres de Vendora : au-delà de 30 %, une case de confirmation.",
+     "alt": "Détail d'un changement de prix proposé, sur iPhone"
+    },
+    {
+     "src": "11-propositions-pin-iphone.webp",
+     "w": 600,
+     "h": 1304,
+     "frame": "phone",
+     "app": "phone",
+     "lang": "fr",
+     "theme": "light",
+     "title": "Le PIN d'un responsable.",
+     "text": "Le résumé reste affiché pendant la saisie du code.",
+     "alt": "Feuille PIN avec le résumé de la proposition sur iPhone"
+    },
+    {
+     "src": "11-propositions-prix-android.webp",
+     "w": 600,
+     "h": 1333,
+     "frame": "phone",
+     "app": "phone",
+     "lang": "fr",
+     "theme": "light",
+     "title": "Le même écran sur Android.",
+     "text": "Mêmes informations, mêmes gestes sur les deux caisses.",
+     "alt": "Détail d'un changement de prix proposé, sur Android"
+    },
+    {
+     "src": "11-propositions-bon-android.webp",
+     "w": 600,
+     "h": 1333,
+     "frame": "phone",
+     "app": "phone",
+     "lang": "fr",
+     "theme": "light",
+     "title": "Un bon de commande.",
+     "text": "Les lignes en cartes ; le bon reste un brouillon.",
+     "alt": "Détail d'un bon de commande proposé, sur Android"
+    },
+    {
+     "src": "11-propositions-tablette.webp",
+     "w": 1280,
+     "h": 800,
+     "frame": "tablet",
+     "app": "tablet",
+     "lang": "fr",
+     "theme": "light",
+     "title": "Sur tablette.",
+     "text": "La liste à gauche, la proposition à droite.",
+     "alt": "Propositions de l'assistant sur tablette Android"
+    },
+    {
+     "src": "11-propositions-arabe-sombre.webp",
+     "w": 600,
+     "h": 1333,
+     "frame": "phone",
+     "app": "phone",
+     "lang": "ar",
+     "theme": "dark",
+     "title": "En arabe, en sombre.",
+     "text": "Même écran en miroir, montants lisibles dans le bon sens.",
+     "alt": "Liste des propositions sur Android en arabe, sombre"
     }
    ]
   },
