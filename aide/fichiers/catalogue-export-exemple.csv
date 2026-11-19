@@ -1,0 +1,35 @@
+﻿id;sku;name;category;barcode;salePrice;purchasePrice;taxRate;trackStock;active;mealVoucherEligible;soldByWeight;scaleCode;trackExpiry;expiryAlertDays
+f72bb656-a42a-485c-8b32-1430cece9db4;BOI-001;Bière pression 25 cl;Boissons > Vins et bières;;4,50;1,35;20;non;oui;non;non;;non;30
+786666b3-eb1c-4a38-bd57-1c435f6bf310;BOI-002;Bière pression 50 cl;Boissons > Vins et bières;;8,00;2,40;20;non;oui;non;non;;non;30
+9dca2247-1fcd-40ce-91ff-c7d8bde97e11;PLA-001;Burger du bistrot;Plats;;16,50;4,95;10;non;oui;oui;non;;non;30
+d4fcd2e3-6b05-4c89-8f6d-5fcc7066b1b0;BOI-003;Café allongé;Boissons > Cafés;;2,50;0,75;10;non;oui;oui;non;;non;30
+89cc6683-b88b-4fb0-b403-acd0096c5b7d;DES-001;Café gourmand;Desserts;;8,50;2,55;10;non;oui;oui;non;;non;30
+58e16180-cc82-402e-8808-0a54d18d3088;BOI-004;Cappuccino;Boissons > Cafés;;4,00;1,20;10;non;oui;oui;non;;non;30
+04dd497e-66e8-4e45-baef-55157772b0da;BOI-005;Chocolat chaud;Boissons > Cafés;;4,00;1,20;10;non;oui;oui;non;;non;30
+d9f97255-3dfc-4172-a7c6-b37e0b97396c;DES-002;Compote;Desserts;;3,00;;10;non;oui;non;non;;non;30
+c6687381-078a-4ede-8d6f-08efecb9ec9a;DES-003;Crème brûlée;Desserts;;7,00;2,10;10;non;oui;oui;non;;non;30
+6b751eb6-60c6-4e70-8a13-9e35a9a9c6fa;PLA-002;Croque-monsieur;Plats;;11,00;3,30;10;non;oui;oui;non;;non;30
+1dab8646-aab4-45d5-a2a5-0247eca9ebdf;BOI-006;Eau minérale 50 cl;Boissons > Softs;;3,50;1,05;10;non;oui;oui;non;;non;30
+1551a2aa-d7f1-4161-bbc4-edf41bbf1066;PLA-003;Entrecôte grillée;Plats;;22,00;6,60;10;non;oui;oui;non;;non;30
+868aae5d-b80c-40d3-9708-38f13d87e1c1;BOI-007;Expresso;Boissons > Cafés;;2,00;0,60;10;non;oui;oui;non;;non;30
+fa9922e4-5270-4e2f-96a6-3f76c3da049e;FOR-001;Formule midi;Formules;;19,90;5,97;10;non;oui;oui;non;;non;30
+ed137884-d761-4938-9286-7dde7033eacc;DES-004;Glace 2 boules;Desserts;;4,50;;10;non;oui;non;non;;non;30
+5f36de4a-c395-4fc6-8fc6-e64509e2b824;BOI-008;Jus de pomme;Boissons > Softs;;4,00;1,20;10;non;oui;oui;non;;non;30
+77609d51-fa61-4b60-b750-fa0410631c31;BOI-009;Kir;Boissons > Vins et bières;;5,00;1,50;20;non;oui;non;non;;non;30
+1b9637db-321a-4e15-93a1-4c87f58fbf96;BOI-010;Limonade artisanale;Boissons > Softs;;4,00;1,20;10;non;oui;oui;non;;non;30
+154d9370-726c-49df-a157-05241e80b04a;FOR-002;Menu enfant;Formules;;9,90;;10;non;oui;non;non;;non;30
+24d7b3b9-9b16-4b96-8824-056f1891747e;DES-005;Mousse au chocolat;Desserts;;6,50;1,95;10;non;oui;oui;non;;non;30
+8b7fda0e-bda8-4aae-ba58-7ff54a1dddb2;PLA-004;Nuggets de poulet;Plats;;7,00;;10;non;oui;non;non;;non;30
+585b3e7f-7c07-4ee7-a1c1-5582634187eb;ENT-001;Œuf mayonnaise;Entrées;;6,00;1,80;10;non;oui;oui;non;;non;30
+39f8f5b4-d37e-4564-99be-f05057bde4a9;PLA-005;Pavé de saumon;Plats;;18,50;5,55;10;non;oui;oui;non;;non;30
+2100dfcc-3dd0-4c78-8f99-f4637ea14ef8;PLA-006;Poulet rôti;Plats;;15,00;4,50;10;non;oui;oui;non;;non;30
+24de01a4-70bd-40c9-b738-e3c05dc8bc63;PLA-007;Risotto aux champignons;Plats;;15,50;4,65;10;non;oui;oui;non;;non;30
+06c11983-866e-4a0b-bf47-b13d4f81b5bc;ENT-002;Salade César;Entrées;;13,50;;10;oui;oui;non;non;;non;30
+2059402c-981e-43de-8506-118723d24084;ENT-003;Salade de chèvre chaud;Entrées;;9,50;2,85;10;non;oui;oui;non;;non;30
+8a5923e5-51aa-42b5-b4e0-09d9e223196c;BOI-011;Sirop à l'eau;Boissons > Softs;;2,50;0,75;10;non;oui;oui;non;;non;30
+713bf257-cc5b-40d0-b012-2be8a8750a12;ENT-004;Soupe à l'oignon;Entrées;;7,50;2,25;10;non;oui;oui;non;;non;30
+ceb755a7-0cda-41ab-810d-3df08040dbdf;DES-006;Tarte Tatin;Desserts;;7,50;2,25;10;non;oui;oui;non;;non;30
+d7b3b517-fdb4-4044-b0bb-7ccd964f8afe;ENT-005;Terrine maison;Entrées;;8,00;2,40;10;non;oui;oui;non;;non;30
+4ca21340-fc54-49a7-a545-28a3caec097e;BOI-012;Thé;Boissons > Cafés;;3,50;1,05;10;non;oui;oui;non;;non;30
+a7a5ef82-3a45-4422-8db3-bb3d80b7448f;BOI-013;Verre de vin blanc;Boissons > Vins et bières;;5,50;1,65;20;non;oui;non;non;;non;30
+39e027b0-17bc-4178-a197-0093a82a7aec;BOI-014;Verre de vin rouge;Boissons > Vins et bières;;5,50;1,65;20;non;oui;non;non;;non;30

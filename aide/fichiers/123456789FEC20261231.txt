@@ -1,0 +1,80 @@
+JournalCode	JournalLib	EcritureNum	EcritureDate	CompteNum	CompteLib	CompAuxNum	CompAuxLib	PieceRef	PieceDate	EcritureLib	Debit	Credit	EcritureLet	DateLet	ValidDate	Montantdevise	Idevise
+CA	Encaissements	CA-000001	20261103	511200	Carte bancaire			CA20261103	20261103	Encaissements du 03/11/2026 — Le Petit Bistrot (démo)	226,50	0,00			20261110		
+CA	Encaissements	CA-000001	20261103	530000	Espèces			CA20261103	20261103	Encaissements du 03/11/2026 — Le Petit Bistrot (démo)	208,00	0,00			20261110		
+CA	Encaissements	CA-000001	20261103	511300	Titres-restaurant			CA20261103	20261103	Encaissements du 03/11/2026 — Le Petit Bistrot (démo)	10,00	0,00			20261110		
+CA	Encaissements	CA-000001	20261103	411000	Clients comptoir			CA20261103	20261103	Encaissements du 03/11/2026 — Le Petit Bistrot (démo)	0,00	444,50			20261110		
+CA	Encaissements	CA-000002	20261103	511200	Carte bancaire			CA20261103	20261103	Pourboires du 03/11/2026 — Le Petit Bistrot (démo)	14,00	0,00			20261110		
+CA	Encaissements	CA-000002	20261103	467100	Pourboires à reverser			CA20261103	20261103	Pourboires du 03/11/2026 — Le Petit Bistrot (démo)	0,00	14,00			20261110		
+VT	Ventes	VT-000001	20261103	411000	Clients comptoir			VT20261103	20261103	Ventes du 03/11/2026 — Le Petit Bistrot (démo)	444,50	0,00			20261110		
+VT	Ventes	VT-000001	20261103	707000	Ventes 20 %			VT20261103	20261103	Ventes du 03/11/2026 — Le Petit Bistrot (démo)	0,00	36,26			20261110		
+VT	Ventes	VT-000001	20261103	445710	TVA collectée 20 %			VT20261103	20261103	Ventes du 03/11/2026 — Le Petit Bistrot (démo)	0,00	7,24			20261110		
+VT	Ventes	VT-000001	20261103	707000	Ventes 10 %			VT20261103	20261103	Ventes du 03/11/2026 — Le Petit Bistrot (démo)	0,00	364,55			20261110		
+VT	Ventes	VT-000001	20261103	445710	TVA collectée 10 %			VT20261103	20261103	Ventes du 03/11/2026 — Le Petit Bistrot (démo)	0,00	36,45			20261110		
+CA	Encaissements	CA-000003	20261104	511200	Carte bancaire			CA20261104	20261104	Encaissements du 04/11/2026 — Le Petit Bistrot (démo)	122,00	0,00			20261110		
+CA	Encaissements	CA-000003	20261104	530000	Espèces			CA20261104	20261104	Encaissements du 04/11/2026 — Le Petit Bistrot (démo)	154,50	0,00			20261110		
+CA	Encaissements	CA-000003	20261104	411000	Clients comptoir			CA20261104	20261104	Encaissements du 04/11/2026 — Le Petit Bistrot (démo)	0,00	276,50			20261110		
+CA	Encaissements	CA-000004	20261104	511200	Carte bancaire			CA20261104	20261104	Pourboires du 04/11/2026 — Le Petit Bistrot (démo)	5,50	0,00			20261110		
+CA	Encaissements	CA-000004	20261104	467100	Pourboires à reverser			CA20261104	20261104	Pourboires du 04/11/2026 — Le Petit Bistrot (démo)	0,00	5,50			20261110		
+VT	Ventes	VT-000002	20261104	411000	Clients comptoir			VT20261104	20261104	Ventes du 04/11/2026 — Le Petit Bistrot (démo)	276,50	0,00			20261110		
+VT	Ventes	VT-000002	20261104	707000	Ventes 20 %			VT20261104	20261104	Ventes du 04/11/2026 — Le Petit Bistrot (démo)	0,00	24,59			20261110		
+VT	Ventes	VT-000002	20261104	445710	TVA collectée 20 %			VT20261104	20261104	Ventes du 04/11/2026 — Le Petit Bistrot (démo)	0,00	4,91			20261110		
+VT	Ventes	VT-000002	20261104	707000	Ventes 10 %			VT20261104	20261104	Ventes du 04/11/2026 — Le Petit Bistrot (démo)	0,00	224,58			20261110		
+VT	Ventes	VT-000002	20261104	445710	TVA collectée 10 %			VT20261104	20261104	Ventes du 04/11/2026 — Le Petit Bistrot (démo)	0,00	22,42			20261110		
+CA	Encaissements	CA-000005	20261105	511200	Carte bancaire			CA20261105	20261105	Encaissements du 05/11/2026 — Le Petit Bistrot (démo)	198,00	0,00			20261110		
+CA	Encaissements	CA-000005	20261105	530000	Espèces			CA20261105	20261105	Encaissements du 05/11/2026 — Le Petit Bistrot (démo)	168,50	0,00			20261110		
+CA	Encaissements	CA-000005	20261105	511300	Titres-restaurant			CA20261105	20261105	Encaissements du 05/11/2026 — Le Petit Bistrot (démo)	20,00	0,00			20261110		
+CA	Encaissements	CA-000005	20261105	411000	Clients comptoir			CA20261105	20261105	Encaissements du 05/11/2026 — Le Petit Bistrot (démo)	0,00	386,50			20261110		
+VT	Ventes	VT-000003	20261105	411000	Clients comptoir			VT20261105	20261105	Ventes du 05/11/2026 — Le Petit Bistrot (démo)	386,50	0,00			20261110		
+VT	Ventes	VT-000003	20261105	707000	Ventes 20 %			VT20261105	20261105	Ventes du 05/11/2026 — Le Petit Bistrot (démo)	0,00	38,74			20261110		
+VT	Ventes	VT-000003	20261105	445710	TVA collectée 20 %			VT20261105	20261105	Ventes du 05/11/2026 — Le Petit Bistrot (démo)	0,00	7,76			20261110		
+VT	Ventes	VT-000003	20261105	707000	Ventes 10 %			VT20261105	20261105	Ventes du 05/11/2026 — Le Petit Bistrot (démo)	0,00	309,11			20261110		
+VT	Ventes	VT-000003	20261105	445710	TVA collectée 10 %			VT20261105	20261105	Ventes du 05/11/2026 — Le Petit Bistrot (démo)	0,00	30,89			20261110		
+CA	Encaissements	CA-000006	20261106	511200	Carte bancaire			CA20261106	20261106	Encaissements du 06/11/2026 — Le Petit Bistrot (démo)	153,50	0,00			20261110		
+CA	Encaissements	CA-000006	20261106	530000	Espèces			CA20261106	20261106	Encaissements du 06/11/2026 — Le Petit Bistrot (démo)	184,00	0,00			20261110		
+CA	Encaissements	CA-000006	20261106	511300	Titres-restaurant			CA20261106	20261106	Encaissements du 06/11/2026 — Le Petit Bistrot (démo)	20,00	0,00			20261110		
+CA	Encaissements	CA-000006	20261106	411000	Clients comptoir			CA20261106	20261106	Encaissements du 06/11/2026 — Le Petit Bistrot (démo)	0,00	357,50			20261110		
+CA	Encaissements	CA-000007	20261106	511200	Carte bancaire			CA20261106	20261106	Pourboires du 06/11/2026 — Le Petit Bistrot (démo)	9,00	0,00			20261110		
+CA	Encaissements	CA-000007	20261106	467100	Pourboires à reverser			CA20261106	20261106	Pourboires du 06/11/2026 — Le Petit Bistrot (démo)	0,00	9,00			20261110		
+VT	Ventes	VT-000004	20261106	411000	Clients comptoir			VT20261106	20261106	Ventes du 06/11/2026 — Le Petit Bistrot (démo)	357,50	0,00			20261110		
+VT	Ventes	VT-000004	20261106	707000	Ventes 20 %			VT20261106	20261106	Ventes du 06/11/2026 — Le Petit Bistrot (démo)	0,00	31,66			20261110		
+VT	Ventes	VT-000004	20261106	445710	TVA collectée 20 %			VT20261106	20261106	Ventes du 06/11/2026 — Le Petit Bistrot (démo)	0,00	6,34			20261110		
+VT	Ventes	VT-000004	20261106	707000	Ventes 10 %			VT20261106	20261106	Ventes du 06/11/2026 — Le Petit Bistrot (démo)	0,00	290,47			20261110		
+VT	Ventes	VT-000004	20261106	445710	TVA collectée 10 %			VT20261106	20261106	Ventes du 06/11/2026 — Le Petit Bistrot (démo)	0,00	29,03			20261110		
+CA	Encaissements	CA-000008	20261107	511200	Carte bancaire			CA20261107	20261107	Encaissements du 07/11/2026 — Le Petit Bistrot (démo)	254,00	0,00			20261110		
+CA	Encaissements	CA-000008	20261107	530000	Espèces			CA20261107	20261107	Encaissements du 07/11/2026 — Le Petit Bistrot (démo)	131,50	0,00			20261110		
+CA	Encaissements	CA-000008	20261107	511300	Titres-restaurant			CA20261107	20261107	Encaissements du 07/11/2026 — Le Petit Bistrot (démo)	16,00	0,00			20261110		
+CA	Encaissements	CA-000008	20261107	411000	Clients comptoir			CA20261107	20261107	Encaissements du 07/11/2026 — Le Petit Bistrot (démo)	0,00	401,50			20261110		
+CA	Encaissements	CA-000009	20261107	511200	Carte bancaire			CA20261107	20261107	Pourboires du 07/11/2026 — Le Petit Bistrot (démo)	11,50	0,00			20261110		
+CA	Encaissements	CA-000009	20261107	467100	Pourboires à reverser			CA20261107	20261107	Pourboires du 07/11/2026 — Le Petit Bistrot (démo)	0,00	11,50			20261110		
+VT	Ventes	VT-000005	20261107	411000	Clients comptoir			VT20261107	20261107	Ventes du 07/11/2026 — Le Petit Bistrot (démo)	401,50	0,00			20261110		
+VT	Ventes	VT-000005	20261107	707000	Ventes 20 %			VT20261107	20261107	Ventes du 07/11/2026 — Le Petit Bistrot (démo)	0,00	43,34			20261110		
+VT	Ventes	VT-000005	20261107	445710	TVA collectée 20 %			VT20261107	20261107	Ventes du 07/11/2026 — Le Petit Bistrot (démo)	0,00	8,66			20261110		
+VT	Ventes	VT-000005	20261107	707000	Ventes 10 %			VT20261107	20261107	Ventes du 07/11/2026 — Le Petit Bistrot (démo)	0,00	317,72			20261110		
+VT	Ventes	VT-000005	20261107	445710	TVA collectée 10 %			VT20261107	20261107	Ventes du 07/11/2026 — Le Petit Bistrot (démo)	0,00	31,78			20261110		
+CA	Encaissements	CA-000010	20261108	511200	Carte bancaire			CA20261108	20261108	Encaissements du 08/11/2026 — Le Petit Bistrot (démo)	189,50	0,00			20261110		
+CA	Encaissements	CA-000010	20261108	530000	Espèces			CA20261108	20261108	Encaissements du 08/11/2026 — Le Petit Bistrot (démo)	132,50	0,00			20261110		
+CA	Encaissements	CA-000010	20261108	511300	Titres-restaurant			CA20261108	20261108	Encaissements du 08/11/2026 — Le Petit Bistrot (démo)	12,50	0,00			20261110		
+CA	Encaissements	CA-000010	20261108	411000	Clients comptoir			CA20261108	20261108	Encaissements du 08/11/2026 — Le Petit Bistrot (démo)	0,00	334,50			20261110		
+CA	Encaissements	CA-000011	20261108	511200	Carte bancaire			CA20261108	20261108	Pourboires du 08/11/2026 — Le Petit Bistrot (démo)	4,00	0,00			20261110		
+CA	Encaissements	CA-000011	20261108	467100	Pourboires à reverser			CA20261108	20261108	Pourboires du 08/11/2026 — Le Petit Bistrot (démo)	0,00	4,00			20261110		
+VT	Ventes	VT-000006	20261108	411000	Clients comptoir			VT20261108	20261108	Ventes du 08/11/2026 — Le Petit Bistrot (démo)	334,50	0,00			20261110		
+VT	Ventes	VT-000006	20261108	707000	Ventes 20 %			VT20261108	20261108	Ventes du 08/11/2026 — Le Petit Bistrot (démo)	0,00	37,92			20261110		
+VT	Ventes	VT-000006	20261108	445710	TVA collectée 20 %			VT20261108	20261108	Ventes du 08/11/2026 — Le Petit Bistrot (démo)	0,00	7,58			20261110		
+VT	Ventes	VT-000006	20261108	707000	Ventes 10 %			VT20261108	20261108	Ventes du 08/11/2026 — Le Petit Bistrot (démo)	0,00	262,73			20261110		
+VT	Ventes	VT-000006	20261108	445710	TVA collectée 10 %			VT20261108	20261108	Ventes du 08/11/2026 — Le Petit Bistrot (démo)	0,00	26,27			20261110		
+CA	Encaissements	CA-000012	20261109	511200	Carte bancaire			CA20261109	20261109	Encaissements du 09/11/2026 — Le Petit Bistrot (démo)	185,00	0,00			20261110		
+CA	Encaissements	CA-000012	20261109	530000	Espèces			CA20261109	20261109	Encaissements du 09/11/2026 — Le Petit Bistrot (démo)	249,00	0,00			20261110		
+CA	Encaissements	CA-000012	20261109	511300	Titres-restaurant			CA20261109	20261109	Encaissements du 09/11/2026 — Le Petit Bistrot (démo)	10,00	0,00			20261110		
+CA	Encaissements	CA-000012	20261109	411000	Clients comptoir			CA20261109	20261109	Encaissements du 09/11/2026 — Le Petit Bistrot (démo)	0,00	444,00			20261110		
+CA	Encaissements	CA-000013	20261109	511200	Carte bancaire			CA20261109	20261109	Pourboires du 09/11/2026 — Le Petit Bistrot (démo)	5,50	0,00			20261110		
+CA	Encaissements	CA-000013	20261109	530000	Espèces			CA20261109	20261109	Pourboires du 09/11/2026 — Le Petit Bistrot (démo)	3,00	0,00			20261110		
+CA	Encaissements	CA-000013	20261109	467100	Pourboires à reverser			CA20261109	20261109	Pourboires du 09/11/2026 — Le Petit Bistrot (démo)	0,00	8,50			20261110		
+CA	Encaissements	CA-000014	20261109	530000	Espèces			CA20261109	20261109	Mouvements d'espèces du 09/11/2026 — Le Petit Bistrot (démo)	0,00	178,50			20261110		
+CA	Encaissements	CA-000014	20261109	580000	Dépôt banque			CA20261109	20261109	Mouvements d'espèces du 09/11/2026 — Le Petit Bistrot (démo)	200,00	0,00			20261110		
+CA	Encaissements	CA-000014	20261109	580000	Appoint de monnaie			CA20261109	20261109	Mouvements d'espèces du 09/11/2026 — Le Petit Bistrot (démo)	0,00	40,00			20261110		
+CA	Encaissements	CA-000014	20261109	401000	Achat fournisseur en espèces			CA20261109	20261109	Mouvements d'espèces du 09/11/2026 — Le Petit Bistrot (démo)	18,50	0,00			20261110		
+VT	Ventes	VT-000007	20261109	411000	Clients comptoir			VT20261109	20261109	Ventes du 09/11/2026 — Le Petit Bistrot (démo)	444,00	0,00			20261110		
+VT	Ventes	VT-000007	20261109	707000	Ventes 20 %			VT20261109	20261109	Ventes du 09/11/2026 — Le Petit Bistrot (démo)	0,00	43,76			20261110		
+VT	Ventes	VT-000007	20261109	445710	TVA collectée 20 %			VT20261109	20261109	Ventes du 09/11/2026 — Le Petit Bistrot (démo)	0,00	8,74			20261110		
+VT	Ventes	VT-000007	20261109	707000	Ventes 10 %			VT20261109	20261109	Ventes du 09/11/2026 — Le Petit Bistrot (démo)	0,00	355,92			20261110		
+VT	Ventes	VT-000007	20261109	445710	TVA collectée 10 %			VT20261109	20261109	Ventes du 09/11/2026 — Le Petit Bistrot (démo)	0,00	35,58			20261110		

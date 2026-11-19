@@ -1,0 +1,9 @@
+référence;nom;catégorie;code-barres;prix de vente;prix d'achat;TVA;suivi du stock;actif
+VIE-001;Croissant;Viennoiseries;;1,30;0,35;10;non;oui
+VIE-002;Pain au chocolat;Viennoiseries;;1,50;0,40;10;non;oui
+VIE-003;Chausson aux pommes;Viennoiseries;;2,20;0,60;10;non;oui
+PAT-001;Éclair au café;Pâtisseries;;3,80;1,10;10;non;oui
+PAT-002;Tartelette aux fraises;Pâtisseries;;4,50;1,40;10;non;oui
+BOI-001;Jus d'orange 25 cl;Boissons fraîches;3760999000012;3,00;1,10;10;oui;oui
+BOI-002;Thé glacé pêche 33 cl;Boissons fraîches;3760999000029;3,20;1,20;10;oui;oui
+BOI-003;Eau pétillante 50 cl;Boissons fraîches;3760999000036;2,50;0,60;10;oui;oui

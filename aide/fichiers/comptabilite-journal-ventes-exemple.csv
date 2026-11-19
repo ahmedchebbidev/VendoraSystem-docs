@@ -1,0 +1,54 @@
+﻿Journal;Date;N° écriture;Compte;Libellé du compte;Pièce;Libellé;Débit;Crédit;Devise
+VT;28/10/2026;VT-000001;411000;Clients comptoir;VT20261028;Ventes du 28/10/2026 — Épicerie Lumière (démo);189,60;0,00;EUR
+VT;28/10/2026;VT-000001;707000;Ventes 20 %;VT20261028;Ventes du 28/10/2026 — Épicerie Lumière (démo);0,00;28,57;EUR
+VT;28/10/2026;VT-000001;445710;TVA collectée 20 %;VT20261028;Ventes du 28/10/2026 — Épicerie Lumière (démo);0,00;5,73;EUR
+VT;28/10/2026;VT-000001;707000;Ventes 5,5 %;VT20261028;Ventes du 28/10/2026 — Épicerie Lumière (démo);0,00;147,20;EUR
+VT;28/10/2026;VT-000001;445710;TVA collectée 5,5 %;VT20261028;Ventes du 28/10/2026 — Épicerie Lumière (démo);0,00;8,10;EUR
+VT;29/10/2026;VT-000002;411000;Clients comptoir;VT20261029;Ventes du 29/10/2026 — Épicerie Lumière (démo);198,10;0,00;EUR
+VT;29/10/2026;VT-000002;707000;Ventes 20 %;VT20261029;Ventes du 29/10/2026 — Épicerie Lumière (démo);0,00;4,08;EUR
+VT;29/10/2026;VT-000002;445710;TVA collectée 20 %;VT20261029;Ventes du 29/10/2026 — Épicerie Lumière (démo);0,00;0,82;EUR
+VT;29/10/2026;VT-000002;707000;Ventes 5,5 %;VT20261029;Ventes du 29/10/2026 — Épicerie Lumière (démo);0,00;183,10;EUR
+VT;29/10/2026;VT-000002;445710;TVA collectée 5,5 %;VT20261029;Ventes du 29/10/2026 — Épicerie Lumière (démo);0,00;10,10;EUR
+VT;30/10/2026;VT-000003;411000;Clients comptoir;VT20261030;Ventes du 30/10/2026 — Épicerie Lumière (démo);217,50;0,00;EUR
+VT;30/10/2026;VT-000003;707000;Ventes 20 %;VT20261030;Ventes du 30/10/2026 — Épicerie Lumière (démo);0,00;12,24;EUR
+VT;30/10/2026;VT-000003;445710;TVA collectée 20 %;VT20261030;Ventes du 30/10/2026 — Épicerie Lumière (démo);0,00;2,46;EUR
+VT;30/10/2026;VT-000003;707000;Ventes 5,5 %;VT20261030;Ventes du 30/10/2026 — Épicerie Lumière (démo);0,00;192,22;EUR
+VT;30/10/2026;VT-000003;445710;TVA collectée 5,5 %;VT20261030;Ventes du 30/10/2026 — Épicerie Lumière (démo);0,00;10,58;EUR
+VT;31/10/2026;VT-000004;411000;Clients comptoir;VT20261031;Ventes du 31/10/2026 — Épicerie Lumière (démo);264,70;0,00;EUR
+VT;31/10/2026;VT-000004;707000;Ventes 20 %;VT20261031;Ventes du 31/10/2026 — Épicerie Lumière (démo);0,00;16,33;EUR
+VT;31/10/2026;VT-000004;445710;TVA collectée 20 %;VT20261031;Ventes du 31/10/2026 — Épicerie Lumière (démo);0,00;3,27;EUR
+VT;31/10/2026;VT-000004;707000;Ventes 5,5 %;VT20261031;Ventes du 31/10/2026 — Épicerie Lumière (démo);0,00;232,31;EUR
+VT;31/10/2026;VT-000004;445710;TVA collectée 5,5 %;VT20261031;Ventes du 31/10/2026 — Épicerie Lumière (démo);0,00;12,79;EUR
+VT;01/11/2026;VT-000005;411000;Clients comptoir;VT20261101;Ventes du 01/11/2026 — Épicerie Lumière (démo);200,40;0,00;EUR
+VT;01/11/2026;VT-000005;707000;Ventes 20 %;VT20261101;Ventes du 01/11/2026 — Épicerie Lumière (démo);0,00;16,33;EUR
+VT;01/11/2026;VT-000005;445710;TVA collectée 20 %;VT20261101;Ventes du 01/11/2026 — Épicerie Lumière (démo);0,00;3,27;EUR
+VT;01/11/2026;VT-000005;707000;Ventes 5,5 %;VT20261101;Ventes du 01/11/2026 — Épicerie Lumière (démo);0,00;171,37;EUR
+VT;01/11/2026;VT-000005;445710;TVA collectée 5,5 %;VT20261101;Ventes du 01/11/2026 — Épicerie Lumière (démo);0,00;9,43;EUR
+VT;02/11/2026;VT-000006;411000;Clients comptoir;VT20261102;Ventes du 02/11/2026 — Épicerie Lumière (démo);300,70;0,00;EUR
+VT;02/11/2026;VT-000006;707000;Ventes 20 %;VT20261102;Ventes du 02/11/2026 — Épicerie Lumière (démo);0,00;8,16;EUR
+VT;02/11/2026;VT-000006;445710;TVA collectée 20 %;VT20261102;Ventes du 02/11/2026 — Épicerie Lumière (démo);0,00;1,64;EUR
+VT;02/11/2026;VT-000006;707000;Ventes 5,5 %;VT20261102;Ventes du 02/11/2026 — Épicerie Lumière (démo);0,00;275,70;EUR
+VT;02/11/2026;VT-000006;445710;TVA collectée 5,5 %;VT20261102;Ventes du 02/11/2026 — Épicerie Lumière (démo);0,00;15,20;EUR
+VT;03/11/2026;VT-000007;411000;Clients comptoir;VT20261103;Ventes du 03/11/2026 — Épicerie Lumière (démo);238,50;0,00;EUR
+VT;03/11/2026;VT-000007;707000;Ventes 20 %;VT20261103;Ventes du 03/11/2026 — Épicerie Lumière (démo);0,00;20,40;EUR
+VT;03/11/2026;VT-000007;445710;TVA collectée 20 %;VT20261103;Ventes du 03/11/2026 — Épicerie Lumière (démo);0,00;4,10;EUR
+VT;03/11/2026;VT-000007;707000;Ventes 5,5 %;VT20261103;Ventes du 03/11/2026 — Épicerie Lumière (démo);0,00;202,84;EUR
+VT;03/11/2026;VT-000007;445710;TVA collectée 5,5 %;VT20261103;Ventes du 03/11/2026 — Épicerie Lumière (démo);0,00;11,16;EUR
+VT;04/11/2026;VT-000008;411000;Clients comptoir;VT20261104;Ventes du 04/11/2026 — Épicerie Lumière (démo);234,80;0,00;EUR
+VT;04/11/2026;VT-000008;707000;Ventes 20 %;VT20261104;Ventes du 04/11/2026 — Épicerie Lumière (démo);0,00;8,16;EUR
+VT;04/11/2026;VT-000008;445710;TVA collectée 20 %;VT20261104;Ventes du 04/11/2026 — Épicerie Lumière (démo);0,00;1,64;EUR
+VT;04/11/2026;VT-000008;707000;Ventes 5,5 %;VT20261104;Ventes du 04/11/2026 — Épicerie Lumière (démo);0,00;213,24;EUR
+VT;04/11/2026;VT-000008;445710;TVA collectée 5,5 %;VT20261104;Ventes du 04/11/2026 — Épicerie Lumière (démo);0,00;11,76;EUR
+VT;05/11/2026;VT-000009;411000;Clients comptoir;VT20261105;Ventes du 05/11/2026 — Épicerie Lumière (démo);227,70;0,00;EUR
+VT;05/11/2026;VT-000009;707000;Ventes 20 %;VT20261105;Ventes du 05/11/2026 — Épicerie Lumière (démo);0,00;8,17;EUR
+VT;05/11/2026;VT-000009;445710;TVA collectée 20 %;VT20261105;Ventes du 05/11/2026 — Épicerie Lumière (démo);0,00;1,63;EUR
+VT;05/11/2026;VT-000009;707000;Ventes 5,5 %;VT20261105;Ventes du 05/11/2026 — Épicerie Lumière (démo);0,00;206,51;EUR
+VT;05/11/2026;VT-000009;445710;TVA collectée 5,5 %;VT20261105;Ventes du 05/11/2026 — Épicerie Lumière (démo);0,00;11,39;EUR
+VT;06/11/2026;VT-000010;411000;Clients comptoir;VT20261106;Ventes du 06/11/2026 — Épicerie Lumière (démo);164,10;0,00;EUR
+VT;06/11/2026;VT-000010;707000;Ventes 20 %;VT20261106;Ventes du 06/11/2026 — Épicerie Lumière (démo);0,00;12,24;EUR
+VT;06/11/2026;VT-000010;445710;TVA collectée 20 %;VT20261106;Ventes du 06/11/2026 — Épicerie Lumière (démo);0,00;2,46;EUR
+VT;06/11/2026;VT-000010;707000;Ventes 5,5 %;VT20261106;Ventes du 06/11/2026 — Épicerie Lumière (démo);0,00;141,60;EUR
+VT;06/11/2026;VT-000010;445710;TVA collectée 5,5 %;VT20261106;Ventes du 06/11/2026 — Épicerie Lumière (démo);0,00;7,80;EUR
+VT;07/11/2026;VT-000011;411000;Clients comptoir;VT20261107;Ventes du 07/11/2026 — Épicerie Lumière (démo);330,70;0,00;EUR
+VT;07/11/2026;VT-000011;707000;Ventes 5,5 %;VT20261107;Ventes du 07/11/2026 — Épicerie Lumière (démo);0,00;313,45;EUR
+VT;07/11/2026;VT-000011;445710;TVA collectée 5,5 %;VT20261107;Ventes du 07/11/2026 — Épicerie Lumière (démo);0,00;17,25;EUR

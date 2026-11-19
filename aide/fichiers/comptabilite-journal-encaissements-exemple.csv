@@ -1,0 +1,12 @@
+﻿Journal;Date;N° écriture;Compte;Libellé du compte;Pièce;Libellé;Débit;Crédit;Devise
+CA;09/11/2026;CA-000001;511200;Carte bancaire;CA20261109;Encaissements du 09/11/2026 — Le Petit Bistrot (démo);185,00;0,00;EUR
+CA;09/11/2026;CA-000001;530000;Espèces;CA20261109;Encaissements du 09/11/2026 — Le Petit Bistrot (démo);249,00;0,00;EUR
+CA;09/11/2026;CA-000001;511300;Titres-restaurant;CA20261109;Encaissements du 09/11/2026 — Le Petit Bistrot (démo);10,00;0,00;EUR
+CA;09/11/2026;CA-000001;411000;Clients comptoir;CA20261109;Encaissements du 09/11/2026 — Le Petit Bistrot (démo);0,00;444,00;EUR
+CA;09/11/2026;CA-000002;511200;Carte bancaire;CA20261109;Pourboires du 09/11/2026 — Le Petit Bistrot (démo);5,50;0,00;EUR
+CA;09/11/2026;CA-000002;530000;Espèces;CA20261109;Pourboires du 09/11/2026 — Le Petit Bistrot (démo);3,00;0,00;EUR
+CA;09/11/2026;CA-000002;467100;Pourboires à reverser;CA20261109;Pourboires du 09/11/2026 — Le Petit Bistrot (démo);0,00;8,50;EUR
+CA;09/11/2026;CA-000003;530000;Espèces;CA20261109;Mouvements d'espèces du 09/11/2026 — Le Petit Bistrot (démo);0,00;178,50;EUR
+CA;09/11/2026;CA-000003;580000;Dépôt banque;CA20261109;Mouvements d'espèces du 09/11/2026 — Le Petit Bistrot (démo);200,00;0,00;EUR
+CA;09/11/2026;CA-000003;580000;Appoint de monnaie;CA20261109;Mouvements d'espèces du 09/11/2026 — Le Petit Bistrot (démo);0,00;40,00;EUR
+CA;09/11/2026;CA-000003;401000;Achat fournisseur en espèces;CA20261109;Mouvements d'espèces du 09/11/2026 — Le Petit Bistrot (démo);18,50;0,00;EUR

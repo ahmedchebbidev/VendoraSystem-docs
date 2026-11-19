@@ -1,0 +1,12 @@
+id;nom;catégorie;code-barres;prix de vente;TVA;suivi du stock
+;Cookie aux pépites;Biscuits;;2,50;7;non
+;Brownie;Biscuits;;;10;non
+;Financier;Biscuits;3760999000099;2,20;10;non
+;Madeleine;Biscuits;;1,999;10;non
+;Sablé breton;Biscuits;;2,00;10;peut-être
+;;Biscuits;;2,00;10;non
+;Canelé;Desserts > Pâtisseries > Bordelaises > Mini;;1,80;10;non
+;Jus de raisin 25 cl;Boissons;3760999000043;3,00;10;oui
+;Jus de poire 25 cl;Boissons;3760999000043;3,00;10;oui
+12345;Tuile aux amandes;Biscuits;;1,90;10;non
+;Palmier;Biscuits;;1,60;10;non

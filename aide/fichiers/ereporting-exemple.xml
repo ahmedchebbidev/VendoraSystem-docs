@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EReportingB2C xmlns="urn:vendora:ereporting:b2c:1" version="1">
+  <Header>
+    <Siren>123456789</Siren>
+    <Store id="8ddd4f74-9bdd-415d-ad2c-2c9a0b50e155">Épicerie Lumière (démo)</Store>
+    <Period start="2026-10-21" end="2026-10-31" regime="REEL_NORMAL"/>
+    <Transmission revision="1" kind="INITIAL" generatedAt="2026-11-07T21:52:40.244611Z"/>
+    <Currency>EUR</Currency>
+    <Nil>false</Nil>
+  </Header>
+  <Days>
+    <Day date="2026-10-21" salesCount="0"/>
+    <Day date="2026-10-22" salesCount="0"/>
+    <Day date="2026-10-23" salesCount="0"/>
+    <Day date="2026-10-24" salesCount="0"/>
+    <Day date="2026-10-25" salesCount="0"/>
+    <Day date="2026-10-26" salesCount="0"/>
+    <Day date="2026-10-27" salesCount="0"/>
+    <Day date="2026-10-28" salesCount="11">
+      <Vat ratePermille="55" baseHtMinor="14720" vatMinor="810" ttcMinor="15530"/>
+      <Vat ratePermille="200" baseHtMinor="2857" vatMinor="573" ttcMinor="3430"/>
+    </Day>
+    <Day date="2026-10-29" salesCount="12">
+      <Vat ratePermille="55" baseHtMinor="18310" vatMinor="1010" ttcMinor="19320"/>
+      <Vat ratePermille="200" baseHtMinor="408" vatMinor="82" ttcMinor="490"/>
+    </Day>
+    <Day date="2026-10-30" salesCount="11">
+      <Vat ratePermille="55" baseHtMinor="19222" vatMinor="1058" ttcMinor="20280"/>
+      <Vat ratePermille="200" baseHtMinor="1224" vatMinor="246" ttcMinor="1470"/>
+    </Day>
+    <Day date="2026-10-31" salesCount="10">
+      <Vat ratePermille="55" baseHtMinor="23231" vatMinor="1279" ttcMinor="24510"/>
+      <Vat ratePermille="200" baseHtMinor="1633" vatMinor="327" ttcMinor="1960"/>
+    </Day>
+  </Days>
+  <Totals baseHtMinor="81605" vatMinor="5385" ttcMinor="86990"/>
+</EReportingB2C>
