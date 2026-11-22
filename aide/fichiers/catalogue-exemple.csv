@@ -1,4 +1,4 @@
-référence;nom;catégorie;code-barres;prix de vente;prix d'achat;TVA;suivi du stock;actif
+référence;nom;catégorie;code-barres;prix de vente TTC;prix d'achat;TVA;suivi du stock;actif
 VIE-001;Croissant;Viennoiseries;;1,30;0,35;10;non;oui
 VIE-002;Pain au chocolat;Viennoiseries;;1,50;0,40;10;non;oui
 VIE-003;Chausson aux pommes;Viennoiseries;;2,20;0,60;10;non;oui
