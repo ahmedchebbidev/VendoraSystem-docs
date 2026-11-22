@@ -1,0 +1,57 @@
+VEN-114 : preuve SQL et relecture indépendante (22/11/2026), staging local :8091, après correctifs 14e8a02b9
+
+-- 1. Ventes scellées du nouveau magasin Épicerie Lumière (démo) : n° fiscal 1, statut OK
+SET
+     appareil      | fiscal_seq | status | total_minor | currency_code |     hash     
+-------------------+------------+--------+-------------+---------------+--------------
+ Comptoir iPhone D |          1 | OK     |         130 | EUR           | d315140a7ba0
+ ComptoirAndroidC  |          1 | OK     |         130 | EUR           | 6e45cacfd766
+(2 rows)
+
+-- 2. Journal technique fiscal du nouveau magasin : ARCHIVED puis ARCHIVE_EXPORTED (iPhone, iPad, Android)
+SET
+     appareil      |              type               |                                             detail                                              |          occurred_at          
+-------------------+---------------------------------+-------------------------------------------------------------------------------------------------+-------------------------------
+ Comptoir iPhone D | DEVICE_PAIRING_ARCHIVED         | Archive d'un appairage précédent (STORE_CHANGED) 4e18718e-7fae-4bf9-8055-510fe8cf9a1c du 2026-1 | 2026-11-22 03:29:57.383196+00
+ Comptoir iPhone D | DEVICE_PAIRING_ARCHIVE_EXPORTED | Export d'une archive d'appairage 4e18718e-7fae-4bf9-8055-510fe8cf9a1c (export 3f0e537b-6a6d-451 | 2026-11-22 03:31:47.960727+00
+ ComptoirAndroidC  | DEVICE_PAIRING_ARCHIVED         | Archive d'un appairage précédent (STORE_CHANGED) 37a75e39-0ab8-4ed3-a582-17835aa8a38a du 2026-1 | 2026-11-22 03:46:52.083916+00
+ ComptoirAndroidC  | DEVICE_PAIRING_ARCHIVE_EXPORTED | Export d'une archive d'appairage 37a75e39-0ab8-4ed3-a582-17835aa8a38a (export a4493fc7-ed3f-49f | 2026-11-22 03:48:53.326718+00
+ Comptoir iPad L   | DEVICE_PAIRING_ARCHIVED         | Archive d'un appairage précédent (STORE_CHANGED) 9fdf6702-267d-4463-8146-9e1b91fb1999 du 2026-1 | 2026-11-22 03:55:41.140679+00
+ Comptoir iPad L   | DEVICE_PAIRING_ARCHIVE_EXPORTED | Export d'une archive d'appairage 9fdf6702-267d-4463-8146-9e1b91fb1999 (export 004a48a2-94fb-4d5 | 2026-11-22 03:56:44.568626+00
+(6 rows)
+
+-- 3. Ventes de l'ancien magasin Boutique Recette (démo) avant révocation
+SET
+     appareil     | fiscal_seq | status | total_minor 
+------------------+------------+--------+-------------
+ Cause iPhone A4  |          1 | OK     |        1200
+ CaisseAndroidA2  |          1 | OK     |        1200
+ CaisseAndroidA2  |          2 | OK     |        1200
+ Comptoir iPad R2 |          1 | OK     |        1200
+(4 rows)
+
+-- 4. Relecture indépendante du ZIP exporté (python3 sans dépendance, clé publique lue en base pour l'appareil)
+### Android (ComptoirAndroidC)
+fichiers du ZIP: 9
+fichiers listés: 7 | écarts SHA: 0 | hors manifeste: []
+SHA-256 contenu_canonique : b823453425db9fa90be2afb0746f5ca48251c5517f722be34e664b2a52e5e4ed
+archiveHash du manifeste   : b823453425db9fa90be2afb0746f5ca48251c5517f722be34e664b2a52e5e4ed égal
+archive_hash du JET ARCHIVED: b823453425db9fa90be2afb0746f5ca48251c5517f722be34e664b2a52e5e4ed égal
+SHA-256(clé) = signerKeyId ? True
+clé du manifeste = clé enregistrée au serveur pour l'appareil ? True
+signature Ed25519 de manifeste.json valide (clé du serveur) : True
+SHA-256 manifeste.json : 635b167087176cce0d3375e5f6a60889d30e136d6eb829b807f91cd2e9cd820a
+JET EXPORTED: exportId True | manifestHash True | signerKeyId True | archiveHash True
+
+### iPhone (Comptoir iPhone D)
+fichiers du ZIP: 9
+fichiers listés: 7 | écarts SHA: 0 | hors manifeste: []
+SHA-256 contenu_canonique : de50d3675b3bc3587f876613d9f1abb65d455fe28d084b8fa04b082d32895d91
+archiveHash du manifeste   : de50d3675b3bc3587f876613d9f1abb65d455fe28d084b8fa04b082d32895d91 égal
+archive_hash du JET ARCHIVED: de50d3675b3bc3587f876613d9f1abb65d455fe28d084b8fa04b082d32895d91 égal
+SHA-256(clé) = signerKeyId ? True
+clé du manifeste = clé enregistrée au serveur pour l'appareil ? True
+signature Ed25519 de manifeste.json valide (clé du serveur) : True
+SHA-256 manifeste.json : fdc625ceab2e7acacf2853271f176b79ecea2cad17d13b9de6e7ddc0b74876af
+JET EXPORTED: exportId True | manifestHash True | signerKeyId True | archiveHash True
+
